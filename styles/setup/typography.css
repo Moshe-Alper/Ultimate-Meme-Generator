@@ -1,0 +1,11 @@
+/* montserrat  */
+
+@font-face {
+    font-family: montserrat-regular, sans-serif;
+    src: url(/fonts/montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: montserrat-bold, sans-serif;
+    src: url(/fonts/montserrat/Montserrat-Bold.ttf);
+}

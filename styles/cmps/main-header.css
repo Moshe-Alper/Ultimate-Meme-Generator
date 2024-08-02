@@ -1,0 +1,13 @@
+.main-header {
+    background-color: #ff7f00;
+    padding-block: 20px;
+}
+
+.main-header .main-nav > ul > *:not(:last-child) {
+    margin-inline-end: 1.05em;
+}
+
+.main-header .main-nav a {
+    color: white;
+    text-decoration: none;
+}

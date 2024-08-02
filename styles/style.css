@@ -10,3 +10,10 @@
 @import url(basics/layout.css);
 
 /* CMPS */
+
+@import url(cmps/main-header.css);
+@import url(cmps/main-container.css);
+@import url(cmps/gallery-section.css);
+@import url(cmps/editor-section.css);
+@import url(cmps/main-footer.css);
+
