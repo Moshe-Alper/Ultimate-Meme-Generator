@@ -2,7 +2,7 @@
 
 let gImgs = [{ id: 5, url: 'meme-imgs/5.jpg', keywords: ['funny', 'cat'] }]
 
-let gMemeDate = {
+let gMemeData = {
     selectedImgId: 5,
     selectedLineIdx: 0,
     lines: [
@@ -21,5 +21,10 @@ function setMemeData(data) {
 }
 
 function getMemeData() {
-    return gMemeDate
+    return gMemeData
+}
+
+function setLineTxt(txt) {
+    gMemeData.lines[gMemeData.selectedLineIdx].txt = txt
+    setMemeData({ lines: gMemeData.lines })
 }

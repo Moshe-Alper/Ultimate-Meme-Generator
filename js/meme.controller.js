@@ -13,10 +13,9 @@ function onInit() {
 
 function insertMemeDataForm() {
     const { selectedImgId, selectedLineIdx, lines } = getMemeData()
-    
-    console.log('selectedImgId:', selectedImgId)
-    console.log('selectedLineIdx:', selectedLineIdx)
-    console.log('lines:', lines)
+    // console.log('selectedImgId:', selectedImgId)
+    // console.log('selectedLineIdx:', selectedLineIdx)
+    // console.log('lines:', lines)
 
 }
 
@@ -43,8 +42,6 @@ function drawImg(meme) {
     }
 }
 
-
-
 function drawText(line, x, y) {
     let {txt, size, color} = line
 
@@ -57,5 +54,10 @@ function drawText(line, x, y) {
 
     gCtx.fillText(txt, x, y)
     gCtx.strokeText(txt, x, y)
+}
+
+function onAddTxt(elMemeInput) {
+    setLineTxt(elMemeInput.value)
+    renderMeme()
 }
 
