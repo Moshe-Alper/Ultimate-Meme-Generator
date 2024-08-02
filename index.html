@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body class="main-layout">
+<body class="main-layout" onload="onInit()">
 
     <header class="main-header full main-layout">
         <div class="header-container flex space-between align-center">
@@ -42,7 +42,9 @@
         </section>
 
         <section class="editor-section flex space-between">
-            <canvas width="300px" height="300px"></canvas>
+            <div class="canvas-container">
+                <canvas width="540px" height="550px"></canvas>
+            </div>
 
             <div class="edit-container">
                 <div class="text-edit">
@@ -90,8 +92,8 @@
         <small>All rights reserved 2024</small>
     </footer>
 
-    <script src="services/meme.service.js"></script>
-    <script src="meme.controller.js"></script>
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
 </body>
 
 </html>
