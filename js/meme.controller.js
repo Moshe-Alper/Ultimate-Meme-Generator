@@ -11,17 +11,24 @@ function onInit() {
 }
 
 function renderMeme() {
-drawImg()
+    let meme = getMeme()
+    drawImg(meme)
 }
 
-function drawImg() {
+function drawImg(meme) {
     const elImg = new Image()
-    elImg.src = 'meme-imgs/2.jpg'
+    const { selectedImgId, lines } = meme
+    const imgData = gImgs.find(img => img.id === selectedImgId)
+
+    if (!imgData) return
+
+    elImg.src = imgData.url
     elImg.onload = () => {
-        console.log('img loaded')
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
-        drawText('Add Text Here', gElCanvas.width / 2, gElCanvas.height / 2)
+        lines.forEach((line, idx) => {
+            drawText(line.txt, gElCanvas.width / 2, (gElCanvas.height / 10) + (idx * 50), line.size, line.color)
+        })
     }
 }
 
@@ -36,6 +43,5 @@ function drawText(text, x, y) {
 
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
-    console.log('draw text');
 }
 
