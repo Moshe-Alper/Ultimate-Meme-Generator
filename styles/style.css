@@ -1,11 +1,12 @@
-body {
-    background-color: lightblue;
-}
+/* setup */
 
-.hidden {
-    display: none;
-}
+@import url(./setup/vars.css);
+@import url(./setup/typography.css);
 
-canvas {
-    background-color: aquamarine;
-}
+/* basics */
+
+@import url(basics/base.css);
+@import url(basics/helpers.css);
+@import url(basics/layout.css);
+
+/* CMPS */
