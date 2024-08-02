@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,25 +9,80 @@
 </head>
 
 <body>
-    
-<header class="main-header">
-    <div class="logo">memegen</div>
-    <nav class="main-nav-container">
-        <ul class="main-nav">
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </nav>
-</header>
 
-<main class="main-content">
-    <section class="gallery-section"></section>
-    <section class="editor-section"></section>
-</main>
+    <header class="main-header">
+        <div class="logo">memegen</div>
+        <nav class="main-nav-container">
+            <ul class="main-nav">
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<footer class="main-footer"></footer>
+    <main class="main-content">
+        <section class="filter-search">
+            <input class="search-bar" type="text" placeholder="Enter search keyboard" name="by-keyword" />
+            <div class="world-chip">Funny 15</div>
+            <div class="world-cloud">funny comics dogs drinks books more...</div>
+        </section>
+        <section class="gallery-section">
+            <img src="/meme-imgs/1.jpg" alt="meme-image" class="meme-image">
+            <img src="/meme-imgs/2.jpg" alt="meme-image" class="meme-image">
+            <img src="/meme-imgs/3.jpg" alt="meme-image" class="meme-image">
+            <img src="/meme-imgs/4.jpg" alt="meme-image" class="meme-image">
+            <img src="/meme-imgs/5.jpg" alt="meme-image" class="meme-image">
+            <img src="/meme-imgs/6.jpg" alt="meme-image" class="meme-image">
+            <img src="/meme-imgs/7.jpg" alt="meme-image" class="meme-image">
+            <img src="/meme-imgs/8.jpg" alt="meme-image" class="meme-image">
+            <img src="/meme-imgs/9.jpg" alt="meme-image" class="meme-image">
+        </section>
 
-<script src="main.js"></script>
+        <section class="editor-section hidden">
+            <canvas width="300px" height="300px"></canvas>
+            <div class="text-edit">
+                <input type="text" placeholder="Lorem ipsum dolor sit amet" class="input-line">
+                <button class="change-line btn">^</button>
+                <button class="add-line btn">+</button>
+                <button class="trash-line btn">trash</button>
+            </div>
+
+            <div class="advanced-edit">
+                <input type="text" placeholder="impact" class="font-input">
+                <button class="text-shadow-btn">A</button>
+                <button class="color-btn">color</button>
+                <button class="align-btn">[</button>
+                <button class="align-btn">\</button>
+                <button class="align-btn">]</button>
+                <button class="decrease-btn">A-</button>
+                <button class="increase-btn">A+</button>
+            </div>
+
+            <div class="accessories-picker">accessories</div>
+            <button class="share-btn">Share</button>
+
+        </section>
+
+        <section class="about">
+            <img src="/img/about-img.jpg" alt="about-image" class="about-image">
+            <h2 class="about-title">About</h2>
+            <h3 class="about-name">Monica Geller</h3>
+            <p class="about-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellat aperiam.</p>
+            <ul class="about-social">
+                <li><a href="#"></a>facebook</li>
+                <li><a href="#"></a>x (twitter)</li>
+                <li><a href="#"></a>instagram</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="logo">memegen</div>
+        <small>All rights reserved 2024</small>
+    </footer>
+
+    <script src="main.js">
+    </script>
 </body>
 
 </html>

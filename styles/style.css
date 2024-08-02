@@ -1,3 +1,11 @@
 body {
-    background-color: red;
+    background-color: lightblue;
+}
+
+.hidden {
+    display: none;
+}
+
+canvas {
+    background-color: aquamarine;
 }
