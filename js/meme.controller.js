@@ -8,12 +8,23 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
 
     renderMeme()
+    insertMemeDataForm()
+}
+
+function insertMemeDataForm() {
+    const { selectedImgId, selectedLineIdx, lines } = getMemeData()
+    
+    console.log('selectedImgId:', selectedImgId)
+    console.log('selectedLineIdx:', selectedLineIdx)
+    console.log('lines:', lines)
+
 }
 
 function renderMeme() {
-    let meme = getMeme()
+    let meme = getMemeData()
     drawImg(meme)
 }
+
 
 function drawImg(meme) {
     const elImg = new Image()
@@ -27,21 +38,24 @@ function drawImg(meme) {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
         lines.forEach((line, idx) => {
-            drawText(line.txt, gElCanvas.width / 2, (gElCanvas.height / 10) + (idx * 50), line.size, line.color)
+            drawText(line, gElCanvas.width / 2, (gElCanvas.height / 10) + (idx * 50))
         })
     }
 }
 
 
-function drawText(text, x, y) {
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'brown'
-    gCtx.fillStyle = 'black'
-    gCtx.font = '40px Arial'
+
+function drawText(line, x, y) {
+    let {txt, size, color} = line
+
+    gCtx.lineWidth = 1
+    gCtx.strokeStyle = 'black'
+    gCtx.fillStyle = color
+    gCtx.font = `${size}px Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
+    gCtx.fillText(txt, x, y)
+    gCtx.strokeText(txt, x, y)
 }
 
