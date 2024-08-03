@@ -91,3 +91,9 @@ function onPickColor(color) {
     renderMeme()
 }
 
+function onUpdateLineSize(size) {
+    const memeData = getMemeData()
+    memeData.lines[memeData.selectedLineIdx].size += size
+    setMemeData({ lines: memeData.lines })
+    renderMeme()
+}

@@ -21,6 +21,10 @@
     font-family: fa;
 }
 
-.fa.color-picker::before {
-    content: '\f5b5';
+.fa.increase-font::before {
+    content: 'A+';
+}
+
+.fa.decrease-font::before {
+    content: 'A-';
 }
