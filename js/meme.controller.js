@@ -13,9 +13,8 @@ function onInit() {
 
 function insertMemeDataForm() {
     const { selectedImgId, selectedLineIdx, lines } = getMemeData()
-    // console.log('selectedImgId:', selectedImgId)
-    // console.log('selectedLineIdx:', selectedLineIdx)
-    // console.log('lines:', lines)
+
+    document.querySelector('input[name="color"]').value = lines[selectedLineIdx].color
 
 }
 
@@ -83,5 +82,12 @@ function onDownloadMeme(elLink) {
     elLink.href = dataUrl
     // Set a name for the downloaded file
     elLink.download = `meme-${keywords}.png`
+}
+
+function onPickColor(color) {
+    const memeData = getMemeData()
+    memeData.lines[memeData.selectedLineIdx].color = color
+    setMemeData({ lines: memeData.lines })
+    renderMeme()
 }
 

@@ -24,3 +24,10 @@
 .hidden {
     display: none;
 }
+
+/* input helpers */
+/* 
+input[type="color"] {
+    display: none;
+
+} */

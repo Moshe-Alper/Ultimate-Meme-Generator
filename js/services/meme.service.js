@@ -14,7 +14,7 @@ let gMemeData = {
         {
             txt: 'Add text here',
             size: 40,
-            color: 'white'
+            color: '#ffffff'
         }
     ]
 }

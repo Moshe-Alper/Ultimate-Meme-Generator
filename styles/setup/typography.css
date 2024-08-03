@@ -9,3 +9,18 @@
     font-family: montserrat-bold, sans-serif;
     src: url(/fonts/montserrat/Montserrat-Bold.ttf);
 }
+
+/* FONT AWESOME */
+
+@font-face {
+    font-family: fa;
+    src: url(/fonts/fa/fa-brands-400.ttf);
+}
+
+.fa::before {
+    font-family: fa;
+}
+
+.fa.color-picker::before {
+    content: '\f5b5';
+}

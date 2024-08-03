@@ -54,7 +54,9 @@
                         <button class="align-btn btn rounded text-editor">\</button>
                         <button class="align-btn btn rounded text-editor">[</button>
                         <br>
-                        <button class="color-btn btn rounded text-editor">color</button>
+                        <button class="btn rounded text-editor">
+                            <i class="fa-solid fa-palette"></i>
+                            <input type="color" name="color" oninput="onPickColor(value)" /> </button>
                         <button class="text-shadow-btn btn rounded text-editor">A</button>
                         <input type="text" placeholder="impact" class="font-input">
                     </div>
@@ -96,6 +98,8 @@
     </footer>
 
     
+    <script src="https://kit.fontawesome.com/2fcb60592b.js" crossorigin="anonymous"></script>
+
     <script src="js/services/meme.service.js"></script>
     <script src="js/meme.controller.js"></script>
     <script src="js/services/gallery.service.js"></script>
