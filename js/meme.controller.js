@@ -73,3 +73,15 @@ function onCloseShareModal() {
     document.querySelector('.share-modal').close()
 }
 
+function onDownloadMeme(elLink) {
+    const meme = getMemeData()
+    const imgData = getImageToCanvas(+meme.selectedImgId)
+    const keywords = imgData.keywords.join('-')
+    
+
+    const dataUrl = gElCanvas.toDataURL()
+    elLink.href = dataUrl
+    // Set a name for the downloaded file
+    elLink.download = `meme-${keywords}.png`
+}
+
