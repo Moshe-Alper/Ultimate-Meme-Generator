@@ -65,3 +65,11 @@ function onAddTxt(elMemeInput) {
     renderMeme()
 }
 
+function onOpenShareModal() {
+    document.querySelector('.share-modal').showModal()
+}
+
+function onCloseShareModal() {
+    document.querySelector('.share-modal').close()
+}
+

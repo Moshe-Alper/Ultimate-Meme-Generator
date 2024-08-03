@@ -60,7 +60,7 @@
                     </div>
                     
                     <div class="accessories-picker">accessories</div>
-                    <button class="share-btn">Share</button>
+                    <button onclick="onOpenShareModal()"  class="share-btn btn rounded">Share</button>
                     
                     
                 </section>
@@ -82,6 +82,13 @@
             </div>
         </section>
     </main>
+
+<dialog class="share-modal">
+    <button type="button" class="btn rounded" onclick="onCloseShareModal()">X</button>
+    <button class="share-btn btn rounded">Share</button>
+    <button class="share-btn btn rounded">Download</button>
+</dialog>
+
 
     <footer class="main-footer full main-layout">
         <div class="logo">memegen</div>

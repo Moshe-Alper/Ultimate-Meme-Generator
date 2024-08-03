@@ -65,4 +65,18 @@
 }
 
 
+.share-modal {
+    border: none;
+    padding: 2em;
+    gap: 1em;
+}
+
+.share-btn {
+    padding: .5em 1em;
+   
+
+    color: white;
+    background-color: var(--secondary-base);
+}
+
 

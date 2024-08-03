@@ -1,6 +1,6 @@
 .main-header {
-    background-color: #ff7f00;
     padding-block: 20px;
+    background-color: var(--secondary-base);
 }
 
 .main-header .main-nav > ul > *:not(:last-child) {

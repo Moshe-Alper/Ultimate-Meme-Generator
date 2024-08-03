@@ -46,13 +46,10 @@ canvas {
     cursor: pointer;
     border: none;
     background-color: white;
+    font-size: 1em;
 }
 
 .btn.rounded {
     border-radius: .3em;
 }
 
-.btn.text-editor {
-    font-size: 1em;
-
-}
