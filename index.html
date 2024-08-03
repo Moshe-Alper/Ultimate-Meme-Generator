@@ -22,26 +22,25 @@
         </div>
     </header>
 
-    <main class="main-content">
-        <section class="filter-search flex space-between align-center">
-            <input class="search-bar" type="text" placeholder="Enter search keyboard" name="by-keyword" />
-            <div class="world-chip">Funny 15</div>
-            <div class="world-cloud">funny comics dogs drinks books more...</div>
-        </section>
+    <main class="main-content full">
+<section class="filter-search-section main-layout">
+    <input class="search-bar" type="text" placeholder="Enter search keyboard" name="by-keyword" />
+    <div class="world-cloud">funny comics dogs drinks books more...</div>
+</section>
 
-        <section class="gallery-section hidden">
-            <img src="/meme-imgs/1.jpg" alt="meme-image" class="meme-image">
-            <img src="/meme-imgs/2.jpg" alt="meme-image" class="meme-image">
-            <img src="/meme-imgs/3.jpg" alt="meme-image" class="meme-image">
-            <!-- <img src="/meme-imgs/4.jpg" alt="meme-image" class="meme-image">
-            <img src="/meme-imgs/5.jpg" alt="meme-image" class="meme-image">
-            <img src="/meme-imgs/6.jpg" alt="meme-image" class="meme-image">
-            <img src="/meme-imgs/7.jpg" alt="meme-image" class="meme-image">
-            <img src="/meme-imgs/8.jpg" alt="meme-image" class="meme-image">
-            <img src="/meme-imgs/9.jpg" alt="meme-image" class="meme-image"> -->
-        </section>
+<div class="memes-grid-container main-layout">
+        <section class="gallery-section">
 
-        <section class="editor-section flex space-between">
+            <article class="meme-list-item"><img src="/meme-imgs/1.jpg" alt="meme-image"></article>
+            <article class="meme-list-item"><img src="/meme-imgs/2.jpg" alt="meme-image"></article>
+            <article class="meme-list-item"><img src="/meme-imgs/3.jpg" alt="meme-image"></article>
+            <article class="meme-list-item"><img src="/meme-imgs/1.jpg" alt="meme-image"></article>
+            <article class="meme-list-item"><img src="/meme-imgs/2.jpg" alt="meme-image"></article>
+            <article class="meme-list-item"><img src="/meme-imgs/3.jpg" alt="meme-image"></article>
+            
+          </section>
+</div>
+        <section class="editor-section flex space-between hidden">
             <div class="canvas-container">
                 <canvas width="540px" height="550px"></canvas>
             </div>
@@ -91,6 +90,9 @@
         <div class="logo">memegen</div>
         <small>All rights reserved 2024</small>
     </footer>
+
+    <script src="js/service/gallery.service.js"></script>
+    <script src="js/gallery.controller.js"></script>
 
     <script src="js/services/meme.service.js"></script>
     <script src="js/meme.controller.js"></script>
