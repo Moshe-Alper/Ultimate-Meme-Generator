@@ -34,6 +34,7 @@ img {
     max-width: 100%;
 }
 
+
 canvas {
     background-color: aliceblue;
     width: 300px;
@@ -41,3 +42,17 @@ canvas {
     outline: 1px black solid;
 }
 
+.btn {
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
+.btn.rounded {
+    border-radius: .3em;
+}
+
+.btn.text-editor {
+    font-size: 1em;
+
+}

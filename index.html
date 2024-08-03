@@ -23,59 +23,65 @@
     </header>
 
     <main class="main-content full">
-<section class="filter-search-section main-layout">
-    <input class="search-bar" type="text" placeholder="Enter search keyboard" name="by-keyword" />
-    <div class="world-cloud">funny comics dogs drinks books more...</div>
-</section>
-
-<div class="memes-grid-container main-layout">
-        <section class="gallery-section">
-
-
-            <article class="meme-list-item"><img src="/meme-imgs/3.jpg" alt="meme-image"></article>
-            <article class="meme-list-item"><img src="/meme-imgs/1.jpg" alt="meme-image"></article>
-            <article class="meme-list-item"><img src="/meme-imgs/2.jpg" alt="meme-image"></article>
-            <article class="meme-list-item"><img src="/meme-imgs/3.jpg" alt="meme-image"></article>
-            
-          </section>
-</div>
-        <section class="editor-section flex space-between hidden">
-            <div class="canvas-container">
-                <canvas width="540px" height="550px"></canvas>
-            </div>
-
-            <div class="edit-container">
-                <div class="text-edit">
-                    <input type="text" oninput="onAddTxt(this)" placeholder="Lorem ipsum dolor sit amet" class="meme-text-input">
-                    <button class="change-line btn">^</button>
-                    <button class="add-line btn">+</button>
-                    <button class="trash-line btn">trash</button>
-                </div>
-    
-                <div class="advanced-edit">
-                    <input type="text" placeholder="impact" class="font-input">
-                    <button class="text-shadow-btn">A</button>
-                    <button class="color-btn">color</button>
-                    <button class="align-btn">[</button>
-                    <button class="align-btn">\</button>
-                    <button class="align-btn">]</button>
-                    <button class="decrease-btn">A-</button>
-                    <button class="increase-btn">A+</button>
-                </div>
-    
-                <div class="accessories-picker">accessories</div>
-                <button class="share-btn">Share</button>
-
-            </div>
-
+        <section class="filter-search-section main-layout">
+            <input class="search-bar" type="text" placeholder="Enter search keyboard" name="by-keyword" />
+            <div class="world-cloud">funny comics dogs drinks books more...</div>
         </section>
 
-        <section class="about flex">
+        <div class="memes-grid-container main-layout">
+            <section class="gallery-section">
+
+
+                <article class="meme-list-item"><img src="/meme-imgs/3.jpg" alt="meme-image"></article>
+                <article class="meme-list-item"><img src="/meme-imgs/1.jpg" alt="meme-image"></article>
+                <article class="meme-list-item"><img src="/meme-imgs/2.jpg" alt="meme-image"></article>
+                <article class="meme-list-item"><img src="/meme-imgs/3.jpg" alt="meme-image"></article>
+
+            </section>
+            <section class="editor-section">
+                <div class="canvas-container">
+                    <canvas width="540px" height="550px"></canvas>
+                </div>
+                
+                <section class="editor-tools-section">
+                    
+                    <div class="text-edit flex align-center">
+                        <input type="text" oninput="onAddTxt(this)" placeholder="Lorem ipsum dolor sit amet"
+                        class="meme-text-input">
+                        <button class="change-line btn rounded text-editor">^</button>
+                        <button class="add-line btn rounded text-editor">+</button>
+                        <button class="trash-line btn rounded text-editor">trash</button>
+                    </div>
+                    
+                    
+                    
+                    <div class="advanced-edit flex align-center">
+                        <button class="increase-btn btn rounded text-editor">A+</button>
+                        <button class="decrease-btn btn rounded text-editor">A-</button>
+                        <button class="align-btn btn rounded text-editor">]</button>
+                        <button class="align-btn btn rounded text-editor">\</button>
+                        <button class="align-btn btn rounded text-editor">[</button>
+                        <br>
+                        <button class="color-btn btn rounded text-editor">color</button>
+                        <button class="text-shadow-btn btn rounded text-editor">A</button>
+                        <input type="text" placeholder="impact" class="font-input">
+                    </div>
+                    
+                    <div class="accessories-picker">accessories</div>
+                    <button class="share-btn">Share</button>
+                    
+                    
+                </section>
+                
+            </section>
+        </div>
+            <section class="about flex">
             <img src="/img/about-img.jpg" alt="about-image" class="about-image">
             <div class="about-countainer">
                 <h2 class="about-title">About</h2>
                 <h3 class="about-name">Monica Geller</h3>
-                <p class="about-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellat aperiam.</p>
+                <p class="about-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellat aperiam.
+                </p>
                 <ul class="about-social">
                     <li><a href="#"></a>facebook</li>
                     <li><a href="#"></a>x (twitter)</li>
