@@ -3,13 +3,22 @@
 renderGallery()
 
 function renderGallery() {
+    const images = getImageData()
     const elImgGallery = document.querySelector('.gallery-section')
-    console.log('elImgGallery:', elImgGallery)
 
-    elImgGallery.innerHTML = `
-                <article class="meme-list-item"><img src="/meme-imgs/1.jpg" alt="meme-image"></article>
-                <article class="meme-list-item"><img src="/meme-imgs/2.jpg" alt="meme-image"></article>
-    `
 
-    // elImgGallery.innerHTML = strHTMLs.join('')
+
+    const strHTMLs = images.map(image => {
+        const { id, keywords, url } = image
+        return `
+        <article class="meme-list-item"><img src="${url}" alt="meme-image" onclick="onImgSelect('${id}')"></article>
+        `
+    })
+
+    elImgGallery.innerHTML = strHTMLs.join('')
+}
+
+function onImgSelect(id) {
+    setImg(id)
+    renderMeme()
 }

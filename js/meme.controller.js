@@ -26,16 +26,20 @@ function renderMeme() {
 
 
 function drawImg(meme) {
+    
     const elImg = new Image()
     const { selectedImgId, lines } = meme
-    const imgData = gImgs.find(img => img.id === selectedImgId)
 
+    const imgData = getImageToCanvas(+selectedImgId)
+
+
+    
     if (!imgData) return
-
     elImg.src = imgData.url
     elImg.onload = () => {
+        gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-
+        
         lines.forEach((line, idx) => {
             drawText(line, gElCanvas.width / 2, (gElCanvas.height / 10) + (idx * 50))
         })
