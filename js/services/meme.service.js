@@ -1,5 +1,7 @@
 'use strict'
 
+let yOffset = 0
+
 let gImgs = [
     { id: 1, url: 'meme-imgs/1.jpg', keywords: ['funny', 'cat'] },
     { id: 2, url: 'meme-imgs/2.jpg', keywords: ['funny', 'dog'] },
@@ -11,13 +13,7 @@ let gMemeData = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
-        {
-            txt: 'Add text here',
-            size: 40,
-            fillColor: '#ffffff',
-            strokeColor: '#000000'
-
-        }
+        _createLine()
     ]
 }
 
@@ -29,17 +25,6 @@ function setMemeData(data) {
 
 function getMemeData() {
     return gMemeData
-}
-
-
-function createLine() {
-    let line = {
-        txt: 'Add text here',
-        size: 40,
-        fillColor: '#ffffff',
-        strokeColor: '#000000'
-    }
-    return line
 }
 
 function getLine() {
@@ -65,11 +50,57 @@ function setImg(id) {
 }
 
 function addLine() {
-    const newLine = createLine()
+    const newLine = _createLine()
     gMemeData.lines.push(newLine)
     gMemeData.selectedLineIdx = gMemeData.lines.length - 1
 }
 
-function setLineIdx() {
-      gMemeData.selectedLineIdx = (gMemeData.selectedLineIdx + 1) % gMemeData.lines.length
+function switchLine() {
+    const { lines, selectedLineIdx } = gMemeData
+    console.log('gMemeData.selectedLineIdx:', gMemeData.selectedLineIdx)
+    
+    gMemeData.selectedLineIdx = (selectedLineIdx + 1) % lines.length
+    console.log('gMemeData.selectedLineIdx:', gMemeData.selectedLineIdx)
+
 }
+
+
+function isLineClicked(pos) {
+    let currLine = gMemeData.lines[gMemeData.selectedLineIdx]
+    const { x, y } = currLine
+    const distance = Math.sqrt((x - pos.x) ** 2 + (y - pos.y) ** 2)
+    return distance <= currLine.size + currLine.txt.length
+}
+
+function setLineDrag() {
+    const line = getLine()
+    line.isDrag = true
+    setMemeData({ lines: gMemeData.lines })
+}
+
+
+function moveLine(line, dx, dy) {
+    line.x += dx
+    line.y += dy
+}
+
+
+function _createLine() {
+
+    yOffset += 50
+
+    let line = {
+        txt: 'Add text here',
+        size: 50,
+        fillColor: '#ffffff',
+        strokeColor: '#000000',
+        strokeWidth: 2,
+        x: 270,
+        y: 50 + yOffset,
+        isDrag: false
+    }
+    return line
+}
+
+
+

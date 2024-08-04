@@ -2,11 +2,14 @@
 
 let gElCanvas
 let gCtx
+let gStartPos
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-
+    
+    addListeners()
     renderMeme()
     insertMemeDataForm()
 }
@@ -24,6 +27,7 @@ function insertMemeDataForm() {
 function renderMeme() {
     let meme = getMemeData()
     drawImg(meme)
+    
 }
 
 
@@ -42,16 +46,16 @@ function drawImg(meme) {
         gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         
-        lines.forEach((line, idx) => {
-            drawText(line, gElCanvas.width / 2, (gElCanvas.height / 10) + (idx * 50))
+        lines.forEach(line => {
+            drawText(line)
         })
     }
 }
 
-function drawText(line, x, y) {
-    let {txt, size, fillColor, strokeColor} = line
+function drawText(line) {
+    let {txt, size, fillColor, strokeColor, strokeWidth, x, y} = line
     
-    gCtx.lineWidth = 2
+    gCtx.lineWidth = strokeWidth
     gCtx.strokeStyle = strokeColor
     gCtx.fillStyle = fillColor
     gCtx.font = `${size}px Arial`
@@ -122,7 +126,82 @@ function onAddLIne() {
 }
 
 function onSwitchLine() {
-    setLineIdx()
+    switchLine(),
+    insertMemeDataForm()
+    renderMeme()
 }
 
+
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+
+}
+
+function addMouseListeners() {
+    gElCanvas.addEventListener('mousedown', onDown)
+    gElCanvas.addEventListener('mousemove', onMove)
+    // document.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+    gElCanvas.addEventListener('touchstart', onDown)
+    gElCanvas.addEventListener('touchmove', onMove)
+    // document.addEventListener('touchend', onUp)
+}
+
+
+
+function onDown(ev) {
+    const pos = getEvPos(ev)
+
+    if (!isLineClicked(pos)) return
+
+    setLineDrag(true)
+    gStartPos = pos
+    document.body.style.cursor = 'grabbing'
+}
+
+
+function onMove(ev) {
+    const line = getLine()
+    if (!line.isDrag) return
+
+    const pos = getEvPos(ev)
+
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveLine(line, dx, dy)
+
+    gStartPos = pos
+
+    renderMeme()
+}
+
+function onUp() {
+    setLineDrag(false)
+    document.body.style.cursor = 'grab'
+}
+
+
+function getEvPos(ev) {
+
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY,
+    }
+
+    if (TOUCH_EVS.includes(ev.type)) {
+        //* Prevent triggering the mouse screen dragging event
+        ev.preventDefault()
+        //* Gets the first touch point
+        ev = ev.changedTouches[0]
+        //* Calc the right pos according to the touch screen
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+        }
+    }
+    return pos
+}
 

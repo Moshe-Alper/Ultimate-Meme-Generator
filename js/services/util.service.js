@@ -1,5 +1,7 @@
 'use strict'
 
+// listen for color
+
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.palette').addEventListener('click', function() {
         document.getElementById('fillColor').click()
