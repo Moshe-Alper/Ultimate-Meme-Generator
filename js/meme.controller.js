@@ -106,3 +106,13 @@ function onUpdateLineSize(size) {
     setMemeData({ lines: memeData.lines })
     renderMeme()
 }
+
+function onAddLIne() {
+    console.log('line');
+    // const {} = 
+    let elTextInput = document.querySelector('.meme-text-input')
+    elTextInput = ''
+    console.log('elTextInput:', elTextInput)
+    renderMeme()
+
+}

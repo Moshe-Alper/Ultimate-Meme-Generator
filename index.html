@@ -41,7 +41,7 @@
                         <input type="text" oninput="onAddTxt(this)" placeholder="Lorem ipsum dolor sit amet"
                             class="meme-text-input">
                         <button class="fa-solid change-line btn rounded text-editor"></button>
-                        <button class="fa-solid add-line btn rounded text-editor"></button>
+                        <button class="fa-solid add-line btn rounded text-editor" onclick="onAddLIne()"></button>
                         <button class="fa-regular trash-can btn rounded text-editor"></button>
                     </div>
 
@@ -55,15 +55,11 @@
                         <button class="fa-solid align-right btn rounded text-editor"></button>
                         <br>
                         <button class="fa-solid palette btn rounded text-editor">
-                            <input onchange="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color" />
+                            <input onchange="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color" value="#ffffff" />
                         </button>
                         <button class="fa-solid stroke btn rounded text-editor">
                             <input
-                            onchange="onChangeStrokeColor(value)"
-                            type="color"
-                            id="color-line"
-                            name="stroke-color"
-                            value="#000000"
+                            onchange="onChangeStrokeColor(value)" type="color" id="color-line" name="stroke-color" value="#000000"
                         />
                         </button>
                         <input type="text" placeholder="impact" class="font-input">
@@ -77,7 +73,8 @@
 
             </section>
         </div>
-        <section class="about flex">
+
+        <section class="about full main-layout">
             <img src="/img/about-img.jpg" alt="about-image" class="about-image">
             <div class="about-countainer">
                 <h2 class="about-title">About</h2>

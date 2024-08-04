@@ -12,7 +12,7 @@ let gMemeData = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'Add text here',
+            txt: 'Lorem ipsum dolor sit amet',
             size: 40,
             fillColor: '#ffffff',
             strokeColor: '#000000'
