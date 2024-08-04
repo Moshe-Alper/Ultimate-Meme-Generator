@@ -16,6 +16,7 @@ function insertMemeDataForm() {
 
     document.querySelector('input[name="fill-color"]').value = lines[selectedLineIdx].fillColor
     document.querySelector('input[name="stroke-color"]').value = lines[selectedLineIdx].strokeColor
+    document.querySelector('input[name="meme-text"]').value = lines[selectedLineIdx].txt
 
 
 }
@@ -108,11 +109,15 @@ function onUpdateLineSize(size) {
 }
 
 function onAddLIne() {
-    console.log('line');
-    // const {} = 
     let elTextInput = document.querySelector('.meme-text-input')
-    elTextInput = ''
-    console.log('elTextInput:', elTextInput)
+
+    elTextInput.value = ''
+    addLine()
+    
+    elTextInput = document.querySelector('.meme-text-input')
+    onAddTxt({value: 'Add text here'})
+    
+    insertMemeDataForm()
     renderMeme()
 
 }

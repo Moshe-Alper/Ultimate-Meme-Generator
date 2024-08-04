@@ -12,7 +12,7 @@ let gMemeData = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'Lorem ipsum dolor sit amet',
+            txt: 'Add text here',
             size: 40,
             fillColor: '#ffffff',
             strokeColor: '#000000'
@@ -47,4 +47,11 @@ function getImageToCanvas(idx) {
 
 function setImg(id) {
     gMemeData.selectedImgId = id
+}
+
+function addLine() {
+    const currLine = gMemeData.lines[gMemeData.selectedLineIdx]
+    const newLine = { ...currLine}
+    gMemeData.lines.push(newLine)
+    gMemeData.selectedLineIdx = gMemeData.lines.length - 1
 }
