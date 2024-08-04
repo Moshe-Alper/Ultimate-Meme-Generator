@@ -31,8 +31,23 @@ function getMemeData() {
     return gMemeData
 }
 
+
+function createLine() {
+    let line = {
+        txt: 'Add text here',
+        size: 40,
+        fillColor: '#ffffff',
+        strokeColor: '#000000'
+    }
+    return line
+}
+
+function getLine() {
+    return  gMemeData.lines[gMemeData.selectedLineIdx]
+}
+
 function setLineTxt(txt) {
-    gMemeData.lines[gMemeData.selectedLineIdx].txt = txt
+    getLine().txt = txt
     setMemeData({ lines: gMemeData.lines })
 }
 
@@ -50,8 +65,7 @@ function setImg(id) {
 }
 
 function addLine() {
-    const currLine = gMemeData.lines[gMemeData.selectedLineIdx]
-    const newLine = { ...currLine}
+    const newLine = createLine()
     gMemeData.lines.push(newLine)
     gMemeData.selectedLineIdx = gMemeData.lines.length - 1
 }

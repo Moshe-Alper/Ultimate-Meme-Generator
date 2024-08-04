@@ -53,15 +53,14 @@
                         <button class="fa-solid align-left btn rounded text-editor"></button>
                         <button class="fa-solid align-center btn rounded text-editor"></button>
                         <button class="fa-solid align-right btn rounded text-editor"></button>
-                        <br>
-                        <button class="fa-solid palette btn rounded text-editor">
-                            <input onchange="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color" value="#ffffff" />
-                        </button>
-                        <button class="fa-solid stroke btn rounded text-editor">
-                            <input
-                            onchange="onChangeStrokeColor(value)" type="color" id="color-line" name="stroke-color" value="#000000"
-                        />
-                        </button>
+                        
+
+                        <button class="fa-solid palette btn rounded text-editor"></button>
+                        <input oninput="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color" value="#ffffff" />
+                        
+                        <button class="fa-solid stroke btn rounded text-editor"></button>
+                        <input oninput="onChangeStrokeColor(value)" type="color" id="color-line" name="stroke-color" value="#000000" />
+                        
                         <input type="text" placeholder="impact" class="font-input">
                     </div>
 
@@ -105,6 +104,7 @@
 
     <script src="https://kit.fontawesome.com/2fcb60592b.js" crossorigin="anonymous"></script>
 
+    <script src="js/services/util.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/meme.controller.js"></script>
     <script src="js/services/gallery.service.js"></script>
