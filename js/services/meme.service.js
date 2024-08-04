@@ -56,11 +56,8 @@ function addLine() {
 }
 
 function switchLine() {
-    const { lines, selectedLineIdx } = gMemeData
-    console.log('gMemeData.selectedLineIdx:', gMemeData.selectedLineIdx)
-    
+    const { lines, selectedLineIdx } = gMemeData   
     gMemeData.selectedLineIdx = (selectedLineIdx + 1) % lines.length
-    console.log('gMemeData.selectedLineIdx:', gMemeData.selectedLineIdx)
 
 }
 
