@@ -8,7 +8,7 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    
+
     addListeners()
     renderMeme()
     insertMemeDataForm()
@@ -141,13 +141,13 @@ function addListeners() {
 function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mousemove', onMove)
-    // document.addEventListener('mouseup', onUp)
+    document.addEventListener('mouseup', onUp)
 }
 
 function addTouchListeners() {
     gElCanvas.addEventListener('touchstart', onDown)
     gElCanvas.addEventListener('touchmove', onMove)
-    // document.addEventListener('touchend', onUp)
+    document.addEventListener('touchend', onUp)
 }
 
 
@@ -168,7 +168,7 @@ function onMove(ev) {
     if (!line.isDrag) return
 
     const pos = getEvPos(ev)
-
+    console.log('pos:', pos)
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
     moveLine(line, dx, dy)
