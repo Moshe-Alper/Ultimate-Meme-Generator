@@ -34,62 +34,70 @@
                 <div class="canvas-container">
                     <canvas width="540px" height="550px"></canvas>
                 </div>
-                
+
                 <section class="editor-tools-section">
-                    
+
                     <div class="text-edit flex align-center">
                         <input type="text" oninput="onAddTxt(this)" placeholder="Lorem ipsum dolor sit amet"
-                        class="meme-text-input">
-                        <button class="change-line btn rounded text-editor">^</button>
-                        <button class="add-line btn rounded text-editor">+</button>
-                        <button class="trash-line btn rounded text-editor">trash</button>
+                            class="meme-text-input">
+                        <button class="fa-solid change-line btn rounded text-editor"></button>
+                        <button class="fa-solid add-line btn rounded text-editor"></button>
+                        <button class="fa-regular trash-can btn rounded text-editor"></button>
                     </div>
-                    
-                    
-                    
+
+
+
                     <div class="advanced-edit flex align-center">
-                        <button class="fa increase-font btn rounded text-editor" onclick="onUpdateLineSize(1)"></button>
-                        <button class="fa decrease-font btn rounded text-editor" onclick="onUpdateLineSize(-1)"></button>
-                        <button class="align-btn btn rounded text-editor">]</button>
-                        <button class="align-btn btn rounded text-editor">\</button>
-                        <button class="align-btn btn rounded text-editor">[</button>
+                        <button class="fa-solid font btn rounded text-editor" onclick="onUpdateLineSize(1)">+</button>
+                        <button class="fa-solid font btn rounded text-editor" onclick="onUpdateLineSize(-1)">-</button>
+                        <button class="fa-solid align-left btn rounded text-editor"></button>
+                        <button class="fa-solid align-center btn rounded text-editor"></button>
+                        <button class="fa-solid align-right btn rounded text-editor"></button>
                         <br>
-                        <button class="btn rounded text-editor">
-                            <i class="fa-solid fa-palette"></i>
-                            <input type="color" name="color" oninput="onPickColor(value)" /> </button>
-                        <button class="text-shadow-btn btn rounded text-editor">A</button>
+                        <button class="fa-solid palette btn rounded text-editor">
+                            <input onchange="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color" />
+                        </button>
+                        <button class="fa-solid stroke btn rounded text-editor">
+                            <input
+                            onchange="onChangeStrokeColor(value)"
+                            type="color"
+                            id="color-line"
+                            name="stroke-color"
+                            value="#000000"
+                        />
+                        </button>
                         <input type="text" placeholder="impact" class="font-input">
                     </div>
-                    
+
                     <div class="accessories-picker">accessories</div>
-                    <button onclick="onOpenShareModal()"  class="share-btn btn rounded">Share</button>
-                    
-                    
+                    <button onclick="onOpenShareModal()" class="share-btn btn rounded">Share</button>
+
+
                 </section>
-                
+
             </section>
         </div>
-            <section class="about flex">
+        <section class="about flex">
             <img src="/img/about-img.jpg" alt="about-image" class="about-image">
             <div class="about-countainer">
                 <h2 class="about-title">About</h2>
                 <h3 class="about-name">Monica Geller</h3>
                 <p class="about-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellat aperiam.
                 </p>
-                <ul class="about-social">
-                    <li><a href="#"></a>facebook</li>
-                    <li><a href="#"></a>x (twitter)</li>
-                    <li><a href="#"></a>instagram</li>
+                <ul class="about-social clean-list">
+                    <li><a href="#" class="fa-brands x-twitter"></a></li>
+                    <li><a href="#" class="fa-brands facebook"></a></li>
+                    <li><a href="#" class="fa-brands github"></a></li>
                 </ul>
             </div>
         </section>
     </main>
 
-<dialog class="share-modal">
-    <button type="button" class="btn rounded" onclick="onCloseShareModal()">X</button>
-    <button class="share-btn btn rounded">Share</button>
-    <a href="#" class="share-btn btn rounded" onclick="onDownloadMeme(this)" download="my-img.jpg">Download</a>
-</dialog>
+    <dialog class="share-modal">
+        <button type="button" class="btn rounded" onclick="onCloseShareModal()">X</button>
+        <button class="share-btn btn rounded">Share</button>
+        <a href="#" class="share-btn btn rounded" onclick="onDownloadMeme(this)" download="my-img.jpg">Download</a>
+    </dialog>
 
 
     <footer class="main-footer full main-layout">
@@ -97,7 +105,7 @@
         <small>All rights reserved 2024</small>
     </footer>
 
-    
+
     <script src="https://kit.fontawesome.com/2fcb60592b.js" crossorigin="anonymous"></script>
 
     <script src="js/services/meme.service.js"></script>

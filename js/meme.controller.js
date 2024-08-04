@@ -14,7 +14,9 @@ function onInit() {
 function insertMemeDataForm() {
     const { selectedImgId, selectedLineIdx, lines } = getMemeData()
 
-    document.querySelector('input[name="color"]').value = lines[selectedLineIdx].color
+    document.querySelector('input[name="fill-color"]').value = lines[selectedLineIdx].fillColor
+    document.querySelector('input[name="stroke-color"]').value = lines[selectedLineIdx].strokeColor
+
 
 }
 
@@ -46,11 +48,11 @@ function drawImg(meme) {
 }
 
 function drawText(line, x, y) {
-    let {txt, size, color} = line
-
-    gCtx.lineWidth = 1
-    gCtx.strokeStyle = 'black'
-    gCtx.fillStyle = color
+    let {txt, size, fillColor, strokeColor} = line
+    
+    gCtx.lineWidth = 2
+    gCtx.strokeStyle = strokeColor
+    gCtx.fillStyle = fillColor
     gCtx.font = `${size}px Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
@@ -84,9 +86,16 @@ function onDownloadMeme(elLink) {
     elLink.download = `meme-${keywords}.png`
 }
 
-function onPickColor(color) {
+function onChangeFillColor(fillColor) {
     const memeData = getMemeData()
-    memeData.lines[memeData.selectedLineIdx].color = color
+    memeData.lines[memeData.selectedLineIdx].fillColor = fillColor
+    setMemeData({ lines: memeData.lines })
+    renderMeme()
+}
+
+function onChangeStrokeColor(strokeColor) {
+    const memeData = getMemeData()
+    memeData.lines[memeData.selectedLineIdx].strokeColor = strokeColor
     setMemeData({ lines: memeData.lines })
     renderMeme()
 }

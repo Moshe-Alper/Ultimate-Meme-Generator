@@ -12,19 +12,84 @@
 
 /* FONT AWESOME */
 
+/* fa solid */
+
 @font-face {
-    font-family: fa;
+    font-family: fa-solid;
+    src: url(/fonts/fa/fa-solid-900.ttf);
+}
+
+.fa-solid::before {
+    font-family: fa-solid;
+}
+
+.fa-solid.palette::before {
+    content: '\f53f';
+}
+
+.fa-solid.stroke::before {
+    content: '\f55d';
+}
+
+.fa-solid.add-line::before {
+    content: '\2b';
+}
+
+.fa-solid.change-line::before {
+    content: '\e4af';
+}
+
+.fa-solid.align-right::before {
+    content: '\f038';
+}
+
+.fa-solid.align-center::before {
+    content: '\f037';
+}
+
+.fa-solid.align-left::before {
+    content: '\f036';
+}
+
+.fa-solid.font::before {
+    content: '\f031';
+}
+
+/* fa regular */
+
+@font-face {
+    font-family: fa-regular;
+    src: url(/fonts/fa/fa-regular-400.ttf);
+}
+
+.fa-regular::before {
+    font-family: fa-regular;
+}
+
+.fa-regular.trash-can::before {
+    content: '\f2ed';
+}
+
+
+/* fa brands */
+
+@font-face {
+    font-family: fa-brands;
     src: url(/fonts/fa/fa-brands-400.ttf);
 }
 
-.fa::before {
-    font-family: fa;
+.fa-brands::before {
+    font-family: fa-brands;
 }
 
-.fa.increase-font::before {
-    content: 'A+';
+.fa-brands.facebook:before {
+    content: "\f39e";
 }
 
-.fa.decrease-font::before {
-    content: 'A-';
+.fa-brands.x-twitter:before {
+    content: "\e61b";
+}
+
+.fa-brands.github:before {
+    content: "\f09b";
 }
