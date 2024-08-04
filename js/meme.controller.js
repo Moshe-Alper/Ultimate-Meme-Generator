@@ -116,8 +116,11 @@ function onAddLIne() {
     
     elTextInput = document.querySelector('.meme-text-input')
     onAddTxt({value: 'Add text here'})
-    
+
     insertMemeDataForm()
     renderMeme()
+}
 
+function onSwitchLine() {
+    setLineIdx()
 }

@@ -55,3 +55,7 @@ function addLine() {
     gMemeData.lines.push(newLine)
     gMemeData.selectedLineIdx = gMemeData.lines.length - 1
 }
+
+function setLineIdx() {
+      gMemeData.selectedLineIdx = (gMemeData.selectedLineIdx + 1) % gMemeData.lines.length
+}

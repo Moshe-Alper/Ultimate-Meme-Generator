@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>memegen</title>
+    <link rel="shortcut icon" href="/img/fabicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
@@ -35,11 +36,11 @@
                     <canvas width="540px" height="550px"></canvas>
                 </div>
 
-                <section class="editor-tools-section">
+                <section class="editor-tools-section" >
 
                     <div class="text-edit flex align-center">
                         <input type="text" oninput="onAddTxt(this)" id="memeText" name="meme-text" class="meme-text-input">
-                        <button class="fa-solid change-line btn rounded text-editor"></button>
+                        <button class="fa-solid change-line btn rounded text-editor" onclick="onSwitchLine()"></button>
                         <button class="fa-solid add-line btn rounded text-editor" onclick="onAddLIne()"></button>
                         <button class="fa-regular trash-can btn rounded text-editor"></button>
                     </div>
