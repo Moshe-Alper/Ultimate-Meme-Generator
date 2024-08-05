@@ -1,5 +1,49 @@
-@media (max-width: 800) {
+/* SMALL */
+
+@media (min-width: 640px) {
     .main-layout {
-      max-width: 800px;
+        grid-template-columns: 
+        minmax(50px, 1fr)
+        minmax(auto, 540px)
+        minmax(50px, 1fr);
     }
+}
+
+
+/* MEDIUM */
+
+
+@media (min-width: 880px) {
+    .main-layout {
+        grid-template-columns: 
+        minmax(50px, 1fr)
+        minmax(auto, 780px)
+        minmax(50px, 1fr);
+    }
+}
+
+/* LARGE */
+
+@media (min-width: 1100px) {
+    .main-layout {
+        grid-template-columns: 
+        minmax(50px, 1fr)
+        minmax(auto, 1000px)
+        minmax(50px, 1fr);
+    }
+    
+    .editor-section {
+        grid-template-columns: 1fr 50px 1fr;
+    
+    }
+
+    .canvas-container {
+        grid-column: 1;
+    }
+    
+    .editor-tools-section {
+        grid-column: 3;       
+    }
+
+    
 }

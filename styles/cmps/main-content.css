@@ -78,24 +78,24 @@ button[type="submit"]:hover {
 /* editor section */
 
 
+
 .editor-section {
     display: grid;
-    grid-template-columns: 1fr 50px 1fr;
-    align-items: center;
-    max-width: min-content;
+    grid-template-rows: 1fr 50px 1fr;
 
-}
-
-.editor-section .editor-tools-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    grid-column: 3;;
-    
 }
 
 .canvas-container {
-    grid-column: 1;
+    grid-row: 1;
+}
+
+.editor-tools-section {
+    grid-row: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 .editor-section .editor-tools-section > * {
@@ -125,6 +125,7 @@ button[type="submit"]:hover {
     padding-block: 1em;
     padding-left: 3em;
 }
+
 
 /* share and download */
 
