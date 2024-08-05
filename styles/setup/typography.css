@@ -10,6 +10,18 @@
     src: url(/fonts/montserrat/Montserrat-Bold.ttf);
 }
 
+/* buenard  */
+
+@font-face {
+    font-family: buenard-regular, serif;
+    src: url(/fonts/buenard/Buenard-Regular.ttf);
+}
+
+@font-face {
+    font-family: buenard-bold, serif;
+    src: url(/fonts/buenard/Buenard-Bold.ttf);
+}
+
 /* FONT AWESOME */
 
 /* fa solid */

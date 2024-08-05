@@ -11,3 +11,10 @@
     color: white;
     text-decoration: none;
 }
+
+.logo {
+    font-family: buenard-bold;
+    font-size: 1.5em;
+    color: white;
+    letter-spacing: 0.1em;
+}
