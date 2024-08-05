@@ -19,3 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
         onChangeStrokeColor(this.value)
     })
 })
+
+function getRandomKeywords() {
+    const shuffled = keywords.sort(() => 0.5 - Math.random())
+    return shuffled.slice(0, 2)
+}

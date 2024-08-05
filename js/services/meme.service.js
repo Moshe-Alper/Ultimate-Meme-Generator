@@ -1,13 +1,19 @@
 'use strict'
 
+
+const keywords = ['funny', 'comics', 'dogs', 'drinks', 'books'];
 let yOffset = 0
 
-let gImgs = [
-    { id: 1, url: 'meme-imgs/1.jpg', keywords: ['funny', 'cat'] },
-    { id: 2, url: 'meme-imgs/2.jpg', keywords: ['funny', 'dog'] },
-    { id: 3, url: 'meme-imgs/3.jpg', keywords: ['funny', 'baby'] },
-    { id: 4, url: 'meme-imgs/4.jpg', keywords: ['funny', 'meme'] }
-]
+
+let gImgs = []
+
+for (let i = 1; i <= 18; i++) {
+    gImgs.push({
+        id: i,
+        url: `meme-imgs/${i}.jpg`,
+        keywords: getRandomKeywords()
+    })
+}
 
 let gMemeData = {
     selectedImgId: 1,

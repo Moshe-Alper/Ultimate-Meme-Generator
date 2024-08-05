@@ -13,12 +13,13 @@
 <body class="main-layout" onload="onInit()">
 
     <header class="main-header full main-layout">
-        <div class="header-container flex space-between align-center">
+        <div class="main-header-inner flex space-between align-center">
             <div class="logo">memegen</div>
             <nav class="main-nav">
-                <ul class="flex clean-list">
-                    <li><a href="#">Gallery</a></li>
+                <ul class="nav-bar flex clean-list">
+                    <li><a href="#" class="active">Gallery</a></li>
                     <li><a href="#">About</a></li>
+                    <li><a href="#">Saved</a></li>
                 </ul>
             </nav>
         </div>
@@ -32,6 +33,7 @@
 
         <div class="memes-grid-container main-layout">
             <section class="gallery-section"></section>
+            
             <section class="editor-section">
                 <div class="canvas-container">
                     <canvas width="540px" height="550px"></canvas>
