@@ -39,36 +39,36 @@
                     <canvas width="550px" height="550px"></canvas>
                 <!-- </div> -->
 
-                <section class="editor-tools-section " >
+                <section class="editor-tools-section" >
 
+                    <input type="text" oninput="onAddTxt(this)" id="memeText" name="meme-text" class="meme-text-input">
                     <div class="text-edit flex align-center">
-                        <input type="text" oninput="onAddTxt(this)" id="memeText" name="meme-text" class="meme-text-input">
                         <button class="fa-solid change-line btn rounded text-editor" onclick="onSwitchLine()"></button>
                         <button class="fa-solid add-line btn rounded text-editor" onclick="onAddLIne()"></button>
                         <button class="fa-regular trash-can btn rounded text-editor"></button>
                     </div>
 
 
-
-                    <div class="advanced-edit flex align-center">
+                    <div class="align-change-text flex align-center">
                         <button class="fa-solid font btn rounded text-editor" onclick="onUpdateLineSize(1)">+</button>
                         <button class="fa-solid font btn rounded text-editor" onclick="onUpdateLineSize(-1)">-</button>
                         <button class="fa-solid align-left btn rounded text-editor"></button>
                         <button class="fa-solid align-center btn rounded text-editor"></button>
                         <button class="fa-solid align-right btn rounded text-editor"></button>
-                        
+                    </div>
 
+                    <div class="advanced-edit flex align-center">
+                        <input type="text" placeholder="impact" class="font-input">
+                        
                         <button class="fa-solid palette btn rounded text-editor"></button>
                         <input oninput="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color" value="#ffffff" />
                         
                         <button class="fa-solid stroke btn rounded text-editor"></button>
                         <input oninput="onChangeStrokeColor(value)" type="color" id="color-line" name="stroke-color" value="#000000" />
                         
-                        <input type="text" placeholder="impact" class="font-input">
                     </div>
 
-                    <div class="accessories-picker">accessories</div>
-                    <button onclick="onOpenShareModal()" class="share-btn btn rounded">Share</button>
+                    <button onclick="onOpenShareModal()" class="share-btn">Share</button>
 
 
                 </section>

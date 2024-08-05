@@ -47,7 +47,7 @@ img {
 .btn {
     cursor: pointer;
     border: none;
-    background-color: white;
+    background-color: var(--primary-1);
     font-size: 1em;
 }
 
