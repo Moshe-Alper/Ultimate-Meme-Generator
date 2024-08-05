@@ -7,8 +7,6 @@
     <title>memegen</title>
     <link rel="shortcut icon" href="/img/fabicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/all.css">
-    <script src="https://kit.fontawesome.com/2fcb60592b.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -45,27 +43,30 @@
 
                     <input type="text" oninput="onAddTxt(this)" id="memeText" name="meme-text" class="meme-text-input">
                     <div class="text-edit flex align-center">
-                        <button class="fa-solid change-line btn rounded text-editor" onclick="onSwitchLine()"></button>
-                        <button class="fa-solid add-line btn rounded text-editor" onclick="onAddLIne()"></button>
-                        <button class="btn rounded text-editor"><i class="fa-regular fa-trash-can"></i></button>
+                        <button class="btn rounded text-editor" onclick="onSwitchLine()"><img src="/icons/up-and-down-opposite-double-arrows-side-by-side.png" alt="switch line"></button>
+                        <button class="btn rounded text-editor" onclick="onAddLIne()"><img src="/icons/add.png" alt="add line"></button>
+                        <button class="btn rounded text-editor"><img src="/icons/trash.png" alt="delete"></button>
                     </div>
 
 
                     <div class="align-change-text flex align-center">
-                        <button class="fa-solid font btn rounded text-editor" onclick="onUpdateLineSize(1)">+</button>
-                        <button class="fa-solid font btn rounded text-editor" onclick="onUpdateLineSize(-1)">-</button>
-                        <button class="fa-solid align-left btn rounded text-editor"></button>
-                        <button class="fa-solid align-center btn rounded text-editor"></button>
-                        <button class="fa-solid align-right btn rounded text-editor"></button>
+                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(1)"><img src="/icons/increase font - icon.png" alt="increase font"></button>
+                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(-1)"><img src="/icons/decrease font - icon.png" alt="decrease font"></button>
+                        <button class="btn rounded text-editor"><img src="/icons/align-to-left.png" alt="align left"></button>
+                        <button class="btn rounded text-editor"><img src="/icons/center-text-alignment.png" alt="align center"></button>
+                        <button class="btn rounded text-editor"><img src="/icons/align-to-right.png" alt="align-to-right"></button>
                     </div>
 
                     <div class="advanced-edit flex align-center">
                         <input type="text" placeholder="impact" class="font-input">
                         
-                        <button class="fa-solid palette btn rounded text-editor"></button>
-                        <input oninput="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color" value="#ffffff" />
+                        <label>
+                            <button class="fa-solid palette btn rounded text-editor"><img src="/icons/paint-board-and-brush.png" alt="text-color"></button>
+                            <input oninput="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color" value="#ffffff" />
+
+                        </label>
                         
-                        <button class="fa-solid stroke btn rounded text-editor"></button>
+                        <button class="fa-solid stroke btn rounded text-editor"><img src="/icons/text stroke.png" alt="text stroke"></button>
                         <input oninput="onChangeStrokeColor(value)" type="color" id="color-line" name="stroke-color" value="#000000" />
                         
                     </div>

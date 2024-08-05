@@ -70,9 +70,18 @@
 }
 
 .editor-section .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     padding: 0;
     width: 60px;
     height: 60px;
+
+}
+
+.editor-section .btn img{
+   height: 50%;
 
 }
 

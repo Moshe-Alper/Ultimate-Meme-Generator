@@ -36,11 +36,11 @@
 }
 
 .fa-solid.palette::before {
-    content: '\f53f';
+    content: '';
 }
 
 .fa-solid.stroke::before {
-    content: '\f55d';
+    content: '';
 }
 
 .fa-solid.add-line::before {
