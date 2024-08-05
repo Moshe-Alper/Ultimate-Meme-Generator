@@ -26,8 +26,14 @@
 
     <main class="main-content full">
         <section class="filter-search-section main-layout">
-            <input class="search-bar" type="text" placeholder="Enter search keyboard" name="by-keyword" />
-            <div class="world-cloud">funny comics dogs drinks books more...</div>
+            <div class="filter-search-inner flex space-between">
+
+                <form>
+                    <input type="search" placeholder="Search by keyword">
+                    <button type="submit">Search</button>
+                </form>
+                <div class="world-cloud">funny comics dogs drinks books more...</div>
+            </div>
         </section>
 
         <div class="memes-grid-container main-layout">
@@ -39,7 +45,7 @@
 
                 <section class="editor-tools-section" >
 
-                    <input type="text" oninput="onAddTxt(this)" id="memeText" name="meme-text" class="meme-text-input">
+                    <input type="text" oninput="onAddTxt(this)" id="memeText" name="meme-text" class="meme-text-input" placeholder="Add text here">
                     <div class="text-edit flex align-center">
                         <button class="btn rounded text-editor" onclick="onSwitchLine()"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt="switch line"></button>
                         <button class="btn rounded text-editor" onclick="onAddLIne()"><img src="icons/add.png" alt="add line"></button>
@@ -92,9 +98,10 @@
         <div class="logo">memegen</div>
         <small>Moshik Alper. All rights reserved 2024</small>
         <ul class="footer-social clean-list">
-            <li><a href="#" class="fa-brands x-twitter"></a></li>
-            <li><a href="#" class="fa-brands facebook"></a></li>
-            <li><a href="#" class="fa-brands github"></a></li>
+            <li><a href="#"><img src="icons/facebook-logo.png" alt="facebook-link"></a></li>
+            <li><a href="#"><img src="icons/linkedin-logo.png" alt="linkedin-link"></a></li>
+            <li><a href="#"><img src="icons/github-logo.png" alt="github-link"></a></li>
+     
         </ul>
         </div>
     </footer>

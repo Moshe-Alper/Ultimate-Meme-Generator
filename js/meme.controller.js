@@ -19,7 +19,7 @@ function insertMemeDataForm() {
 
     document.querySelector('input[name="fill-color"]').value = lines[selectedLineIdx].fillColor
     document.querySelector('input[name="stroke-color"]').value = lines[selectedLineIdx].strokeColor
-    document.querySelector('input[name="meme-text"]').value = lines[selectedLineIdx].txt
+    document.querySelector('input[name="meme-text"]').value = ''
 
 
 }
