@@ -233,3 +233,6 @@ function measureText(line) {
 }
 
 
+function onSetFont(values) {
+    console.log('this.value:', this.value)
+}

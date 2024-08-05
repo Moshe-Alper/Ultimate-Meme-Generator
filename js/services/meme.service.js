@@ -1,5 +1,7 @@
 'use strict'
 
+let yOffset = 0
+
 
 let gMemeData = {
     selectedImgId: 1,
@@ -8,8 +10,6 @@ let gMemeData = {
         _createLine()
     ]
 }
-
-let yOffset = 0
 
 let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
@@ -30,12 +30,10 @@ function setLineTxt(txt) {
     setMemeData({ lines: gMemeData.lines })
 }
 
-function getImageData() {
-    return gImgs
-}
+
 
 function getImageToCanvas(idx) {
-    let img = gImgs.find((img) => img.id === idx)
+    let img = getImageData().find((img) => img.id === idx)
     return img
 }
 

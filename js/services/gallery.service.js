@@ -18,3 +18,7 @@ function getRandomKeywords() {
     const shuffled = keywords.sort(() => 0.5 - Math.random())
     return shuffled.slice(0, 2)
 }
+
+function getImageData() {
+    return gImgs
+}
