@@ -15,7 +15,6 @@
 
 /* gallery section */
 
-
 .gallery-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -43,17 +42,18 @@
 
 /* editor section */
 
+.canvas-container {
+    width: 60vw;
+    height: 80vh;
+  }
+
+
 .editor-section {
     display: flex;
     gap: 50px;
     align-items: center;
     max-width: min-content;
 
-}
-
-.editor-section .canvas-container {
-    grid-column: 1;
-    background-color: aqua;
 }
 
 .editor-section .editor-tools-section {
@@ -74,7 +74,6 @@
     width: 60px;
     height: 60px;
 
-    
 }
 
 .editor-section input {
@@ -82,10 +81,6 @@
     border-radius: 1em;
     padding-block: 1em;
     padding-left: 3em;
-}
-
-.advanced-edit {
-
 }
 
 

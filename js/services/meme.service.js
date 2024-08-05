@@ -2,8 +2,8 @@
 
 
 const keywords = ['funny', 'comics', 'dogs', 'drinks', 'books'];
-let yOffset = 0
 
+let yOffset = 0
 
 let gImgs = []
 
@@ -75,16 +75,15 @@ function isLineClicked(pos) {
     return distance <= currLine.size + currLine.txt.length
 }
 
-function setLineDrag() {
-    const line = getLine()
-    line.isDrag = true
-    setMemeData({ lines: gMemeData.lines })
-}
+function setLineDrag(isDrag) {
+    gMemeData.lines[gMemeData.selectedLineIdx].isDrag = isDrag
+  }
 
 
 function moveLine(line, dx, dy) {
     line.x += dx
     line.y += dy
+
 }
 
 

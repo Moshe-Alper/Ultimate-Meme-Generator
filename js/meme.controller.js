@@ -2,7 +2,7 @@
 
 let gElCanvas
 let gCtx
-let gStartPos
+let gStartPos = { x: 0, y: 0 }
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 function onInit() {
@@ -154,13 +154,12 @@ function addTouchListeners() {
 
 function onDown(ev) {
     const pos = getEvPos(ev)
-
+  
     if (!isLineClicked(pos)) return
-
     setLineDrag(true)
     gStartPos = pos
     document.body.style.cursor = 'grabbing'
-}
+  }
 
 
 function onMove(ev) {
@@ -168,7 +167,7 @@ function onMove(ev) {
     if (!line.isDrag) return
 
     const pos = getEvPos(ev)
-    console.log('pos:', pos)
+  
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
     moveLine(line, dx, dy)
