@@ -26,6 +26,7 @@ function insertMemeDataForm() {
 
 function renderMeme() {
     let meme = getMemeData()
+    renderFrameToLine()
     drawImg(meme)
     
 }
@@ -64,6 +65,8 @@ function drawText(line) {
 
     gCtx.fillText(txt, x, y)
     gCtx.strokeText(txt, x, y)
+
+    renderFrameToLine()
 }
 
 function onAddTxt(elMemeInput) {
@@ -203,4 +206,30 @@ function getEvPos(ev) {
     }
     return pos
 }
+
+function renderFrameToLine() {
+    const memeData = getMemeData()
+    const line = memeData.lines[memeData.selectedLineIdx]
+
+    if (!line) return
+
+    measureText(line)
+
+    const { width, height } = measureText(line)
+    const padding = 5
+
+    gCtx.beginPath()
+    gCtx.strokeStyle = 'black'
+    gCtx.lineWidth = 4
+    gCtx.strokeRect(line.x - width / 2 - padding, line.y - height / 2 - padding, width + padding * 2, height + padding * 2)
+
+}
+function measureText(line) {
+    gCtx.font = `${line.size}px Arial`
+    const metrics = gCtx.measureText(line.txt)
+    const width = metrics.width
+    const height = line.size 
+    return { width, height }
+}
+
 

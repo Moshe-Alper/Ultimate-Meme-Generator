@@ -35,38 +35,36 @@
             <section class="gallery-section"></section>
             
             <section class="editor-section hide-section">
-                <div class="canvas-container">
                     <canvas width="550px" height="550px"></canvas>
-                </div>
 
                 <section class="editor-tools-section" >
 
                     <input type="text" oninput="onAddTxt(this)" id="memeText" name="meme-text" class="meme-text-input">
                     <div class="text-edit flex align-center">
-                        <button class="btn rounded text-editor" onclick="onSwitchLine()"><img src="/icons/up-and-down-opposite-double-arrows-side-by-side.png" alt="switch line"></button>
-                        <button class="btn rounded text-editor" onclick="onAddLIne()"><img src="/icons/add.png" alt="add line"></button>
-                        <button class="btn rounded text-editor"><img src="/icons/trash.png" alt="delete"></button>
+                        <button class="btn rounded text-editor" onclick="onSwitchLine()"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt="switch line"></button>
+                        <button class="btn rounded text-editor" onclick="onAddLIne()"><img src="icons/add.png" alt="add line"></button>
+                        <button class="btn rounded text-editor"><img src="icons/trash.png" alt="delete"></button>
                     </div>
 
 
                     <div class="align-change-text flex align-center">
-                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(1)"><img src="/icons/increase font - icon.png" alt="increase font"></button>
-                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(-1)"><img src="/icons/decrease font - icon.png" alt="decrease font"></button>
-                        <button class="btn rounded text-editor"><img src="/icons/align-to-left.png" alt="align left"></button>
-                        <button class="btn rounded text-editor"><img src="/icons/center-text-alignment.png" alt="align center"></button>
-                        <button class="btn rounded text-editor"><img src="/icons/align-to-right.png" alt="align-to-right"></button>
+                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(1)"><img src="icons/increase font - icon.png" alt="increase font"></button>
+                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(-1)"><img src="icons/decrease font - icon.png" alt="decrease font"></button>
+                        <button class="btn rounded text-editor"><img src="icons/align-to-left.png" alt="align left"></button>
+                        <button class="btn rounded text-editor"><img src="icons/center-text-alignment.png" alt="align center"></button>
+                        <button class="btn rounded text-editor"><img src="icons/align-to-right.png" alt="align-to-right"></button>
                     </div>
 
                     <div class="advanced-edit flex align-center">
                         <input type="text" placeholder="impact" class="font-input">
                         
                         <label>
-                            <button class="fa-solid palette btn rounded text-editor"><img src="/icons/paint-board-and-brush.png" alt="text-color"></button>
+                            <button class="fa-solid palette btn rounded text-editor"><img src="icons/paint-board-and-brush.png" alt="text-color"></button>
                             <input oninput="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color" value="#ffffff" />
 
                         </label>
                         
-                        <button class="fa-solid stroke btn rounded text-editor"><img src="/icons/text stroke.png" alt="text stroke"></button>
+                        <button class="fa-solid stroke btn rounded text-editor"><img src="icons/text stroke.png" alt="text stroke"></button>
                         <input oninput="onChangeStrokeColor(value)" type="color" id="color-line" name="stroke-color" value="#000000" />
                         
                     </div>
@@ -79,17 +77,7 @@
             </section>
         </div>
 
-        <!-- <section class="about full main-layout">
-            <img src="/img/about-img.jpg" alt="about-image" class="about-image">
-            <div class="about-countainer">
-                <h2 class="about-title">About</h2>
-                <h3 class="about-name">Monica Geller</h3>
-                <p class="about-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellat aperiam.
-                </p>
-              
-            </div>
-        </section> -->
-    </main>
+      </main>
 
     <dialog class="share-modal">
         <button type="button" class="btn rounded" onclick="onCloseShareModal()">X</button>
