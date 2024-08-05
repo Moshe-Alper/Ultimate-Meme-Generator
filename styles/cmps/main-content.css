@@ -81,16 +81,16 @@ button[type="submit"]:hover {
 
 .editor-section {
     display: grid;
-    grid-template-rows: 1fr 50px 1fr;
+    grid-template-columns: 1fr 50px 1fr;
 
 }
 
 .canvas-container {
-    grid-row: 1;
+    grid-column: 1;
 }
 
 .editor-tools-section {
-    grid-row: 3;
+    grid-column: 3;
 
     display: flex;
     flex-direction: column;
@@ -119,11 +119,15 @@ button[type="submit"]:hover {
 
 }
 
-.editor-section input {
+.editor-section input, select {
     border: none;
     border-radius: 1em;
     padding-block: 1em;
     padding-left: 3em;
+}
+
+.editor-section select {
+    width: 11em;
 }
 
 

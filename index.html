@@ -63,7 +63,13 @@
                     </div>
 
                     <div class="advanced-edit flex align-center">
-                        <input type="text" placeholder="impact" class="font-input">
+                            <select class="" onchange="onSetFont(this.value)">
+                            <option value="line">impact</option>
+                            <option value="triangle">arial</option>
+                            <option value="rect">font 3</option>
+                            <option value="circle">font 4</option>
+                            <option value="text">font 5</option>
+                        </select>
                         
                         <label>
                             <button class="fa-solid palette btn rounded text-editor"><img src="icons/paint-board-and-brush.png" alt="text-color"></button>

@@ -32,18 +32,5 @@
         minmax(50px, 1fr);
     }
     
-    .editor-section {
-        grid-template-columns: 1fr 50px 1fr;
-    
-    }
-
-    .canvas-container {
-        grid-column: 1;
-    }
-    
-    .editor-tools-section {
-        grid-column: 3;       
-    }
-
     
 }
