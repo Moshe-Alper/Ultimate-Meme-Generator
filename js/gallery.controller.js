@@ -25,7 +25,7 @@ function onImgSelect(id) {
 }
 
 function onToggleToGallery() {
-    const elActiveLink = document.querySelector('.active');
+    const elActiveLink = document.querySelector('.active')
 
     if (elActiveLink && elActiveLink.classList.contains('active')) return
     
@@ -52,8 +52,8 @@ function setActiveLink() {
     const allLinks = document.querySelectorAll('.nav-bar a')
     allLinks.forEach(link => link.classList.remove('active'))
 
-    const galleryLink = document.querySelector('.nav-bar a[href="#"]:first-of-type');
+    const galleryLink = document.querySelector('.nav-bar a[href="#"]:first-of-type')
     if (galleryLink) {
-        galleryLink.classList.add('active');
+        galleryLink.classList.add('active')
     }
 }

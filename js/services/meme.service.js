@@ -1,20 +1,6 @@
 'use strict'
 
 
-const keywords = ['funny', 'comics', 'dogs', 'drinks', 'books'];
-
-let yOffset = 0
-
-let gImgs = []
-
-for (let i = 1; i <= 18; i++) {
-    gImgs.push({
-        id: i,
-        url: `meme-imgs/${i}.jpg`,
-        keywords: getRandomKeywords()
-    })
-}
-
 let gMemeData = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -22,6 +8,8 @@ let gMemeData = {
         _createLine()
     ]
 }
+
+let yOffset = 0
 
 let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
