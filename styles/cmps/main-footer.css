@@ -9,3 +9,12 @@
     color: var(--primary-1);
     letter-spacing: 0.1em;
 }
+
+.footer-social li{
+    padding: .25em;
+    color: var(--primary-1);
+}
+
+.footer-social li:hover{
+    color: var(--primary1);
+}
