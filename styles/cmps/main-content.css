@@ -1,18 +1,20 @@
+
 /* filter section */
 
 .filter-search-section {
     padding-block: 20px;
 }
-
-
-
-
-/* gallery section */
-
 .memes-grid-container {
     background-color: #e3e3e3;
     padding-block: 20px;
 }
+
+.memes-grid-container .hide-section {
+    display: none;
+}
+
+/* gallery section */
+
 
 .gallery-section {
     display: grid;
@@ -23,7 +25,6 @@
 
     padding: 10px;
 
-    outline: red solid 1px;
     margin-block-end: 30px;
 }
 
@@ -43,9 +44,10 @@
 /* editor section */
 
 .editor-section {
-    display: grid;
-    grid-template-columns: 1fr 50px 1fr;
-    outline: blue solid 1px;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    max-width: min-content;
 
 }
 
@@ -78,5 +80,4 @@
     color: white;
     background-color: var(--secondary-base);
 }
-
 

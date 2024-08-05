@@ -18,8 +18,7 @@
             <nav class="main-nav">
                 <ul class="nav-bar flex clean-list">
                     <li><a href="#" class="active">Gallery</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Saved</a></li>
+                    <li><a href="#" class="nav-about">Saved</a></li>
                 </ul>
             </nav>
         </div>
@@ -32,14 +31,15 @@
         </section>
 
         <div class="memes-grid-container main-layout">
-            <section class="gallery-section"></section>
+
+            <section class="gallery-section hide-section"></section>
             
             <section class="editor-section">
-                <div class="canvas-container">
-                    <canvas width="540px" height="550px"></canvas>
-                </div>
+                <!-- <div class="canvas-container"> -->
+                    <canvas width="550px" height="550px"></canvas>
+                <!-- </div> -->
 
-                <section class="editor-tools-section" >
+                <section class="editor-tools-section " >
 
                     <div class="text-edit flex align-center">
                         <input type="text" oninput="onAddTxt(this)" id="memeText" name="meme-text" class="meme-text-input">
@@ -76,20 +76,16 @@
             </section>
         </div>
 
-        <section class="about full main-layout">
+        <!-- <section class="about full main-layout">
             <img src="/img/about-img.jpg" alt="about-image" class="about-image">
             <div class="about-countainer">
                 <h2 class="about-title">About</h2>
                 <h3 class="about-name">Monica Geller</h3>
                 <p class="about-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellat aperiam.
                 </p>
-                <ul class="about-social clean-list">
-                    <li><a href="#" class="fa-brands x-twitter"></a></li>
-                    <li><a href="#" class="fa-brands facebook"></a></li>
-                    <li><a href="#" class="fa-brands github"></a></li>
-                </ul>
+              
             </div>
-        </section>
+        </section> -->
     </main>
 
     <dialog class="share-modal">
@@ -100,8 +96,16 @@
 
 
     <footer class="main-footer full main-layout">
+        <div class="main-footer-inner flex align-center space-between">
+
         <div class="logo">memegen</div>
-        <small>All rights reserved 2024</small>
+        <small>Moshik Alper. All rights reserved 2024</small>
+        <ul class="about-social clean-list">
+            <li><a href="#" class="fa-brands x-twitter"></a></li>
+            <li><a href="#" class="fa-brands facebook"></a></li>
+            <li><a href="#" class="fa-brands github"></a></li>
+        </ul>
+        </div>
     </footer>
 
 

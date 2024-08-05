@@ -21,4 +21,16 @@ function renderGallery() {
 function onImgSelect(id) {
     setImg(id)
     renderMeme()
+    toggleSections()
+}
+
+function toggleSections() {
+    const elGallerySection = document.querySelector('.gallery-section')
+    const elEditorSection = document.querySelector('.editor-section')
+
+    elGallerySection.classList.toggle('hide-section')
+    elEditorSection.classList.toggle('hide-section')
+
+   
+
 }
