@@ -78,10 +78,9 @@ button[type="submit"]:hover {
 /* editor section */
 
 
-
 .editor-section {
-    display: flex;
-    gap: 50px;
+    display: grid;
+    grid-template-columns: 1fr 50px 1fr;
     align-items: center;
     max-width: min-content;
 
@@ -91,8 +90,12 @@ button[type="submit"]:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
+    grid-column: 3;;
     
+}
+
+.canvas-container {
+    grid-column: 1;
 }
 
 .editor-section .editor-tools-section > * {
@@ -122,8 +125,6 @@ button[type="submit"]:hover {
     padding-block: 1em;
     padding-left: 3em;
 }
-
-
 
 /* share and download */
 

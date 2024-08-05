@@ -15,3 +15,6 @@
 @import url(cmps/main-content.css);
 @import url(cmps/main-footer.css);
 
+/* MQ */
+
+@import url(setup/mq.css);
