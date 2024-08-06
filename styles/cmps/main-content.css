@@ -50,8 +50,9 @@ button[type="submit"]:hover {
 }
 
 .world-cloud {
-    background-color: red;
-    border: 10px blanchedalmond solid;
+    border: 0.1em blanchedalmond solid;
+
+    border-radius: 1em;
     text-align: center;
     padding: 0
 }
@@ -62,12 +63,11 @@ button[type="submit"]:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1em;
-    grid-auto-rows: 250px;
     grid-auto-flow: dense;
+    /* grid-auto-rows: 250px; */
+    /* padding: 20px; */
 
-    padding: 10px;
-
-    margin-block-end: 30px;
+    margin-block-end: 1.5em;
 }
 
 .meme-list-item {
@@ -90,7 +90,6 @@ button[type="submit"]:hover {
 .editor-section {
     display: grid;
     grid-auto-flow: row;
-    background-color: green;
 }
 
 .canvas-container {
