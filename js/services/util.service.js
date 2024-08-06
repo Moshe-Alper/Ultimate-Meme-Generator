@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 })
 
+function onToggleMenu() {
+    document.body.classList.toggle('menu-open')
+}
+
 
 function toggleSections() {
     const elGallerySection = document.querySelector('.gallery-section')
@@ -28,3 +32,4 @@ function toggleSections() {
     elGallerySection.classList.toggle('hide-section')
     elEditorSection.classList.toggle('hide-section')
 }
+
