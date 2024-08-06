@@ -5,4 +5,7 @@
     --primary1: #150a05;
     --primary0: #e3e3e3;
     --primary-1: #ffffff;
+
+    /* layout vars */
+    --editor-section-margin: 2em;
 }

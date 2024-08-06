@@ -6,6 +6,7 @@
 .memes-grid-container .hide-section {
     display: none;
 }
+
 /* filter section */
 
 .filter-search-section {
@@ -17,7 +18,7 @@
     display: flex;
     padding: 2px;
     border: 1px solid currentColor;
-    border-radius: 5px;;
+    border-radius: 20px;;
   }
 
 .filter-search-section form input[type="search"] {
@@ -46,6 +47,13 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     opacity: 1;
+}
+
+.world-cloud {
+    background-color: red;
+    border: 10px blanchedalmond solid;
+    text-align: center;
+    padding: 0
 }
 
 /* gallery section */
@@ -81,16 +89,21 @@ button[type="submit"]:hover {
 
 .editor-section {
     display: grid;
-    grid-template-columns: 1fr 50px 1fr;
-
+    grid-auto-flow: row;
+    background-color: green;
 }
 
 .canvas-container {
-    grid-column: 1;
+    grid-row: 1;
+
+    display: grid;
+    justify-content: center;
+
+    margin-block-end: var(--editor-section-margin)
 }
 
 .editor-tools-section {
-    grid-column: 3;
+    grid-row: 3;
 
     display: flex;
     flex-direction: column;

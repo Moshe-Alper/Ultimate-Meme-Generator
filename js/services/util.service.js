@@ -20,10 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 })
 
-function getRandomKeywords() {
-    const shuffled = keywords.sort(() => 0.5 - Math.random())
-    return shuffled.slice(0, 2)
-}
 
 function toggleSections() {
     const elGallerySection = document.querySelector('.gallery-section')
