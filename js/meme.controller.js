@@ -10,6 +10,8 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
 
     addListeners()
+    resizeCanvas()
+
     renderMeme()
     insertMemeDataForm()
 }
@@ -235,4 +237,8 @@ function measureText(line) {
 
 function onSetFont(values) {
     console.log('this.value:', this.value)
+}
+
+function resizeCanvas() {
+    console.log('hello');
 }

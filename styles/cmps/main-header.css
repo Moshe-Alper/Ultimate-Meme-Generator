@@ -9,22 +9,17 @@
     letter-spacing: 0.1em;
 }
 
-.main-header .main-nav-container > ul > *:not(:last-child) {
+.main-header .main-nav > ul > *:not(:last-child) {
     margin-inline-end: 1.05em;
 }
 
-
-.main-nav li {
-    position: relative;
-}
-
-.main-header .main-nav-container a {
+.main-header .main-nav a {
     font-size: 0.95em;
     color: var(--primary-1);
     text-decoration: none;
 }
 
-.main-header .main-nav a{
+.main-header .nav-bar a{
     display: flex;
     width: 3.75em;
     height: 3.25em;
@@ -34,12 +29,21 @@
     transition: box-shadow 0.4s;
 }
 
-.main-header .main-nav a:hover{
+
+.main-header .nav-bar a:hover{
     box-shadow: inset 0 -0.25em 0 var(--primary1);
 }
 
-.main-header .main-nav a.active{
+.main-header .nav-bar a.active{
     color: var(--primary1);
     box-shadow: inset 0 -0.25em 0 var(--primary1);
     cursor: default;
+}
+
+.main-header .btn-toggle-menu {
+    display: none;
+    font-size: 3em;
+    color: var(--primary-1);
+    border: none;
+    background-color: transparent;
 }
