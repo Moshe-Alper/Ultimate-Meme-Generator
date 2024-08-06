@@ -10,8 +10,8 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
 
     addListeners()
-    resizeCanvas()
 
+    // resizeCanvas()
     renderMeme()
     insertMemeDataForm()
 }
@@ -141,6 +141,7 @@ function addListeners() {
     addMouseListeners()
     addTouchListeners()
 
+    window.addEventListener('resize', resizeCanvas)
 }
 
 function addMouseListeners() {
@@ -240,5 +241,22 @@ function onSetFont(values) {
 }
 
 function resizeCanvas() {
-    console.log('hello');
+    const elContainer = document.querySelector('.canvas-container')
+    // console.log('elContainer.clientWidth :', elContainer.clientWidth)
+    // console.log(' elContainer.clientHeight:',  elContainer.clientHeight)
+    gElCanvas.width = elContainer.clientWidth 
+    gElCanvas.height = elContainer.clientHeight
+
+    renderMeme()
+}
+
+function resize() {
+    var elContainer = document.querySelector('.canvas-container')
+    var width = elContainer.offsetWidth
+    var height = elContainer.offsetWidth
+
+    gElCanvas.width = width
+    gElCanvas.height = height 
+    drawImg(meme)
+
 }

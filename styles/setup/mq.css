@@ -55,7 +55,22 @@
         background-color: rgba(0, 0, 0, 0.5);
         pointer-events: auto;
     }
+
+    .canvas-container {
+        margin: auto;
+        width: 100%;
+    }
+    canvas {
+        width: 100%;
+    }
+
+
+    :root {
+        --editor-button-size: 2em;
+    }
+
 }
+
 
 /* SMALL */
 
