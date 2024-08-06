@@ -30,25 +30,25 @@ function renderMeme() {
     let meme = getMemeData()
     renderFrameToLine()
     drawImg(meme)
-    
+
 }
 
 
 function drawImg(meme) {
-    
+
     const elImg = new Image()
     const { selectedImgId, lines } = meme
 
     const imgData = getImageToCanvas(+selectedImgId)
 
 
-    
+
     if (!imgData) return
     elImg.src = imgData.url
     elImg.onload = () => {
         gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        
+
         lines.forEach(line => {
             drawText(line)
         })
@@ -56,12 +56,12 @@ function drawImg(meme) {
 }
 
 function drawText(line) {
-    let {txt, size, fillColor, strokeColor, strokeWidth, x, y} = line
-    
+    let { txt, size, font, fillColor, strokeColor, strokeWidth, x, y } = line
+
     gCtx.lineWidth = strokeWidth
     gCtx.strokeStyle = strokeColor
     gCtx.fillStyle = fillColor
-    gCtx.font = `${size}px Arial`
+    gCtx.font = `${size}px ${font}`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -88,11 +88,11 @@ function onDownloadMeme(elLink) {
     const meme = getMemeData()
     const imgData = getImageToCanvas(+meme.selectedImgId)
     const keywords = imgData.keywords.join('-')
-    
+
 
     const dataUrl = gElCanvas.toDataURL()
     elLink.href = dataUrl
-    
+
     elLink.download = `meme-${keywords}.png`
 }
 
@@ -106,6 +106,14 @@ function onChangeFillColor(fillColor) {
 function onChangeStrokeColor(strokeColor) {
     const memeData = getMemeData()
     memeData.lines[memeData.selectedLineIdx].strokeColor = strokeColor
+    setMemeData({ lines: memeData.lines })
+    renderMeme()
+
+}
+
+function onSetFontFamily(font) {
+    const memeData = getMemeData()
+    memeData.lines[memeData.selectedLineIdx].font = font
     setMemeData({ lines: memeData.lines })
     renderMeme()
 }
@@ -122,9 +130,9 @@ function onAddLIne() {
 
     elTextInput.value = ''
     addLine()
-    
+
     elTextInput = document.querySelector('.meme-text-input')
-    onAddTxt({value: 'Add text here'})
+    onAddTxt({ value: 'Add text here' })
 
     insertMemeDataForm()
     renderMeme()
@@ -132,7 +140,7 @@ function onAddLIne() {
 
 function onSwitchLine() {
     switchLine(),
-    insertMemeDataForm()
+        insertMemeDataForm()
     renderMeme()
 }
 
@@ -142,7 +150,7 @@ function addListeners() {
     addTouchListeners()
 
     window.addEventListener('resize', resizeCanvas)
-    gElCanvas.addEventListener('click', onLineClick) 
+    gElCanvas.addEventListener('click', onLineClick)
 }
 
 function addMouseListeners() {
@@ -161,12 +169,12 @@ function addTouchListeners() {
 
 function onDown(ev) {
     const pos = getEvPos(ev)
-  
+
     if (!isLineClicked(pos)) return
     setLineDrag(true)
     gStartPos = pos
     document.body.style.cursor = 'grabbing'
-  }
+}
 
 
 function onMove(ev) {
@@ -174,7 +182,7 @@ function onMove(ev) {
     if (!line.isDrag) return
 
     const pos = getEvPos(ev)
-  
+
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
     moveLine(line, dx, dy)
@@ -232,20 +240,15 @@ function measureText(line) {
     gCtx.font = `${line.size}px Arial`
     const metrics = gCtx.measureText(line.txt)
     const width = metrics.width
-    const height = line.size 
+    const height = line.size
     return { width, height }
-}
-
-
-function onSetFont(values) {
-    console.log('this.value:', this.value)
 }
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     // console.log('elContainer.clientWidth :', elContainer.clientWidth)
     // console.log(' elContainer.clientHeight:',  elContainer.clientHeight)
-    gElCanvas.width = elContainer.clientWidth 
+    gElCanvas.width = elContainer.clientWidth
     gElCanvas.height = elContainer.clientHeight
 
     renderMeme()
@@ -257,7 +260,7 @@ function resize() {
     var height = elContainer.offsetWidth
 
     gElCanvas.width = width
-    gElCanvas.height = height 
+    gElCanvas.height = height
     drawImg(meme)
 }
 

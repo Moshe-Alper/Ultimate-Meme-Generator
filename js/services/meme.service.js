@@ -31,7 +31,6 @@ function setLineTxt(txt) {
 }
 
 
-
 function getImageToCanvas(idx) {
     let img = getImageData().find((img) => img.id === idx)
     return img
@@ -72,7 +71,6 @@ function moveLine(line, dx, dy) {
 
 }
 
-
 function _createLine() {
 
     yOffset += 50
@@ -80,6 +78,7 @@ function _createLine() {
     let line = {
         txt: 'Add text here',
         size: 50,
+        font: 'arial',
         fillColor: '#ffffff',
         strokeColor: '#000000',
         strokeWidth: 2,
@@ -89,6 +88,8 @@ function _createLine() {
     }
     return line
 }
+
+
 
 
 
