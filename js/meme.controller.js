@@ -92,7 +92,7 @@ function onDownloadMeme(elLink) {
 
     const dataUrl = gElCanvas.toDataURL()
     elLink.href = dataUrl
-    // Set a name for the downloaded file
+    
     elLink.download = `meme-${keywords}.png`
 }
 
@@ -142,6 +142,7 @@ function addListeners() {
     addTouchListeners()
 
     window.addEventListener('resize', resizeCanvas)
+    gElCanvas.addEventListener('click', onLineClick) 
 }
 
 function addMouseListeners() {
@@ -258,5 +259,35 @@ function resize() {
     gElCanvas.width = width
     gElCanvas.height = height 
     drawImg(meme)
+}
 
+function onLineClick(ev) {
+    const pos = getEvPos(ev)
+    const memeData = getMemeData()
+    const lines = memeData.lines
+
+    const clickedLine = lines.find(line => {
+        const { width, height } = measureText(line)
+        const padding = 5
+
+        const left = line.x - width / 2 - padding
+        const right = line.x + width / 2 + padding
+        const top = line.y - height / 2 - padding
+        const bottom = line.y + height / 2 + padding
+
+        return pos.x >= left && pos.x <= right && pos.y >= top && pos.y <= bottom
+    })
+
+    if (clickedLine) {
+        const lineIdx = lines.indexOf(clickedLine)
+        setSelectedLineIdx(lineIdx)
+        insertMemeDataForm()
+        renderMeme()
+    }
+}
+
+function setSelectedLineIdx(idx) {
+    const memeData = getMemeData()
+    memeData.selectedLineIdx = idx
+    setMemeData(memeData)
 }
