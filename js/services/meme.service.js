@@ -53,7 +53,21 @@ function addLine() {
 function switchLine() {
     const { lines, selectedLineIdx } = gMemeData   
     gMemeData.selectedLineIdx = (selectedLineIdx + 1) % lines.length
+}
 
+function removeLine() {
+    const { lines, selectedLineIdx } = gMemeData   
+    if (lines.length === 0) return
+    
+    lines.splice(selectedLineIdx, 1)
+    
+    if (selectedLineIdx >= lines.length) {
+        gMemeData.selectedLineIdx = lines.length - 1
+    }
+
+    if (lines.length === 0) {
+        gMemeData.selectedLineIdx = 0
+    }
 }
 
 function isLineClicked(pos) {
@@ -64,8 +78,12 @@ function isLineClicked(pos) {
 }
 
 function setLineDrag(isDrag) {
-    gMemeData.lines[gMemeData.selectedLineIdx].isDrag = isDrag
+    const { lines, selectedLineIdx } = gMemeData
+    if (lines.length <= 0) return
+
+    if (selectedLineIdx < lines.length) lines[selectedLineIdx].isDrag = isDrag
 }
+
 
 function moveLine(line, dx, dy) {
     line.x += dx

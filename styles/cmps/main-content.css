@@ -135,8 +135,9 @@ canvas {
     padding-left: 3em;
 }
 
-.editor-section select {
+.editor-section .font-family-select {
     width: 11em;
+    text-transform: capitalize;
 }
 
 

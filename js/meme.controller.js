@@ -211,6 +211,12 @@ function onSwitchLine() {
     renderMeme()
 }
 
+function onRemoveLine() {
+    removeLine()
+    insertMemeDataForm()
+    renderMeme()
+}
+
 function onDown(ev) {
     const pos = getEvPos(ev)
 
@@ -268,8 +274,11 @@ function onLineClick(ev) {
 // Utility Functions
 
 function insertMemeDataForm() {
+    
     const { selectedImgId, selectedLineIdx, lines } = getMemeData()
-
+    
+    if (lines.length <= 0) return
+    
     document.querySelector('input[name="fill-color"]').value = lines[selectedLineIdx].fillColor
     document.querySelector('input[name="stroke-color"]').value = lines[selectedLineIdx].strokeColor
     document.querySelector('input[name="meme-text"]').value = lines[selectedLineIdx].txt
