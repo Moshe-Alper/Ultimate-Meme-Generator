@@ -63,6 +63,8 @@
     .canvas-container {
         margin: auto;
         width: 100%;
+        margin-block-end: 1em;
+
     }
 
     canvas {
@@ -94,6 +96,15 @@
         flex-direction: column;
     }
 
+    .canvas-container {
+        margin: auto;
+        width: 85%;
+        margin-block-end: 1em;
+    }
+    
+    canvas {
+        width: 100%;
+    }
 }
 
 /* LARGE */
@@ -112,14 +123,14 @@
     .editor-section {
         flex-direction: row;
     }
-    
+
     .canvas-container {
         margin: auto;
-        width: 100%;
-    }
-    
-    canvas {
         width: 80%;
     }
-    
+
+    canvas {
+        width: 100%;
+    }
+
 }
