@@ -8,16 +8,6 @@ function onToggleMenu() {
 }
 
 
-function toggleSections() {
-    const elGallerySection = document.querySelector('.gallery-section')
-    const elEditorSection = document.querySelector('.editor-section')
-
-    elGallerySection.classList.toggle('hide-section')
-    elEditorSection.classList.toggle('hide-section')
-}
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.palette').addEventListener('click', function () {
         document.getElementById('fillColor').click()

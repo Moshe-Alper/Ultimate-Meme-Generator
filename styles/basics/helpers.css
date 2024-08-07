@@ -32,3 +32,5 @@ input[type="color"] {
     position: absolute;
     z-index: -1; /* Place it behind other elements */
 }
+
+

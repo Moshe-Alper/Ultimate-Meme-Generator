@@ -56,22 +56,24 @@
         pointer-events: auto;
     }
 
+    .editor-section {
+        flex-direction: column;
+    }
+
     .canvas-container {
         margin: auto;
         width: 100%;
     }
-    
+
     canvas {
         width: 100%;
     }
-
 
     :root {
         --editor-button-size: 2em;
     }
 
 }
-
 
 /* SMALL */
 
@@ -86,6 +88,10 @@
 @media (min-width: 880px) {
     .main-layout {
         grid-template-columns: minmax(50px, 1fr) minmax(auto, 780px) minmax(50px, 1fr);
+    }
+
+    .editor-section {
+        flex-direction: column;
     }
 
 }
@@ -104,16 +110,16 @@
     }
 
     .editor-section {
-        grid-auto-columns: 1fr 50px 1fr;
+        flex-direction: row;
     }
-
-    .editor-tools-section {
-        grid-row: 1 /-1;
-        grid-column: 3;
-    }
-
+    
     .canvas-container {
-        margin-block-end: 0;
+        margin: auto;
+        width: 100%;
     }
-
+    
+    canvas {
+        width: 80%;
+    }
+    
 }

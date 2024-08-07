@@ -84,27 +84,14 @@ button[type="submit"]:hover {
 
 
 /* editor section */
-
 .editor-section {
-    display: grid;
-    grid-auto-flow: row;
-    row-gap: 1em;
+    display: flex;
+    align-items: center;
 }
 
-.canvas-container {
-    margin-right: 10px;
-}
-
-canvas {
-    border: 1px solid black;
-}
 
 .editor-tools-section {
-    grid-row: 3;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
+    display: grid   
 }
 
 .editor-section .editor-tools-section > * {
@@ -114,6 +101,7 @@ canvas {
 
 .editor-section .btn {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 

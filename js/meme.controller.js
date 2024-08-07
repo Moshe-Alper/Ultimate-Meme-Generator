@@ -11,7 +11,7 @@ function onInit() {
 
     addListeners()
 
-    // resizeCanvas()
+    resizeCanvas()
     renderMeme()
     insertMemeDataForm()
 }
@@ -39,28 +39,16 @@ function addTouchListeners() {
 }
 
 // Canvas Operations
-
 function resizeCanvas() {
-    const elContainer = document.querySelector('.canvas-container')
-    // console.log('elContainer.clientWidth :', elContainer.clientWidth)
-    // console.log(' elContainer.clientHeight:',  elContainer.clientHeight)
-    gElCanvas.width = elContainer.clientWidth
-    gElCanvas.height = elContainer.clientHeight
-
-    renderMeme()
-}
-
-function resize() {
     var elContainer = document.querySelector('.canvas-container')
     var width = elContainer.offsetWidth
     var height = elContainer.offsetWidth
 
     gElCanvas.width = width
     gElCanvas.height = height
-    drawImg(meme)
-}
+    renderMeme()
 
-// Meme Rendering
+}
 
 function renderMeme() {
     let meme = getMemeData()
@@ -292,8 +280,6 @@ function setSelectedLineIdx(idx) {
     const memeData = getMemeData()
     memeData.selectedLineIdx = idx
     setMemeData(memeData)
-    
-
 }
 
 function getEvPos(ev) {

@@ -72,6 +72,7 @@ function removeLine() {
 
 function isLineClicked(pos) {
     let currLine = gMemeData.lines[gMemeData.selectedLineIdx]
+
     const { x, y } = currLine
     const distance = Math.sqrt((x - pos.x) ** 2 + (y - pos.y) ** 2)
     return distance <= currLine.size + currLine.txt.length
@@ -105,7 +106,7 @@ function _createLine() {
         align: 'center',
         x: 270,
         y: 50 + yOffset,
-        isDrag: false
+        isDrag: false,
     }
     return line
 }

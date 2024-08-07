@@ -42,7 +42,9 @@ function toggleSections() {
     if (elActiveLink) {
         elActiveLink.classList.toggle('active')
     }
+    resizeCanvas()
 }
+
 
 function setActiveLink() {
     const allLinks = document.querySelectorAll('.nav-bar a')

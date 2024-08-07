@@ -27,7 +27,8 @@
         </div>
     </header>
 
-    <main class="main-content full">
+    <main class="main-content full container">
+
         <section class="filter-search-section main-layout">
             <div class="filter-search-inner">
 
@@ -39,13 +40,13 @@
             </div>
         </section>
 
-        <div class="memes-grid-container main-layout">
-
+        <div class="memes-grid-container main-layout container">
+        
             <section class="gallery-section"></section>
             
             <section class="editor-section hide-section">
                 <div class="canvas-container">
-                    <canvas width="500" height="500"></canvas>
+                    <canvas tabindex="1" width="500" height="500"></canvas>
                 </div>
 
                 <section class="editor-tools-section" >
@@ -86,7 +87,12 @@
                         
                     </div>
 
-                    <button onclick="onOpenShareModal()" class="share-btn">Share</button>
+                    
+                    <div class="share-container flex align-center space-between">
+                        <button onclick="onOpenShareModal()" class="share-btn">Share</button>
+                        <button onclick="onOpenShareModal()" class="share-btn">Download</button>
+                        <button onclick="onOpenShareModal()" class="share-btn">Save</button>
+                    </div>
 
 
                 </section>
