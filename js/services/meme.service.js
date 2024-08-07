@@ -2,7 +2,6 @@
 
 let yOffset = 0
 
-
 let gMemeData = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -13,6 +12,8 @@ let gMemeData = {
 
 let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
+// Meme Data Management
+
 function setMemeData(data) {
     gMemeData = {...gMemeData, ...data}
 }
@@ -22,7 +23,7 @@ function getMemeData() {
 }
 
 function getLine() {
-    return  gMemeData.lines[gMemeData.selectedLineIdx]
+    return gMemeData.lines[gMemeData.selectedLineIdx]
 }
 
 function setLineTxt(txt) {
@@ -30,15 +31,18 @@ function setLineTxt(txt) {
     setMemeData({ lines: gMemeData.lines })
 }
 
+function setImg(id) {
+    gMemeData.selectedImgId = id
+}
+
+// Image Handling
 
 function getImageToCanvas(idx) {
     let img = getImageData().find((img) => img.id === idx)
     return img
 }
 
-function setImg(id) {
-    gMemeData.selectedImgId = id
-}
+// Line Management
 
 function addLine() {
     const newLine = _createLine()
@@ -49,9 +53,7 @@ function addLine() {
 function switchLine() {
     const { lines, selectedLineIdx } = gMemeData   
     gMemeData.selectedLineIdx = (selectedLineIdx + 1) % lines.length
-
 }
-
 
 function isLineClicked(pos) {
     let currLine = gMemeData.lines[gMemeData.selectedLineIdx]
@@ -62,17 +64,16 @@ function isLineClicked(pos) {
 
 function setLineDrag(isDrag) {
     gMemeData.lines[gMemeData.selectedLineIdx].isDrag = isDrag
-  }
-
+}
 
 function moveLine(line, dx, dy) {
     line.x += dx
     line.y += dy
-
 }
 
-function _createLine() {
+// Factory Function
 
+function _createLine() {
     yOffset += 50
 
     let line = {
@@ -82,14 +83,10 @@ function _createLine() {
         fillColor: '#ffffff',
         strokeColor: '#000000',
         strokeWidth: 2,
+        align: 'center',
         x: 270,
         y: 50 + yOffset,
         isDrag: false
     }
     return line
 }
-
-
-
-
-

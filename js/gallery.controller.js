@@ -6,8 +6,6 @@ function renderGallery() {
     const images = getImageData()
     const elImgGallery = document.querySelector('.gallery-section')
 
-
-
     const strHTMLs = images.map(image => {
         const { id, keywords, url } = image
         return `
@@ -28,10 +26,8 @@ function onToggleToGallery() {
     const elActiveLink = document.querySelector('.active')
 
     if (elActiveLink && elActiveLink.classList.contains('active')) return
-    
 
     toggleSections()
-
     setActiveLink()
 }
 
