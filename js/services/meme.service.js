@@ -53,6 +53,7 @@ function addLine() {
 function switchLine() {
     const { lines, selectedLineIdx } = gMemeData   
     gMemeData.selectedLineIdx = (selectedLineIdx + 1) % lines.length
+
 }
 
 function isLineClicked(pos) {

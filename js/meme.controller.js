@@ -168,6 +168,7 @@ function onSetFontFamily(font) {
     memeData.lines[memeData.selectedLineIdx].font = font
     setMemeData({ lines: memeData.lines })
     renderMeme()
+    
 }
 
 function onSetAlignment(ev, align) {
@@ -205,7 +206,7 @@ function onAddLIne() {
 }
 
 function onSwitchLine() {
-    switchLine(),
+    switchLine()
     insertMemeDataForm()
     renderMeme()
 }
@@ -271,13 +272,19 @@ function insertMemeDataForm() {
 
     document.querySelector('input[name="fill-color"]').value = lines[selectedLineIdx].fillColor
     document.querySelector('input[name="stroke-color"]').value = lines[selectedLineIdx].strokeColor
-    document.querySelector('input[name="meme-text"]').value = ''
+    document.querySelector('input[name="meme-text"]').value = lines[selectedLineIdx].txt
+    document.querySelector('select[name="selected-font"]').value = lines[selectedLineIdx].font
+    
+
+    // document.querySelector('select[name="selected-font"]').value = lines[selectedLineIdx].font
 }
 
 function setSelectedLineIdx(idx) {
     const memeData = getMemeData()
     memeData.selectedLineIdx = idx
     setMemeData(memeData)
+    
+
 }
 
 function getEvPos(ev) {
