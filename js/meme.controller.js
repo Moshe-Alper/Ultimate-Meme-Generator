@@ -104,9 +104,9 @@ function renderFrameToLine() {
 
     if (!line) return
 
-    measureText(line)
+    getLineSize(line)
 
-    const { width, height } = measureText(line)
+    const { width, height } = getLineSize(line)
     const padding = 5
 
     gCtx.beginPath()
@@ -240,7 +240,7 @@ function onLineClick(ev) {
     const lines = memeData.lines
 
     const clickedLine = lines.find(line => {
-        const { width, height } = measureText(line)
+        const { width, height } = getLineSize(line)
         const padding = 5
 
         const left = line.x - width / 2 - padding
@@ -273,7 +273,6 @@ function insertMemeDataForm() {
     document.querySelector('select[name="selected-font"]').value = lines[selectedLineIdx].font
     
 
-    // document.querySelector('select[name="selected-font"]').value = lines[selectedLineIdx].font
 }
 
 function setSelectedLineIdx(idx) {
@@ -302,10 +301,4 @@ function getEvPos(ev) {
     return pos
 }
 
-function measureText(line) {
-    gCtx.font = `${line.size}px ${line.font}`
-    const metrics = gCtx.measureText(line.txt)
-    const width = metrics.width
-    const height = line.size
-    return { width, height }
-}
+

@@ -84,6 +84,16 @@ button[type="submit"]:hover {
 
 
 /* editor section */
+
+.canvas-container {
+    margin: auto;
+    width: 100%;
+}
+
+canvas {
+    width: 80%;
+}
+
 .editor-section {
     display: flex;
     align-items: center;
