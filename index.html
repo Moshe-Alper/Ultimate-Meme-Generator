@@ -29,78 +29,92 @@
 
     <main class="main-content full container">
 
-        <section class="filter-search-section main-layout">
-            <div class="filter-search-inner">
-
-                <form>
-                    <input type="search" placeholder="Search by keyword">
-                    <button type="submit">Search</button>
-                </form>
-                <div class="world-cloud">funny comics dogs drinks books more...</div>
-            </div>
-        </section>
-
         <div class="memes-grid-container main-layout container">
-        
-            <section class="gallery-section"></section>
             
+                <div class="filter-search-field flex align-center justify-center">
+                <input list="keywords" name="meme-type" id="meme-type" placeholder="Search by keyword" onchange="onSearchMeme(this)">
+                <datalist id="keywords">>
+                    <option value="Funny">
+                    <option value="Comics">
+                    <option value="Dogs">
+                    <option value="Drinks">
+                    <option value="Books">
+                </datalist>
+            </div>
+
+            <section class="gallery-section">
+             </section>
+
             <section class="editor-section hide-section">
                 <div class="canvas-container">
                     <canvas width="500" height="500"></canvas>
                 </div>
 
-                <section class="editor-tools-section" >
+                <section class="editor-tools-section">
 
-                    <input type="text" oninput="onAddTxt(this)" id="memeText" name="meme-text" class="meme-text-input" placeholder="Add text here">
-                    <div class="text-edit flex align-center">
-                        <button class="btn rounded text-editor" onclick="onSwitchLine()"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt="switch line"></button>
-                        <button class="btn rounded text-editor" onclick="onAddLIne()"><img src="icons/add.png" alt="add line"></button>
-                        <button class="btn rounded text-editor" onclick="onRemoveLine()"><img src="icons/trash.png" alt="delete"></button>
+                    <input type="text" oninput="onAddTxt(this)" id="memeText" name="meme-text" class="meme-text-input"
+                        placeholder="Add text here">
+                    <div class="text-edit flex align-center justify-center">
+                        <button class="btn rounded text-editor" onclick="onSwitchLine()"><img
+                                src="icons/up-and-down-opposite-double-arrows-side-by-side.png"
+                                alt="switch line"></button>
+                        <button class="btn rounded text-editor" onclick="onAddLIne()"><img src="icons/add.png"
+                                alt="add line"></button>
+                        <button class="btn rounded text-editor" onclick="onRemoveLine()"><img src="icons/trash.png"
+                                alt="delete"></button>
                     </div>
 
-
-                    <div class="align-change-text flex align-center">
-                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(1)"><img src="icons/increase font - icon.png" alt="increase font"></button>
-                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(-1)"><img src="icons/decrease font - icon.png" alt="decrease font"></button>
-                        <button class="btn rounded text-editor" onclick="onSetAlignment('left')"><img src="icons/align-to-left.png" alt="align left"></button>
-                        <button class="btn rounded text-editor" onclick="onSetAlignment('center')"><img src="icons/center-text-alignment.png" alt="align center"></button>
-                        <button class="btn rounded text-editor" onclick="onSetAlignment('right')"><img src="icons/align-to-right.png" alt="align-to-right"></button>
+                    <div class="align-change-text flex align-center justify-center">
+                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(1)"><img
+                                src="icons/increase font - icon.png" alt="increase font"></button>
+                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(-1)"><img
+                                src="icons/decrease font - icon.png" alt="decrease font"></button>
+                        <button class="btn rounded text-editor" onclick="onSetAlignment('left')"><img
+                                src="icons/align-to-left.png" alt="align left"></button>
+                        <button class="btn rounded text-editor" onclick="onSetAlignment('center')"><img
+                                src="icons/center-text-alignment.png" alt="align center"></button>
+                        <button class="btn rounded text-editor" onclick="onSetAlignment('right')"><img
+                                src="icons/align-to-right.png" alt="align-to-right"></button>
                     </div>
 
-                    <div class="advanced-edit flex align-center">
-                            <select class="font-family-select" list="fonts" value="arial" name="selected-font" onchange="onSetFontFamily(value)">
-                                <option value="arial">arial</option>
-                                <option value="impact">impact</option>
-                                <option value="verdana">verdana</option>
-                                <option value="trebuchet ms">trebuchet ms</option>
-                                <option value="poppins">poppins</option>
+                    <div class="advanced-edit flex align-center justify-center">
+                        <select class="font-family-select" list="fonts" value="arial" name="selected-font"
+                            onchange="onSetFontFamily(value)">
+                            <option value="arial">arial</option>
+                            <option value="impact">impact</option>
+                            <option value="verdana">verdana</option>
+                            <option value="trebuchet ms">trebuchet ms</option>
+                            <option value="poppins">poppins</option>
                         </select>
-                        
+
                         <label>
-                            <button class="fa-solid palette btn rounded text-editor"><img src="icons/paint-board-and-brush.png" alt="text-color"></button>
-                            <input oninput="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color" value="#ffffff" />
+                            <button class="fa-solid palette btn rounded text-editor"><img
+                                    src="icons/paint-board-and-brush.png" alt="text-color"></button>
+                            <input oninput="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color"
+                                value="#ffffff" />
 
                         </label>
-                        
-                        <button class="fa-solid stroke btn rounded text-editor"><img src="icons/text stroke.png" alt="text stroke"></button>
-                        <input oninput="onChangeStrokeColor(value)" type="color" id="color-line" name="stroke-color" value="#000000" />
-                        
+
+                        <button class="fa-solid stroke btn rounded text-editor"><img src="icons/text stroke.png"
+                                alt="text stroke"></button>
+                        <input oninput="onChangeStrokeColor(value)" type="color" id="color-line" name="stroke-color"
+                            value="#000000" />
+
                     </div>
 
-                    
-                    <div class="share-container flex align-center space-between">
+
+                    <div class="share-container flex align-center space-between justify-center">
                         <button onclick="onOpenShareModal()" class="share-btn">Share</button>
                         <button class="share-btn">Download</button>
                         <button class="share-btn">Save</button>
                     </div>
-
 
                 </section>
 
             </section>
         </div>
 
-      </main>
+    </main>
 
     <dialog class="share-modal">
         <button type="button" class="btn rounded" onclick="onCloseShareModal()">X</button>
@@ -112,14 +126,14 @@
     <footer class="main-footer full main-layout">
         <div class="main-footer-inner flex align-center space-between">
 
-        <div class="logo">memegen</div>
-        <small>Moshik Alper. All rights reserved 2024</small>
-        <ul class="footer-social clean-list">
-            <li><a href="#"><img src="icons/facebook-logo.png" alt="facebook-link"></a></li>
-            <li><a href="#"><img src="icons/linkedin-logo.png" alt="linkedin-link"></a></li>
-            <li><a href="#"><img src="icons/github-logo.png" alt="github-link"></a></li>
-     
-        </ul>
+            <div class="logo">memegen</div>
+            <small>Moshik Alper. All rights reserved 2024</small>
+            <ul class="footer-social clean-list">
+                <li><a href="#"><img src="icons/facebook-logo.png" alt="facebook-link"></a></li>
+                <li><a href="#"><img src="icons/linkedin-logo.png" alt="linkedin-link"></a></li>
+                <li><a href="#"><img src="icons/github-logo.png" alt="github-link"></a></li>
+
+            </ul>
         </div>
     </footer>
 

@@ -8,9 +8,14 @@
     justify-content: space-between;
 }
 
+.flex.justify-center {
+    justify-content: center;
+}
+
 .flex.align-center {
     align-items: center;
 }
+
 
 /* list helpers */
 

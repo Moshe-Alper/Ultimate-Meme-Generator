@@ -8,7 +8,7 @@ function onToggleMenu() {
 }
 
 
-document.addEventListener('DOMContentLoaded', function () {
+function addColorPickerListeners() {
     document.querySelector('.palette').addEventListener('click', function () {
         document.getElementById('fillColor').click()
     })
@@ -24,5 +24,4 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('color-line').addEventListener('input', function () {
         onChangeStrokeColor(this.value)
     })
-})
-
+}
