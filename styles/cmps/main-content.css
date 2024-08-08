@@ -85,6 +85,14 @@ button[type="submit"]:hover {
 
 /* editor section */
 
+.editor-section {
+    display: flex;
+    align-items: center;
+    gap: 5em;
+    max-width: 1020px;
+    
+}
+
 .canvas-container {
     margin: auto;
     width: 100%;
@@ -95,17 +103,13 @@ button[type="submit"]:hover {
 }
 
 canvas {
-    width: 80%;
-}
-
-.editor-section {
-    display: flex;
-    align-items: center;
+    width: 100%;
 }
 
 
 .editor-tools-section {
-    display: grid   
+    display: grid;
+    padding: 1em;
 }
 
 .editor-section .editor-tools-section > * {

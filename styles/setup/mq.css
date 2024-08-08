@@ -58,6 +58,7 @@
 
     .editor-section {
         flex-direction: column;
+        gap: .05em;
     }
 
     .canvas-container {

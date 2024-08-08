@@ -37,12 +37,13 @@ function toggleSections() {
 
     elGallerySection.classList.toggle('hide-section')
     elEditorSection.classList.toggle('hide-section')
+    resizeCanvas()
 
     const elActiveLink = document.querySelector('.active')
     if (elActiveLink) {
         elActiveLink.classList.toggle('active')
     }
-    resizeCanvas()
+    
 }
 
 

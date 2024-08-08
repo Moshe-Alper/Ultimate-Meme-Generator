@@ -104,15 +104,26 @@ function renderFrameToLine() {
 
     if (!line) return
 
-    getLineSize(line)
-
     const { width, height } = getLineSize(line)
     const padding = 5
+    let posX
+
+   switch (line.align) {
+        case 'left':
+            posX = line.x - padding
+            break;
+        case 'center':
+            posX = line.x - width / 2 - padding
+            break;
+        case 'right':
+            posX = line.x - width - padding
+            break;
+    }
 
     gCtx.beginPath()
     gCtx.strokeStyle = 'black'
-    gCtx.lineWidth = 4
-    gCtx.strokeRect(line.x - width / 2 - padding, line.y - height / 2 - padding, width + padding * 2, height + padding * 2)
+    gCtx.lineWidth = 3
+    gCtx.strokeRect(posX, line.y - height / 2 - padding, width + padding * 2, height + padding * 2)
 }
 
 function onOpenShareModal() {
@@ -159,15 +170,12 @@ function onSetFontFamily(font) {
     
 }
 
-function onSetAlignment(ev, align) {
+function onSetAlignment(align) {
     const memeData = getMemeData()
     const line = memeData.lines[memeData.selectedLineIdx]
     
     if (!line) return
     line.align = align
-    
-    const pos = getEvPos(ev)
-    // console.log('pos:', pos)
     
     setMemeData({ lines: memeData.lines })
     renderMeme()
@@ -271,8 +279,6 @@ function insertMemeDataForm() {
     document.querySelector('input[name="stroke-color"]').value = lines[selectedLineIdx].strokeColor
     document.querySelector('input[name="meme-text"]').value = lines[selectedLineIdx].txt
     document.querySelector('select[name="selected-font"]').value = lines[selectedLineIdx].font
-    
-
 }
 
 function setSelectedLineIdx(idx) {

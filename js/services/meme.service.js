@@ -92,7 +92,6 @@ function removeLine() {
     }
 }
 
-
 function getLineSize(line) {
     gCtx.font = `${line.size}px ${line.font}`
     const metrics = gCtx.measureText(line.txt)
