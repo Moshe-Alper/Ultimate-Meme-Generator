@@ -2,7 +2,6 @@
 
 const keywords = ['funny', 'comics', 'dogs', 'drinks', 'books']
 
-
 let gImgs = []
 
 for (let i = 1; i <= 18; i++) {
@@ -12,6 +11,8 @@ for (let i = 1; i <= 18; i++) {
         keywords: getRandomKeywords()
     })
 }
+
+// var gKeywordSearchCountMap = {'funny': 12,'comics': 16, 'baby': 2}
 
 function getRandomKeywords() {
     const shuffled = keywords.sort(() => 0.5 - Math.random())

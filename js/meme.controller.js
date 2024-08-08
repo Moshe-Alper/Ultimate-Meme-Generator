@@ -308,4 +308,8 @@ function getEvPos(ev) {
     return pos
 }
 
+// Random Meme
 
+function onSelectRandomMeme() {
+    console.log('hello')
+}

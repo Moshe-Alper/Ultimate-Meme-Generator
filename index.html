@@ -28,19 +28,31 @@
     </header>
 
     <main class="main-content full container">
-
         <div class="memes-grid-container main-layout container">
             
-                <div class="filter-search-field flex align-center justify-center">
+                    <!-- <div class="random-container flex justify-right" > 
+                        <button class="random-meme-btn btn rounded" onclick="onSelectRandomMeme()">I'm Flexible</button>
+                    </div> -->
+            
+            <div class="filter-search-field flex align-center justify-center">
                 <input list="keywords" name="meme-type" id="meme-type" placeholder="Search by keyword" onchange="onSearchMeme(this)">
                 <datalist id="keywords">>
                     <option value="Funny">
-                    <option value="Comics">
-                    <option value="Dogs">
-                    <option value="Drinks">
-                    <option value="Books">
-                </datalist>
+                        <option value="Comics">
+                            <option value="Dogs">
+                                <option value="Drinks">
+                                    <option value="Books">
+                                    </datalist>
             </div>
+
+
+                <!-- <ul class="key-words-container clean-list flex justify-center">
+                    <li>funny</li>
+                    <li>comics</li>
+                    <li>dogs</li>
+                    <li>drinks</li>
+                    <li>books</li>
+                </ul> -->
 
             <section class="gallery-section">
              </section>
@@ -105,8 +117,8 @@
 
                     <div class="share-container flex align-center space-between justify-center">
                         <button onclick="onOpenShareModal()" class="share-btn">Share</button>
-                        <button class="share-btn">Download</button>
-                        <button class="share-btn">Save</button>
+                        <!-- <button class="share-btn">Download</button>
+                        <button class="share-btn">Save</button> -->
                     </div>
 
                 </section>
@@ -127,7 +139,7 @@
         <div class="main-footer-inner flex align-center space-between">
 
             <div class="logo">memegen</div>
-            <small>Moshik Alper. All rights reserved 2024</small>
+            <small>All rights reserved Moshik Alper 2024</small>
             <ul class="footer-social clean-list">
                 <li><a href="#"><img src="icons/facebook-logo.png" alt="facebook-link"></a></li>
                 <li><a href="#"><img src="icons/linkedin-logo.png" alt="linkedin-link"></a></li>
@@ -139,8 +151,9 @@
 
 
     <script src="https://kit.fontawesome.com/2fcb60592b.js" crossorigin="anonymous"></script>
-
+    
     <script src="js/services/util.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/meme.controller.js"></script>
     <script src="js/services/gallery.service.js"></script>

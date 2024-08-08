@@ -20,6 +20,11 @@
     border-bottom: 1px solid black;
 }
 
+.key-words-container {
+    gap: 2em;
+    margin-block-end: 1em;
+}
+
 /* gallery section */
 
 .gallery-section {
@@ -43,6 +48,10 @@
     max-height: 100%;
     object-fit: cover;
     overflow: hidden;
+}
+
+.random-meme-btn {
+    color: var(--secondary-base);
 }
 
 
@@ -129,3 +138,4 @@ select {
     color: var(--primary-1);
     background-color: var(--secondary-base);
 }
+
