@@ -10,10 +10,14 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    addListeners()
     
+    addListeners()
     renderGallery()
     addColorPickerListeners()
+
+    toggleSection('gallery-section')
+    setActiveLink('gallery-section')
+    
     resizeCanvas()
     renderMeme()
     insertMemeDataForm()
@@ -314,9 +318,6 @@ function getEvPos(ev) {
 
 // Random Meme
 
-
-
-
 function onSelectRandomMeme() {
     console.log('hello')
 }
@@ -324,24 +325,12 @@ function onSelectRandomMeme() {
 // Save Meme
 
 function onSavedInit() {
-    const elGallerySection = document.querySelector('.gallery-section')
-    const elEditorSection = document.querySelector('.editor-section')
-    const elSavedSection = document.querySelector('.saved-section')
-
-    elGallerySection.classList.add('hide-section')
-    elEditorSection.classList.add('hide-section')
-    elSavedSection.classList.toggle('hide-section')
-
-    const elActiveLink = document.querySelector('.active')
-    if (elActiveLink) {
-        elActiveLink.classList.toggle('active')
-    }
-    
+    toggleSection('saved-section')
     renderSavedMemes()
 }
 
 function onSaveMeme() {   
-    const meme = getMemeData();
+    const meme = getMemeData()
     const imgDataUrl = gElCanvas.toDataURL()
 
     const memeData = {
@@ -358,7 +347,7 @@ function renderSavedMemes() {
     const elSavedSection = document.querySelector('.saved-section')
 
     const savedMeme = loadFromStorage(STORAGE_KEY)
-    console.log('savedMeme:', savedMeme)
+    // console.log('savedMeme:', savedMeme)
 
     const strHTML = `
     <article>
@@ -368,3 +357,6 @@ function renderSavedMemes() {
 
     elSavedSection.innerHTML += strHTML
 }
+
+
+

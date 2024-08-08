@@ -17,11 +17,10 @@
 
         <div class="main-header-inner flex space-between align-center">
             <div class="logo">memegen</div>
-            <nav class="main-nav">
-                <ul class="nav-bar flex clean-list">
-                    <li><a href="#" class="active" onclick="onToggleToGallery()">Gallery</a></li>
-                    <li><a href="#" onclick="onSavedInit()">Saved</a></li>
-                </ul>
+            <ul class="nav-bar flex clean-list">
+                <li><a href="#gallery-section" onclick="toggleSection('gallery-section')" class="active">Gallery</a></li>
+                <li><a href="#saved-section" onclick="onSavedInit()">Saved</a></li>
+            </ul>
             </nav>
             <button class="btn-toggle-menu" onclick="onToggleMenu()">≡</button>
         </div>

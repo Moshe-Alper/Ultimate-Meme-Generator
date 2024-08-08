@@ -5,7 +5,7 @@ function renderGallery(images = []) {
     images = getImageData()
     const elImgGallery = document.querySelector('.gallery-section')
 
-    elImgGallery.innerHTML = '';
+    elImgGallery.innerHTML = ''
 
     if (!images.length) {
         elImgGallery.innerHTML = `<p>No matching images were found...</p>`
@@ -65,31 +65,47 @@ function updateGallery(filteredImgs) {
 }
 
 
+// toggle sections
+
 function toggleSections() {
-    const elGallerySection = document.querySelector('.gallery-section')
-    const elEditorSection = document.querySelector('.editor-section')
-
-    elGallerySection.classList.toggle('hide-section')
-    elEditorSection.classList.toggle('hide-section')
-
-    const elFilterSearchField = document.querySelector('.filter-search-field')
-    elFilterSearchField.classList.toggle('hide-section')
-
+    const elSections = document.querySelector('.gallery-section').classList.contains('hide-section') ? 'gallery-section' : 'editor-section'
+    toggleSection(elSections)
     resizeCanvas()
-
-    const elActiveLink = document.querySelector('.active')
-    if (elActiveLink) {
-        elActiveLink.classList.toggle('active')
-    }
-    
 }
 
-function setActiveLink() {
-    const allLinks = document.querySelectorAll('.nav-bar a')
-    allLinks.forEach(link => link.classList.remove('active'))
+function toggleSection(displaySection) {
+    const elSections = document.querySelectorAll('.gallery-section, .editor-section, .saved-section')
+    elSections.forEach(section => {
+        if (section.classList.contains(displaySection)) {
+            section.classList.remove('hide-section')
+        } else {
+            section.classList.add('hide-section')
+        }
+    })
 
-    const galleryLink = document.querySelector('.nav-bar a[href="#"]:first-of-type')
-    if (galleryLink) {
-        galleryLink.classList.add('active')
+    const elFilteredField = document.querySelector('.filter-search-field')
+    if (displaySection === 'gallery-section') {
+        elFilteredField.classList.remove('hide-section')
+    } else {
+        elFilteredField.classList.add('hide-section')
     }
+
+    const elActiveLink = document.querySelector('.nav-bar .active')
+    if (elActiveLink) {
+        elActiveLink.classList.remove('active')
+    }
+
+    const newActiveLink = document.querySelector(`.nav-bar a[href="#${displaySection}"]`)
+    if (newActiveLink) {
+        newActiveLink.classList.add('active')
+    }
+}
+
+function setActiveLink(sectionId) {
+    const elLinks = document.querySelectorAll('.nav-bar a')
+    elLinks.forEach(link => link.classList.remove('active'))
+
+    const activeLink = document.querySelector(`.nav-bar a[href="#${sectionId}"]`)
+    if (activeLink) activeLink.classList.add('active')
+
 }
