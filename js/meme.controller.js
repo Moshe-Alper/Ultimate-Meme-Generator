@@ -3,6 +3,8 @@
 let gElCanvas
 let gCtx
 let gStartPos
+const STORAGE_KEY = 'savedMeme'
+
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 function onInit() {
@@ -308,8 +310,61 @@ function getEvPos(ev) {
     return pos
 }
 
+// Bonus
+
 // Random Meme
+
+
+
 
 function onSelectRandomMeme() {
     console.log('hello')
+}
+
+// Save Meme
+
+function onSavedInit() {
+    const elGallerySection = document.querySelector('.gallery-section')
+    const elEditorSection = document.querySelector('.editor-section')
+    const elSavedSection = document.querySelector('.saved-section')
+
+    elGallerySection.classList.add('hide-section')
+    elEditorSection.classList.add('hide-section')
+    elSavedSection.classList.toggle('hide-section')
+
+    const elActiveLink = document.querySelector('.active')
+    if (elActiveLink) {
+        elActiveLink.classList.toggle('active')
+    }
+    
+    renderSavedMemes()
+}
+
+function onSaveMeme() {   
+    const meme = getMemeData();
+    const imgDataUrl = gElCanvas.toDataURL()
+
+    const memeData = {
+        ...meme,
+        dataUrl: imgDataUrl
+    }
+
+    saveToStorage(STORAGE_KEY, memeData)
+    console.log('saved:', memeData)
+}
+
+
+function renderSavedMemes() {
+    const elSavedSection = document.querySelector('.saved-section')
+
+    const savedMeme = loadFromStorage(STORAGE_KEY)
+    console.log('savedMeme:', savedMeme)
+
+    const strHTML = `
+    <article>
+        <img src="${savedMeme.dataUrl}" alt="saved-meme" class="meme-saved-item">
+    </article>
+`
+
+    elSavedSection.innerHTML += strHTML
 }

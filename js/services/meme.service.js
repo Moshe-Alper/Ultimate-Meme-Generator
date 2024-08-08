@@ -1,5 +1,6 @@
 'use strict'
 
+
 let gMemeData = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -12,7 +13,7 @@ let gMemeData = {
             strokeColor: '#000000',
             strokeWidth: 2,
             align: 'center',
-            x: 350,
+            x: 300,
             y: 50,
             isDrag: false,
         },
@@ -25,8 +26,8 @@ let gMemeData = {
             strokeColor: '#000000',
             strokeWidth: 2,
             align: 'center',
-            x: 350,
-            y: 550,
+            x: 300,
+            y: 450,
             isDrag: false,
         }
     ]
@@ -56,6 +57,7 @@ function setLineTxt(txt) {
 function setImg(id) {
     gMemeData.selectedImgId = id
 }
+
 
 // Image Handling
 
@@ -144,3 +146,4 @@ function _createLine() {
     }
     return line
 }
+

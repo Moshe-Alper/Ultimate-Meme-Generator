@@ -20,7 +20,7 @@
             <nav class="main-nav">
                 <ul class="nav-bar flex clean-list">
                     <li><a href="#" class="active" onclick="onToggleToGallery()">Gallery</a></li>
-                    <li><a href="#" class="nav-about">Saved</a></li>
+                    <li><a href="#" onclick="onSavedInit()">Saved</a></li>
                 </ul>
             </nav>
             <button class="btn-toggle-menu" onclick="onToggleMenu()">≡</button>
@@ -29,24 +29,25 @@
 
     <main class="main-content full container">
         <div class="memes-grid-container main-layout container">
-            
-                    <!-- <div class="random-container flex justify-right" > 
+
+            <!-- <div class="random-container flex justify-right" > 
                         <button class="random-meme-btn btn rounded" onclick="onSelectRandomMeme()">I'm Flexible</button>
                     </div> -->
-            
+
             <div class="filter-search-field flex align-center justify-center">
-                <input list="keywords" name="meme-type" id="meme-type" placeholder="Search by keyword" onchange="onSearchMeme(this)">
+                <input list="keywords" name="meme-type" id="meme-type" placeholder="Search by keyword"
+                    onchange="onSearchMeme(this)">
                 <datalist id="keywords">>
                     <option value="Funny">
-                        <option value="Comics">
-                            <option value="Dogs">
-                                <option value="Drinks">
-                                    <option value="Books">
-                                    </datalist>
+                    <option value="Comics">
+                    <option value="Dogs">
+                    <option value="Drinks">
+                    <option value="Books">
+                </datalist>
             </div>
 
 
-                <!-- <ul class="key-words-container clean-list flex justify-center">
+            <!-- <ul class="key-words-container clean-list flex justify-center">
                     <li>funny</li>
                     <li>comics</li>
                     <li>dogs</li>
@@ -55,7 +56,7 @@
                 </ul> -->
 
             <section class="gallery-section">
-             </section>
+            </section>
 
             <section class="editor-section hide-section">
                 <div class="canvas-container">
@@ -116,23 +117,26 @@
 
 
                     <div class="share-container flex align-center space-between justify-center">
-                        <button onclick="onOpenShareModal()" class="share-btn">Share</button>
-                        <!-- <button class="share-btn">Download</button>
-                        <button class="share-btn">Save</button> -->
+                        <button class="share-btn" onclick="onSaveMeme()">Save</button>
+                        <a href="#" class="share-btn" onclick="onDownloadMeme(this)" download="my-img.jpg">Download</a>
                     </div>
-
                 </section>
 
+
             </section>
+            <section class="saved-section hide-section">
+                <h2>Saved Memes</h2>
+            </section>
+
         </div>
 
     </main>
 
-    <dialog class="share-modal">
+    <!-- <dialog class="share-modal">
         <button type="button" class="btn rounded" onclick="onCloseShareModal()">X</button>
         <button class="share-btn btn rounded">Share</button>
-        <a href="#" class="share-btn btn rounded" onclick="onDownloadMeme(this)" download="my-img.jpg">Download</a>
-    </dialog>
+        
+    </dialog> -->
 
 
     <footer class="main-footer full main-layout">
@@ -150,8 +154,7 @@
     </footer>
 
 
-    <script src="https://kit.fontawesome.com/2fcb60592b.js" crossorigin="anonymous"></script>
-    
+
     <script src="js/services/util.service.js"></script>
     <script src="js/services/storage.service.js"></script>
     <script src="js/services/meme.service.js"></script>

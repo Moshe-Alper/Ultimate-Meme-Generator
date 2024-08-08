@@ -120,6 +120,36 @@ select {
 }
 
 
+/* saved memes section */
+
+.saved-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1em;
+    grid-auto-flow: dense;
+    /* grid-auto-rows: 250px; */
+    /* padding: 20px; */
+
+    margin-block-end: 1.5em;
+}
+
+.saved-section {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1em;
+    grid-auto-flow: dense;
+    /* grid-auto-rows: 250px; */
+    /* padding: 20px; */
+
+    margin-block-end: 1.5em;
+}
+
+.saved-section h2 {
+    justify-self: center;
+    color: var(--secondary-base);
+    grid-column: 1 / -1;
+}
+
 /* share and download */
 
 .share-modal {
