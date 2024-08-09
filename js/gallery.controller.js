@@ -64,7 +64,6 @@ function updateGallery(filteredImgs) {
     elImgGallery.innerHTML = strHTMLs.join('')
 }
 
-
 // toggle sections
 
 function toggleSections() {
@@ -83,7 +82,7 @@ function toggleSection(displaySection) {
         }
     })
 
-    const elFilteredField = document.querySelector('.filter-search-field')
+    const elFilteredField = document.querySelector('.gallery-options')
     if (displaySection === 'gallery-section') {
         elFilteredField.classList.remove('hide-section')
     } else {
@@ -108,4 +107,16 @@ function setActiveLink(sectionId) {
     const activeLink = document.querySelector(`.nav-bar a[href="#${sectionId}"]`)
     if (activeLink) activeLink.classList.add('active')
 
+}
+
+// random meme from gallery
+
+function onSetRandomMeme() {
+    const id = getRandomIntInclusive(1, 18)
+    const randomText = makeLorem( getRandomInt(3, 5))
+    setImg(id)
+    removeLine()
+    setLineTxt(randomText)
+    renderMeme()
+    toggleSections()
 }

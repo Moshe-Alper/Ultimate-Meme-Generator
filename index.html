@@ -31,21 +31,23 @@
     <main class="main-content full container">
         <div class="memes-grid-container main-layout container">
 
-            <!-- <div class="random-container flex justify-right" > 
-                        <button class="random-meme-btn btn rounded" onclick="onSelectRandomMeme()">I'm Flexible</button>
-                    </div> -->
-
-            <div class="filter-search-field flex align-center justify-center">
-                <input list="keywords" name="meme-type" id="meme-type" placeholder="Search by keyword"
-                    onchange="onSearchMeme(this)">
-                <datalist id="keywords">>
-                    <option value="Funny">
-                    <option value="Comics">
-                    <option value="Dogs">
-                    <option value="Drinks">
-                    <option value="Books">
-                </datalist>
+<div class="gallery-options">
+    <div class="random-container flex justify-right" > 
+                <button class="random-meme-btn btn rounded" onclick="onSetRandomMeme()">I'm Flexible</button>
             </div>
+
+    <div class="filter-search-field flex align-center justify-center">
+        <input list="keywords" name="meme-type" id="meme-type" placeholder="Search by keyword"
+            onchange="onSearchMeme(this)">
+        <datalist id="keywords">>
+            <option value="Funny">
+            <option value="Comics">
+            <option value="Dogs">
+            <option value="Drinks">
+            <option value="Books">
+        </datalist>
+    </div>
+</div>
 
 
             <!-- <ul class="key-words-container clean-list flex justify-center">

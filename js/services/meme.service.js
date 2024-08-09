@@ -8,11 +8,11 @@ let gMemeData = {
     lines: [
         {
             txt: 'Add text here',
-            size: 50,
+            size: 30,
             font: 'arial',
             fillColor: '#ffffff',
             strokeColor: '#000000',
-            strokeWidth: 2,
+            strokeWidth: 1,
             align: 'center',
             x: 300,
             y: 50,
@@ -21,11 +21,11 @@ let gMemeData = {
 
         {
             txt: 'Add text here',
-            size: 50,
+            size: 30,
             font: 'arial',
             fillColor: '#ffffff',
             strokeColor: '#000000',
-            strokeWidth: 2,
+            strokeWidth: 1,
             align: 'center',
             x: 300,
             y: 450,
@@ -141,11 +141,11 @@ function _createLine() {
 
     let line = {
         txt: 'Add text here',
-        size: 40,
+        size: 30,
         font: 'arial',
         fillColor: '#ffffff',
         strokeColor: '#000000',
-        strokeWidth: 2,
+        strokeWidth: 1,
         align: 'center',
         x: 350,
         y: newY,
