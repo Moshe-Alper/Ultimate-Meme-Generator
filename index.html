@@ -118,10 +118,15 @@
 
                     </div>
 
-
                     <div class="share-container flex align-center space-between justify-center">
                         <button class="share-btn" onclick="onSaveMeme()">Save</button>
                         <a href="#" class="share-btn" onclick="onDownloadMeme(this)" download="my-img.jpg">Download</a>
+                    </div>
+
+                    <div class="stickers-container flex">
+                        <img src="/img/stickers/sticker_1.png" alt="sticker" draggable="true">
+                        <img src="/img/stickers/sticker_2.png" alt="sticker" draggable="true">
+                        <img src="/img/stickers/sticker_3.png" alt="sticker" draggable="true">
                     </div>
                 </section>
 
@@ -156,16 +161,20 @@
                 <li><a href="#"><img src="icons/github-logo.png" alt="github-link"></a></li>
 
             </ul>
+            
         </div>
     </footer>
 
 
     <script src="js/services/util.service.js"></script>
     <script src="js/services/storage.service.js"></script>
+
+    
+    <script src="js/services/sticker.service.js"></script>
+    <script src="js/sticker.controller.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/meme.controller.js"></script>
     <script src="js/services/gallery.service.js"></script>
     <script src="js/gallery.controller.js"></script>
 </body>
 
-</html>

@@ -169,3 +169,15 @@ select {
     background-color: var(--secondary-base);
 }
 
+/* Stickers */
+
+.stickers-container {
+    background-color: var(--primary-1);
+    grid-column: 1 / -1;
+    height: 7em;
+    border-radius: 1em;
+    overflow: auto; 
+    cursor: move;  
+}
+
+
