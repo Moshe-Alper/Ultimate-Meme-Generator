@@ -10,14 +10,15 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    
+
     addListeners()
     renderGallery()
+    renderStickerContainer()
     addColorPickerListeners()
 
     toggleSection('gallery-section')
     setActiveLink('gallery-section')
-    
+
     resizeCanvas()
     renderMeme()
     insertMemeDataForm()
@@ -64,7 +65,6 @@ function renderMeme() {
 }
 
 function drawImg(meme) {
-
     const elImg = new Image()
     const { selectedImgId, lines } = meme
 
@@ -115,7 +115,7 @@ function renderFrameToLine() {
     const padding = 5
     let posX
 
-   switch (line.align) {
+    switch (line.align) {
         case 'left':
             posX = line.x - padding
             break;
@@ -168,22 +168,21 @@ function onChangeStrokeColor(strokeColor) {
 
 }
 
-
 function onSetFontFamily(font) {
     const memeData = getMemeData()
     memeData.lines[memeData.selectedLineIdx].font = font
     setMemeData({ lines: memeData.lines })
     renderMeme()
-    
+
 }
 
 function onSetAlignment(align) {
     const memeData = getMemeData()
     const line = memeData.lines[memeData.selectedLineIdx]
-    
+
     if (!line) return
     line.align = align
-    
+
     setMemeData({ lines: memeData.lines })
     renderMeme()
 }
@@ -227,26 +226,45 @@ function onDown(ev) {
     setLineDrag(true)
     gStartPos = pos
     document.body.style.cursor = 'grabbing'
+
+    if (isStickerClicked(pos)) {
+        setStickerDrag(true)
+        gStartPos = pos
+        document.body.style.cursor = 'grabbing'
+    }
+
 }
 
 function onMove(ev) {
-    const line = getLine()
-    if (!line.isDrag) return
-
     const pos = getEvPos(ev)
 
-    const dx = pos.x - gStartPos.x
-    const dy = pos.y - gStartPos.y
-    moveLine(line, dx, dy)
+    // Handle line movement
+    const line = getLine()
+    if (line.isDrag) {
+        const dx = pos.x - gStartPos.x
+        const dy = pos.y - gStartPos.y
+        moveLine(line, dx, dy)
+        gStartPos = pos
+        renderMeme() // Redraw the meme to reflect the line's new position
+    }
 
-    gStartPos = pos
-
-    renderMeme()
+    const sticker = getSelectedSticker()
+    // console.log('sticker:', sticker)
+    if (sticker && sticker.isDrag) {
+        const dx = pos.x - gStartPos.x
+        const dy = pos.y - gStartPos.y
+        moveSticker(dx, dy)
+        gStartPos = pos
+        renderMeme() // Redraw the meme to reflect the sticker's new position
+    }
 }
 
 function onUp() {
     setLineDrag(false)
     document.body.style.cursor = 'grab'
+
+    // setStickerDrag(false)
+    // document.body.style.cursor = 'grab'
 }
 
 function onLineClick(ev) {
@@ -284,11 +302,11 @@ function flashMsg(msg) {
 }
 
 function insertMemeDataForm() {
-    
+
     const { selectedImgId, selectedLineIdx, lines } = getMemeData()
-    
+
     if (lines.length <= 0) return
-    
+
     document.querySelector('input[name="fill-color"]').value = lines[selectedLineIdx].fillColor
     document.querySelector('input[name="stroke-color"]').value = lines[selectedLineIdx].strokeColor
     document.querySelector('input[name="meme-text"]').value = lines[selectedLineIdx].txt

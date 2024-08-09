@@ -31,7 +31,8 @@ let gMemeData = {
             y: 450,
             isDrag: false,
         }
-    ]
+    ],
+    stickers: []
 }
 
 let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
