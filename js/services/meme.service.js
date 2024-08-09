@@ -1,5 +1,6 @@
 'use strict'
 
+let gMemesSaved = []
 
 let gMemeData = {
     selectedImgId: 1,
@@ -56,6 +57,12 @@ function setLineTxt(txt) {
 
 function setImg(id) {
     gMemeData.selectedImgId = id
+}
+
+function saveMeme() {
+    let gElCanvas = document.querySelector('canvas')
+    gMemesSaved.push(gElCanvas.toDataURL())
+    saveToStorage('Saved-Memes', gMemesSaved)
 }
 
 
@@ -126,7 +133,7 @@ function _createLine() {
     let firstLineY = 50
     const offset = 50
 
-    
+
     if (gMemeData.lines.length > 0) {
         firstLineY = gMemeData.lines[0].y
     }

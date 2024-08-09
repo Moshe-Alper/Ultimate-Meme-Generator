@@ -3,7 +3,7 @@
 let gElCanvas
 let gCtx
 let gStartPos
-const STORAGE_KEY = 'savedMeme'
+const STORAGE_KEY = 'Saved-Memes'
 
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
@@ -276,6 +276,13 @@ function onLineClick(ev) {
 
 // Utility Functions
 
+function flashMsg(msg) {
+    const el = document.querySelector('.user-msg')
+    el.innerText = msg
+    el.classList.add('open')
+    setTimeout(() => el.classList.remove('open'), 2000)
+}
+
 function insertMemeDataForm() {
     
     const { selectedImgId, selectedLineIdx, lines } = getMemeData()
@@ -329,33 +336,25 @@ function onSavedInit() {
     renderSavedMemes()
 }
 
-function onSaveMeme() {   
-    const meme = getMemeData()
-    const imgDataUrl = gElCanvas.toDataURL()
-
-    const memeData = {
-        ...meme,
-        dataUrl: imgDataUrl
-    }
-
-    saveToStorage(STORAGE_KEY, memeData)
-    console.log('saved:', memeData)
+function onSaveMeme() {
+    flashMsg('Meme Saved')
+    saveMeme()
 }
-
 
 function renderSavedMemes() {
     const elSavedSection = document.querySelector('.saved-section')
+    if (!gMemesSaved.length) return
+    let strHTML = ''
 
-    const savedMeme = loadFromStorage(STORAGE_KEY)
-    // console.log('savedMeme:', savedMeme)
 
-    const strHTML = `
-    <article>
-        <img src="${savedMeme.dataUrl}" alt="saved-meme" class="meme-saved-item">
-    </article>
-`
+    gMemesSaved.forEach(meme => {
+        strHTML += `
+        <article>
+            <img src="${meme}" alt="saved-meme" class="meme-saved-item">
+        </article>`
+    })
 
-    elSavedSection.innerHTML += strHTML
+    elSavedSection.innerHTML = strHTML
 }
 
 
