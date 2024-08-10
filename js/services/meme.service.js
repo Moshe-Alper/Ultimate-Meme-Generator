@@ -130,6 +130,11 @@ function moveLine(line, dx, dy) {
     line.y += dy
 }
 
+function downloadImg(elLink) {
+    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    elLink.href = imgContent
+}
+
 // Factory Function
 
 function _createLine() {
