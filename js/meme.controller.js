@@ -3,6 +3,7 @@
 let gElCanvas
 let gCtx
 let gStartPos
+let gIsFixedWith = true
 const STORAGE_KEY = 'Saved-Memes'
 
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
@@ -72,29 +73,32 @@ function drawImg(meme) {
 
     const imgData = getImageToCanvas(+selectedImgId)
 
-    
     if (!imgData) return
     elImg.src = imgData.url
     elImg.onload = () => {
         gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
-        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
+        if (gIsFixedWith) gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+        else gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
+
+        // lines and stickers
         lines.forEach(line => {
             drawText(line)
+            
+            if (meme.stickers && meme.stickers.length > 0) {
+                meme.stickers.forEach(sticker => {
+                    const img = new Image()
+                    img.src = sticker.url
+        
+                    img.onload = () => {
+                        gCtx.drawImage(img, sticker.pos.x, sticker.pos.y, sticker.size, sticker.size)
+                    }
+                })
+            }
         })
 
     }
     
-    if (meme.stickers && meme.stickers.length > 0) {
-        meme.stickers.forEach(sticker => {
-            const img = new Image()
-            img.src = sticker.url
-
-            img.onload = () => {
-                gCtx.drawImage(img, sticker.pos.x, sticker.pos.y, sticker.size, sticker.size)
-            }
-        })
-    }
 }
 
 
@@ -412,5 +416,19 @@ function renderSavedMemes() {
     elSavedSection.innerHTML = strHTML
 }
 
+// Aspect ratio
 
+  
+function onFixedImgSize() {
+    gIsFixedWith = true
+    document.getElementById('fixed').checked = false 
+    let meme = getMemeData()
+    drawImg(meme)
+}
 
+function onNaturalImgSize() {
+    gIsFixedWith = false
+    document.getElementById('natural').checked = false 
+    let meme = getMemeData()
+    drawImg(meme)
+}

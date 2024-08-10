@@ -6,7 +6,7 @@ let gImgs = []
 
 function createImgs() {
     gImgs = []
-    for (let i = 1; i <= 18; i++) {
+    for (let i = 1; i <= 24; i++) {
         gImgs.push({
             id: i,
             url: `meme-imgs/${i}.jpg`,

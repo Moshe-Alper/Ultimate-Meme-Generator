@@ -67,6 +67,7 @@
 
                 <section class="editor-tools-section">
 
+                    
                     <input type="text" oninput="onAddTxt(this)" id="memeText" name="meme-text" class="meme-text-input"
                         placeholder="Add text here">
                     <div class="text-edit flex align-center justify-center">
@@ -126,7 +127,21 @@
                     </div>
 
                     <div class="stickers-container flex"></div>
+
+                    <fieldset class="aspect-ratio-container">
+                        <legend>Fixed or Natural image?</legend>
                     
+                        <div>
+                            <input type="checkbox" id="fixed" name="fixed" checked onclick="onFixedImgSize()" />
+                            <label for="fixed">Fixed</label>
+                        </div>
+                    
+                        <div>
+                            <input type="checkbox" id="natural" name="natural" onclick="onNaturalImgSize()" />
+                            <label for="natural">Natural</label>
+                        </div>
+                    </fieldset>
+
                 </section>
 
 
