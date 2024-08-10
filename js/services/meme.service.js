@@ -15,6 +15,7 @@ let gMemeData = {
             align: 'center',
             x: 250,
             y: 50,
+            rotation: 0,
             isDrag: false,
         },
 
@@ -28,6 +29,7 @@ let gMemeData = {
             align: 'center',
             x: 250,
             y: 450,
+            rotation: 0,
             isDrag: false,
         }
     ],
@@ -68,7 +70,6 @@ function getKeywordSearchCountMap(){
     return gKeywordSearchCountMap
 }
 
-
 // Image Handling
 
 function getImageToCanvas(idx) {
@@ -87,6 +88,17 @@ function addLine() {
 function switchLine() {
     const { lines, selectedLineIdx } = gMemeData
     gMemeData.selectedLineIdx = (selectedLineIdx + 1) % lines.length
+}
+
+function rotateLine() {
+    const { lines, selectedLineIdx } = gMemeData
+    const line = lines[selectedLineIdx]
+    
+    if (line) {
+        line.rotation = (line.rotation + 15) % 360;
+        setMemeData({ lines: gMemeData.lines })
+        renderMeme()
+    }
 }
 
 function removeLine() {
@@ -157,6 +169,7 @@ function _createLine() {
         align: 'center',
         x: 250,
         y: newY,
+        rotation: 0,
         isDrag: false,
     }
     return line

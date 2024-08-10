@@ -33,6 +33,7 @@ function addListeners() {
 
     window.addEventListener('resize', resizeCanvas)
     gElCanvas.addEventListener('click', onLineClick)
+    gElCanvas.addEventListener('keydown', onKeyDown)
 }
 
 function addMouseListeners() {
@@ -98,17 +99,24 @@ function drawImg(meme) {
 
 
 function drawText(line) {
-    let { txt, size, font, fillColor, strokeColor, strokeWidth, align, x, y } = line
+    let { txt, size, font, fillColor, strokeColor, strokeWidth, align, x, y, rotation } = line
 
-    gCtx.lineWidth = strokeWidth
-    gCtx.strokeStyle = strokeColor
-    gCtx.fillStyle = fillColor
+    gCtx.save()
+    gCtx.translate(x, y)
+    gCtx.rotate(rotation * Math.PI / 180) //rotation
+
+    // Set text properties
     gCtx.font = `${size}px ${font}`
     gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
+    gCtx.lineWidth = strokeWidth
+    gCtx.strokeStyle = strokeColor
+    gCtx.fillStyle = fillColor
 
-    gCtx.fillText(txt, x, y)
-    gCtx.strokeText(txt, x, y)
+    gCtx.fillText(txt, 0, 0)
+    gCtx.strokeText(txt, 0, 0)
+
+    gCtx.restore() // restore rotation
 
     renderFrameToLine()
 }
@@ -228,6 +236,12 @@ function onSwitchLine() {
     renderMeme()
 }
 
+function onRotateLine() {
+    rotateLine()
+    insertMemeDataForm()
+    renderMeme()
+}
+
 function onRemoveLine() {
     removeLine()
     insertMemeDataForm()
@@ -263,8 +277,9 @@ function onMove(ev) {
         const dy = pos.y - gStartPos.y
         moveLine(line, dx, dy)
         gStartPos = pos
-        renderMeme() // Redraw the meme to reflect the line's new position
-    }
+        renderMeme() 
+        
+}
     
     const sticker = getSelectedSticker()
     if (sticker && sticker.isDrag) {
@@ -272,7 +287,7 @@ function onMove(ev) {
         const dy = pos.y - gStartPos.y
         moveSticker(dx, dy)
         gStartPos = pos
-        renderMeme() // Redraw the meme to reflect the sticker's new position
+        renderMeme() 
     }
 }
 
@@ -285,6 +300,10 @@ function onUp() {
 
 }
 
+function onKeyDown(ev) {
+    console.log('ev:', ev)
+}
+
 function onLineClick(ev) {
     const pos = getEvPos(ev)
     const memeData = getMemeData()
@@ -293,12 +312,12 @@ function onLineClick(ev) {
     const clickedLine = lines.find(line => {
         const { width, height } = getLineSize(line)
         const padding = 5
-
+        
         const left = line.x - width / 2 - padding
         const right = line.x + width / 2 + padding
         const top = line.y - height / 2 - padding
         const bottom = line.y + height / 2 + padding
-
+        
         return pos.x >= left && pos.x <= right && pos.y >= top && pos.y <= bottom
     })
 
