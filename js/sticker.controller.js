@@ -1,9 +1,9 @@
 const stickerUrls = [
-    '/img/stickers/sticker_1.png',
-    '/img/stickers/sticker_2.png',
-    '/img/stickers/sticker_3.png',
-    '/img/stickers/sticker_4.png',
-    '/img/stickers/sticker_5.png',
+    'img/stickers/sticker_1.png',
+    'img/stickers/sticker_2.png',
+    'img/stickers/sticker_3.png',
+    'img/stickers/sticker_4.png',
+    'img/stickers/sticker_5.png',
 ]
 
 function renderStickerContainer() {
