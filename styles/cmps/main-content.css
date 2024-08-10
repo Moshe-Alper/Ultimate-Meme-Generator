@@ -57,6 +57,17 @@
     overflow: hidden;
 }
 
+.file-input-label {
+    background-color: var(--primary-1);
+    border-radius: 1em;
+    align-items: center;
+    justify-content: center;
+    border: 0.1px solid black;
+}
+
+
+
+
 .random-meme-btn {
     color: var(--secondary-base);
 }
@@ -67,9 +78,7 @@
 .editor-section {
     display: flex;
     align-items: center;
-    gap: 5em;
     max-width: 1020px;
-
 }
 
 .canvas-container {

@@ -42,3 +42,40 @@ function doUploadImg(imgDataUrl, onSuccess) {
 }
 
 
+// UPLOAD
+
+
+function onImgInput(ev) {
+    loadImageFromInput(ev, renderImg)
+    toggleSections()
+    resizeCanvas()
+
+}
+
+function loadImageFromInput(ev, onImageReady) {
+    const reader = new FileReader()
+    reader.onload = function (event) {
+        let elImg = new Image()
+        elImg.src = event.target.result
+
+        // Store the uploaded image's URL in gMemeData
+        gMemeData.imgUrl = elImg.src
+        gMemeData.selectedImgId = makeId() 
+        
+
+        // Add the new image to the gallery
+        addImageToGallery(elImg.src)
+
+        elImg.onload = () => onImageReady(elImg)
+    };
+    reader.readAsDataURL(ev.target.files[0])
+}
+
+function renderImg(elImg) {
+    // Draw the img on the canvas
+    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+}
+
+function getImgByUrl(url) {
+    return gImgs.find(img => img.url === url);
+}

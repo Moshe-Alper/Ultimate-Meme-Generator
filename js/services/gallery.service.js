@@ -35,6 +35,14 @@ function getImageData(filterBy = {}) {
 }
 
 
+function addImageToGallery(imgUrl, keywords) {
+    gImgs.push({
+        id: makeId(),
+        url: imgUrl,
+        keywords: keywords || getRandomKeywords() 
+    })
+}
+
 function _filterImgs(images, filterBy) {
     return images.filter(image => 
         image.keywords.some(keyword => keyword.toLowerCase().includes(filterBy.keywords.toLowerCase()))

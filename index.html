@@ -16,7 +16,7 @@
     <header class="main-header full main-layout">
 
         <div class="main-header-inner flex space-between align-center">
-            <div class="logo">memegen</div>
+            <div class="logo"><a href="#gallery-section" onclick="toggleSection('gallery-section')">memegen</a></div>
             <nav class="main-nav">
             <ul class="nav-bar flex clean-list">
                 <li><a href="#gallery-section" onclick="toggleSection('gallery-section')" class="active">Gallery</a></li>
@@ -53,8 +53,12 @@
 
 
 
-            <section class="gallery-section">
-            </section>
+<section class="gallery-section">
+
+    <label for="file-upload-input" class="file-input-label flex align-center">
+        <input type="file" id="file-upload-input" class="file-input btn" name="image" onchange="onImgInput(event)" accept="image/*" />
+    </label></section>
+    
 
             <section class="editor-section hide-section">
                 <div class="canvas-container">
@@ -146,7 +150,7 @@
     <footer class="main-footer full main-layout">
         <div class="main-footer-inner flex align-center space-between">
 
-            <div class="logo">memegen</div>
+            <div class="logo"><a href="#gallery-section" onclick="toggleSection('gallery-section')">memegen</a></div>
             <small>All rights reserved Moshik Alper 2024</small>
             <ul class="footer-social clean-list">
                 <li><a href="#"><img src="icons/facebook-logo.png" alt="facebook-link"></a></li>
@@ -166,9 +170,9 @@
     <script src="js/sticker.controller.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/meme.controller.js"></script>
+    <script src="js/services/upload.service.js"></script>
     <script src="js/services/gallery.service.js"></script>
     <script src="js/gallery.controller.js"></script>
 
-    <script src="js/sharing-on-facebook.js"></script>
 </body>
 

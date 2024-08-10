@@ -6,7 +6,7 @@ function renderGallery(images = []) {
     images = getImageData()
     const elImgGallery = document.querySelector('.gallery-section')
 
-    elImgGallery.innerHTML = ''
+    // elImgGallery.innerHTML = ''
 
     if (!images.length) {
         elImgGallery.innerHTML = `<p>No matching images were found...</p>`
@@ -93,7 +93,6 @@ function onKeywordPressed(keyword) {
     const filteredImgs = getImageData({ keywords: keyword })
     updateGallery(filteredImgs)
 }
-
 
 function setKeywordsCount(keywords) {
     gKeywords = keywords

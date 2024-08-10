@@ -71,6 +71,7 @@ function drawImg(meme) {
 
     const imgData = getImageToCanvas(+selectedImgId)
 
+    
     if (!imgData) return
     elImg.src = imgData.url
     elImg.onload = () => {
