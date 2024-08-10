@@ -22,19 +22,25 @@ function renderStickerContainer() {
 }
 
 function onStickerSelect(event, elSticker) {
-    const stickerUrl = elSticker.src;
-    // the event if need to drag from the options menu
-    const x = gElCanvas.width / 2;
-    const y = gElCanvas.height / 2
+    const stickerUrl = elSticker.src
+    const img = new Image()
+    img.src = stickerUrl
+    
+    img.onload = () => {
+        const stickerSize = 200
+        
+        const x = (gElCanvas.width - stickerSize) / 2
+        const y = (gElCanvas.height - stickerSize) / 2
 
-    const position = { x, y }
+        const position = { x, y }
 
-    createSticker(stickerUrl, position)
-    addStickerToMeme(stickerUrl, position)
+        createSticker(stickerUrl, position, stickerSize)
+        addStickerToMeme(stickerUrl, position, stickerSize)
+    }
 }
 
 function addStickerToMeme(stickerUrl, position) {
-    const memeData = getMemeData();
+    const memeData = getMemeData()
     
     if (!memeData.stickers) {
         memeData.stickers = []
@@ -47,22 +53,10 @@ function addStickerToMeme(stickerUrl, position) {
     }
 
     memeData.stickers.push(sticker)
-    drawSticker()
+    renderMeme()
 }
 
-function drawSticker() {
-    let meme = getMemeData()
-    if (meme.stickers && meme.stickers.length > 0) {
-        meme.stickers.forEach(sticker => {
-            const img = new Image()
-            img.src = sticker.url
 
-            img.onload = () => {
-                gCtx.drawImage(img, sticker.pos.x, sticker.pos.y, sticker.size, sticker.size);
-            }
-        })
-    }
-}
 
 
 

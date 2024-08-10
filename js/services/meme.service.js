@@ -1,7 +1,6 @@
 'use strict'
 
 let gMemesSaved = []
-
 let gMemeData = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -14,7 +13,7 @@ let gMemeData = {
             strokeColor: '#000000',
             strokeWidth: 1,
             align: 'center',
-            x: 300,
+            x: 250,
             y: 50,
             isDrag: false,
         },
@@ -27,11 +26,12 @@ let gMemeData = {
             strokeColor: '#000000',
             strokeWidth: 1,
             align: 'center',
-            x: 300,
+            x: 250,
             y: 450,
             isDrag: false,
         }
     ],
+    selectedStickerIdx: null,
     stickers: []
 }
 
@@ -148,7 +148,7 @@ function _createLine() {
         strokeColor: '#000000',
         strokeWidth: 1,
         align: 'center',
-        x: 350,
+        x: 250,
         y: newY,
         isDrag: false,
     }

@@ -1,10 +1,8 @@
 'use strict'
 
 let gStickersOnCanvas = []
-let gSelectedSticker = null
-const center = {  }
 
-function createSticker(url, pos = { x: 100, y: 300 }, size = 20) {
+function createSticker(url, pos = { x: 50, y: 300 }, size = 20) {
     const sticker = {
         pos,
         url,
@@ -12,7 +10,7 @@ function createSticker(url, pos = { x: 100, y: 300 }, size = 20) {
         isDrag: false
     }
     gStickersOnCanvas.push(sticker)
-    gSelectedSticker = sticker
+    gMemeData.selectedStickerIdx = gStickersOnCanvas.length - 1
 }
 
 function getStickersOnCanvas() {
@@ -20,8 +18,32 @@ function getStickersOnCanvas() {
 }
 
 function getSelectedSticker() {
-    return gSelectedSticker
+    if (gMemeData.selectedStickerIdx === null) return null
+    return gStickersOnCanvas[gMemeData.selectedStickerIdx]
+}
+
+function isStickerClicked(clickedPos) {
+    const selectedSticker = getSelectedSticker()
+    if (!selectedSticker) return false
+
+    const { pos, size } = selectedSticker
+
+    const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
+    
+    return distance <= size / 2
 }
     
+function setStickerDrag(isDrag) {
+    const selectedSticker = getSelectedSticker()
+    if (!selectedSticker) return 
+    selectedSticker.isDrag = isDrag
+}
+
+function moveSticker(dx, dy) {
+    const selectedSticker = getSelectedSticker()
+    selectedSticker.pos.x += dx
+    selectedSticker.pos.y += dy
+}
+
 
 

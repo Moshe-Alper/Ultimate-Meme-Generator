@@ -15,10 +15,10 @@ function onInit() {
     renderGallery()
     renderStickerContainer()
     addColorPickerListeners()
-
+    
     toggleSection('gallery-section')
     setActiveLink('gallery-section')
-
+    
     resizeCanvas()
     renderMeme()
     insertMemeDataForm()
@@ -79,8 +79,21 @@ function drawImg(meme) {
         lines.forEach(line => {
             drawText(line)
         })
+
+    }
+    
+    if (meme.stickers && meme.stickers.length > 0) {
+        meme.stickers.forEach(sticker => {
+            const img = new Image()
+            img.src = sticker.url
+
+            img.onload = () => {
+                gCtx.drawImage(img, sticker.pos.x, sticker.pos.y, sticker.size, sticker.size)
+            }
+        })
     }
 }
+
 
 function drawText(line) {
     let { txt, size, font, fillColor, strokeColor, strokeWidth, align, x, y } = line
@@ -222,23 +235,26 @@ function onRemoveLine() {
 function onDown(ev) {
     const pos = getEvPos(ev)
 
-    if (!isLineClicked(pos)) return
-    setLineDrag(true)
-    gStartPos = pos
-    document.body.style.cursor = 'grabbing'
+    if (isLineClicked(pos)) {
+        setLineDrag(true)
+        gStartPos = pos
+        document.body.style.cursor = 'grabbing'
+        return 
+    }
 
     if (isStickerClicked(pos)) {
         setStickerDrag(true)
         gStartPos = pos
         document.body.style.cursor = 'grabbing'
+        return 
     }
-
+    
+    document.body.style.cursor = 'default'
 }
 
 function onMove(ev) {
     const pos = getEvPos(ev)
 
-    // Handle line movement
     const line = getLine()
     if (line.isDrag) {
         const dx = pos.x - gStartPos.x
@@ -247,9 +263,8 @@ function onMove(ev) {
         gStartPos = pos
         renderMeme() // Redraw the meme to reflect the line's new position
     }
-
+    
     const sticker = getSelectedSticker()
-    // console.log('sticker:', sticker)
     if (sticker && sticker.isDrag) {
         const dx = pos.x - gStartPos.x
         const dy = pos.y - gStartPos.y
@@ -263,8 +278,9 @@ function onUp() {
     setLineDrag(false)
     document.body.style.cursor = 'grab'
 
-    // setStickerDrag(false)
-    // document.body.style.cursor = 'grab'
+    setStickerDrag(false)
+    document.body.style.cursor = 'grab'
+
 }
 
 function onLineClick(ev) {
