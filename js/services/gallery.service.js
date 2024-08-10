@@ -34,7 +34,6 @@ function getImageData(filterBy = {}) {
     return imgs
 }
 
-
 function addImageToGallery(imgUrl, keywords) {
     gImgs.push({
         id: makeId(),
@@ -42,6 +41,8 @@ function addImageToGallery(imgUrl, keywords) {
         keywords: keywords || getRandomKeywords() 
     })
 }
+
+// factory
 
 function _filterImgs(images, filterBy) {
     return images.filter(image => 

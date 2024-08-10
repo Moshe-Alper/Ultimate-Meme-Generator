@@ -77,6 +77,12 @@ function getImageToCanvas(idx) {
     return img
 }
 
+function downloadImg(elLink) {
+    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    elLink.href = imgContent
+}
+
+
 // Line Management
 
 function addLine() {
@@ -142,10 +148,6 @@ function moveLine(line, dx, dy) {
     line.y += dy
 }
 
-function downloadImg(elLink) {
-    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
-    elLink.href = imgContent
-}
 
 // Factory Function
 

@@ -2,6 +2,8 @@
 
 let lastKeyword = null
 
+// Rendering
+
 function renderGallery(images = []) {
     images = getImageData()
     const elImgGallery = document.querySelector('.gallery-section')
@@ -21,28 +23,6 @@ function renderGallery(images = []) {
     })
 
     elImgGallery.innerHTML += strHTMLs.join('')
-}
-
-function onImgSelect(id) {
-    setImg(id)
-    renderMeme()
-    toggleSections()
-}
-
-function onToggleToGallery() {
-    const elActiveLink = document.querySelector('.active')
-
-    if (elActiveLink && elActiveLink.classList.contains('active')) return
-
-    toggleSections()
-    setActiveLink()
-}
-
-function onSearchMeme(elInput) {
-    const searchVal = elInput.value
-    const filteredImgs = getImageData({ keywords: searchVal })
-
-    updateGallery(filteredImgs)
 }
 
 function updateGallery(filteredImgs) {
@@ -77,6 +57,21 @@ function renderKeywords() {
     elKeywordsContainer.innerHTML = strHTMLs
 }
 
+// handle events
+
+function onImgSelect(id) {
+    setImg(id)
+    renderMeme()
+    toggleSections()
+}
+
+function onSearchMeme(elInput) {
+    const searchVal = elInput.value
+    const filteredImgs = getImageData({ keywords: searchVal })
+
+    updateGallery(filteredImgs)
+}
+
 function onKeywordPressed(keyword) {
     const keywords = getKeywords()
 
@@ -94,10 +89,18 @@ function onKeywordPressed(keyword) {
     updateGallery(filteredImgs)
 }
 
-function setKeywordsCount(keywords) {
-    gKeywords = keywords
+
+function onSetRandomMeme() {
+    const id = getRandomIntInclusive(1, 18)
+    const randomText = makeLorem( getRandomInt(3, 5))
+    setImg(id)
+    removeLine()
+    setLineTxt(randomText)
+    renderMeme()
+    toggleSections()
 }
-// toggle sections
+
+// manage sections
 
 function toggleSections() {
     const elSections = document.querySelector('.gallery-section').classList.contains('hide-section') ? 'gallery-section' : 'editor-section'
@@ -139,7 +142,12 @@ function setActiveLink(sectionId) {
 
     const activeLink = document.querySelector(`.nav-bar a[href="#${sectionId}"]`)
     if (activeLink) activeLink.classList.add('active')
+}
 
+// utility
+
+function setKeywordsCount(keywords) {
+    gKeywords = keywords
 }
 
 function onSetLang(lang) {
@@ -150,14 +158,13 @@ function onSetLang(lang) {
     doTrans()
 }
 
-// random meme from gallery
 
-function onSetRandomMeme() {
-    const id = getRandomIntInclusive(1, 18)
-    const randomText = makeLorem( getRandomInt(3, 5))
-    setImg(id)
-    removeLine()
-    setLineTxt(randomText)
-    renderMeme()
+function onToggleToGallery() {
+    const elActiveLink = document.querySelector('.active')
+
+    if (elActiveLink && elActiveLink.classList.contains('active')) return
+
     toggleSections()
+    setActiveLink()
 }
+

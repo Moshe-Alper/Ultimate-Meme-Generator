@@ -3,7 +3,7 @@
 let gElCanvas
 let gCtx
 let gStartPos
-let gIsFixedWith = true
+let gFixedWidth = true
 const STORAGE_KEY = 'Saved-Memes'
 
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
@@ -26,8 +26,6 @@ function onInit() {
     insertMemeDataForm()
 }
 
-// Event Listeners
-
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
@@ -49,7 +47,8 @@ function addTouchListeners() {
     document.addEventListener('touchend', onUp)
 }
 
-// Canvas Operations
+// Canvas
+
 function resizeCanvas() {
     var elContainer = document.querySelector('.canvas-container')
     var width = elContainer.offsetWidth
@@ -78,7 +77,7 @@ function drawImg(meme) {
     elImg.onload = () => {
         gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
 
-        if (gIsFixedWith) gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+        if (gFixedWidth) gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         else gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
 
         // lines and stickers
@@ -333,7 +332,7 @@ function onLineClick(ev) {
     }
 }
 
-// Utility Functions
+// Utility 
 
 function flashMsg(msg) {
     const el = document.querySelector('.user-msg')
@@ -380,15 +379,9 @@ function getEvPos(ev) {
     return pos
 }
 
-// Bonus
-
-// Random Meme
-
 function onSelectRandomMeme() {
     console.log('hello')
 }
-
-// Save Meme
 
 function onSavedInit() {
     toggleSection('saved-section')
@@ -416,26 +409,24 @@ function renderSavedMemes() {
     elSavedSection.innerHTML = strHTML
 }
 
-// Aspect ratio
-
-  
+ 
 function onFixedImgSize() {
-    gIsFixedWith = true
+    gFixedWidth = true
     document.getElementById('fixed').checked = false 
     let meme = getMemeData()
     drawImg(meme)
 
-    document.getElementById('fixed').checked = gIsFixedWith
-    document.getElementById('natural').checked = !gIsFixedWith
+    document.getElementById('fixed').checked = gFixedWidth
+    document.getElementById('natural').checked = !gFixedWidth
 
 }
 
 function onNaturalImgSize() {
-    gIsFixedWith = false
+    gFixedWidth = false
     document.getElementById('natural').checked = false 
     let meme = getMemeData()
     drawImg(meme)
 
-    document.getElementById('fixed').checked = gIsFixedWith
-    document.getElementById('natural').checked = !gIsFixedWith
+    document.getElementById('fixed').checked = gFixedWidth
+    document.getElementById('natural').checked = !gFixedWidth
 }
