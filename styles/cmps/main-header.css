@@ -63,3 +63,10 @@
 .close-menu-btn:hover {
     color :var(--secondary-base)
 }
+
+.set-language select{
+    background-color: white;
+    border-radius: 0;
+    padding: .3em;
+    margin-inline-end: 1em;
+}

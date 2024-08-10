@@ -142,6 +142,14 @@ function setActiveLink(sectionId) {
 
 }
 
+function onSetLang(lang) {
+    setLang(lang)
+    if (lang === 'he') document.body.classList.add('rtl')
+    else document.body.classList.remove('rtl')
+
+    doTrans()
+}
+
 // random meme from gallery
 
 function onSetRandomMeme() {

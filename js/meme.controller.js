@@ -424,6 +424,10 @@ function onFixedImgSize() {
     document.getElementById('fixed').checked = false 
     let meme = getMemeData()
     drawImg(meme)
+
+    document.getElementById('fixed').checked = gIsFixedWith
+    document.getElementById('natural').checked = !gIsFixedWith
+
 }
 
 function onNaturalImgSize() {
@@ -431,4 +435,7 @@ function onNaturalImgSize() {
     document.getElementById('natural').checked = false 
     let meme = getMemeData()
     drawImg(meme)
+
+    document.getElementById('fixed').checked = gIsFixedWith
+    document.getElementById('natural').checked = !gIsFixedWith
 }

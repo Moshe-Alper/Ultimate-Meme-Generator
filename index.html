@@ -18,12 +18,22 @@
         <div class="main-header-inner flex space-between align-center">
             <div class="logo"><a href="#gallery-section" onclick="toggleSection('gallery-section')">memegen</a></div>
             <nav class="main-nav">
+            
             <ul class="nav-bar flex clean-list">
-                <li><a href="#gallery-section" onclick="toggleSection('gallery-section')" class="active">Gallery</a></li>
-                <li><a href="#saved-section" onclick="onSavedInit()">Saved</a></li>
+                <section class="set-language">
+                    <select onchange="onSetLang(this.value)">
+                        <option value="en">English</option>
+                        <option value="he">עברית</option>
+                    </select>
+                </section>
+                <li><a href="#gallery-section" onclick="toggleSection('gallery-section')" class="active" data-trans="gallery">Gallery</a></li>
+                <li><a href="#saved-section" onclick="onSavedInit()" data-trans="saved">Saved</a></li>
             </ul>
+
+
             <button class="close-menu-btn" onclick="toggleMenu()">x</button>
             </nav>
+            
             <button class="btn-toggle-menu" onclick="onToggleMenu()">≡</button>
         </div>
     </header>
@@ -37,14 +47,14 @@
             </div>
 
     <div class="filter-search-field flex align-center justify-center">
-        <input list="keywords" name="meme-type" id="meme-type" placeholder="Search by keyword"
+        <input list="keywords" name="meme-type" id="meme-type" placeholder="Search by keyword" data-trans="search"
             onchange="onSearchMeme(this)">
         <datalist id="keywords">>
-            <option value="Funny">
-            <option value="Comics">
-            <option value="Dogs">
-            <option value="Drinks">
-            <option value="Books">
+            <option value="Funny" data-trans="funny">Funny</option>
+            <option value="Comics" data-trans="comics">Comics</option>
+            <option value="Dogs" data-trans="dogs">Dogs</option>
+            <option value="Drinks" data-trans="drinks">Drinks</option>
+            <option value="Books" data-trans="books">Books</option>
         </datalist>
     </div>
     <ul class="key-words-container clean-list flex align-center justify-center"></ul>
@@ -122,7 +132,7 @@
 
                     <div class="share-container flex align-center space-between justify-center">
                         <button class="share-btn" onclick="onSaveMeme()">Save</button>
-                        <button class="share-btn" onclick="onUploadImg()">Share</button>
+                        <button class="share-btn" onclick="onOpenShareModal()">Share</button>
                         <a href="#" class="share-btn" onclick="onDownloadMeme(this)" download="my-img.jpg">Download</a>
                     </div>
 
@@ -154,11 +164,13 @@
 
     </main>
 
-    <!-- <dialog class="share-modal">
-        <button type="button" class="btn rounded" onclick="onCloseShareModal()">X</button>
+    <dialog class="share-modal">
+        <button type="button" class="share-btn btn rounded" onclick="onUploadImg()">Facebook</button>
         <button class="share-btn btn rounded">Share</button>
+        <p><button>Share MDN!</button></p>
+        <p class="result"></p>
         
-    </dialog> -->
+    </dialog>
 
 
 
@@ -180,6 +192,7 @@
     </footer>
 
 
+    <script src="js/services/i18n.service.js"></script>
     <script src="js/services/util.service.js"></script>
     <script src="js/services/storage.service.js"></script>
 
