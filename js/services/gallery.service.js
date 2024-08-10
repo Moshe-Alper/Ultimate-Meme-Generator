@@ -1,6 +1,6 @@
 'use strict'
 
-const gKeywords = {'funny': 12,'comics': 16, 'dogs': 2, 'drinks': 5, 'books': 9}
+let gKeywords = {'funny': 4,'comics': 2, 'dogs': 18, 'drinks': 5, 'books': 9}
 
 let gImgs = []
 
@@ -25,8 +25,6 @@ function getRandomKeywords() {
 function getKeywords() {
     return gKeywords
 }
-
-
 
 function getImageData(filterBy = {}) {
     if (!gImgs.length) createImgs()

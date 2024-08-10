@@ -1,5 +1,6 @@
 'use strict'
 
+let lastKeyword = null
 
 function renderGallery(images = []) {
     images = getImageData()
@@ -69,13 +70,34 @@ function renderKeywords() {
 
     const elKeywordsContainer = document.querySelector('.key-words-container')
 
-    const strHTMLs = keywordsArr.map(([keyword, value]) => 
-        `<li style="font-size: ${value + 10}px;">${keyword}</li>` // Display both keyword and its value
+    const strHTMLs = keywordsArr.map(([key, val]) => 
+        `<li class="keywords-search-word" style="font-size: ${val + 10}px;" onclick="onKeywordPressed('${key}')">${key}</li>`
     ).join('')
 
     elKeywordsContainer.innerHTML = strHTMLs
 }
 
+function onKeywordPressed(keyword) {
+    const keywords = getKeywords()
+
+    if (keyword === lastKeyword) return
+
+    if (keywords[keyword] !== undefined) {
+        keywords[keyword]++
+        setKeywordsCount(keywords)
+        renderKeywords()
+
+        lastKeyword = keyword
+    }
+
+    const filteredImgs = getImageData({ keywords: keyword })
+    updateGallery(filteredImgs)
+}
+
+
+function setKeywordsCount(keywords) {
+    gKeywords = keywords
+}
 // toggle sections
 
 function toggleSections() {

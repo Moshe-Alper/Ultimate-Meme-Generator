@@ -25,6 +25,13 @@
     margin-block-end: 1em;
 }
 
+.key-words-container .keywords-search-word {
+    color: var(--secondary-base);
+    font-family: buenard-bold;
+    cursor: pointer;
+
+}
+
 /* gallery section */
 
 .gallery-section {
