@@ -64,6 +64,18 @@ function updateGallery(filteredImgs) {
     elImgGallery.innerHTML = strHTMLs.join('')
 }
 
+function renderKeywords() {
+    const keywordsArr = Object.entries(getKeywords())
+
+    const elKeywordsContainer = document.querySelector('.key-words-container')
+
+    const strHTMLs = keywordsArr.map(([keyword, value]) => 
+        `<li style="font-size: ${value + 10}px;">${keyword}</li>` // Display both keyword and its value
+    ).join('')
+
+    elKeywordsContainer.innerHTML = strHTMLs
+}
+
 // toggle sections
 
 function toggleSections() {

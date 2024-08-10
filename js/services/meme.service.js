@@ -35,8 +35,6 @@ let gMemeData = {
     stickers: []
 }
 
-let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-
 // Meme Data Management
 
 function setMemeData(data) {
@@ -64,6 +62,10 @@ function saveMeme() {
     let gElCanvas = document.querySelector('canvas')
     gMemesSaved.push(gElCanvas.toDataURL())
     saveToStorage('Saved-Memes', gMemesSaved)
+}
+
+function getKeywordSearchCountMap(){
+    return gKeywordSearchCountMap
 }
 
 

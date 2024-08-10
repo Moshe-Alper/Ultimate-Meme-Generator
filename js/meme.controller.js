@@ -13,6 +13,7 @@ function onInit() {
 
     addListeners()
     renderGallery()
+    renderKeywords()
     renderStickerContainer()
     addColorPickerListeners()
     

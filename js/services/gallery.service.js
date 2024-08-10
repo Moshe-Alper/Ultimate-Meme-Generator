@@ -1,6 +1,6 @@
 'use strict'
 
-const keywords = ['funny', 'comics', 'dogs', 'drinks', 'books']
+const gKeywords = {'funny': 12,'comics': 16, 'dogs': 2, 'drinks': 5, 'books': 9}
 
 let gImgs = []
 
@@ -16,12 +16,17 @@ function createImgs() {
 
 }
 
-// var gKeywordSearchCountMap = {'funny': 12,'comics': 16, 'baby': 2}
-
 function getRandomKeywords() {
-    const shuffled = keywords.sort(() => 0.5 - Math.random())
+    const keywordsArr = Object.keys(gKeywords)
+    const shuffled = keywordsArr.sort(() => 0.5 - Math.random())
     return shuffled.slice(0, 2)
 }
+
+function getKeywords() {
+    return gKeywords
+}
+
+
 
 function getImageData(filterBy = {}) {
     if (!gImgs.length) createImgs()
@@ -37,3 +42,4 @@ function _filterImgs(images, filterBy) {
         image.keywords.some(keyword => keyword.toLowerCase().includes(filterBy.keywords.toLowerCase()))
     )
 }
+
