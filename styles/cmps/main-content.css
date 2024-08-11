@@ -95,12 +95,14 @@ canvas {
 
 .editor-tools-section {
     display: grid;
-    padding: 1em;
+    /* padding: 1em; */
+    margin-block-start: .9em;
+    background-color: var(--primary-1);
 }
 
 .editor-section .editor-tools-section>* {
     gap: 1em;
-    margin-block-end: 2em;
+    margin-block-end: 1.1em;
 }
 
 .editor-section .btn {
@@ -112,7 +114,7 @@ canvas {
     padding: 0;
     width: var(--editor-button-size);
     height: var(--editor-button-size);
-
+    background-color: var(--secondary-base);
 }
 
 .editor-section .btn img {
@@ -126,6 +128,11 @@ select {
     border-radius: 1em;
     padding-block: 1em;
     padding-left: 3em;
+    background-color: var(--secondary-base);
+}
+
+.editor-section input {
+    margin-inline: 6em;
 }
 
 .editor-section .font-family-select {

@@ -29,13 +29,13 @@ function isStickerClicked(clickedPos) {
     const { pos, size } = selectedSticker
 
     const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
-    
+
     return distance <= size / 2
 }
-    
+
 function setStickerDrag(isDrag) {
     const selectedSticker = getSelectedSticker()
-    if (!selectedSticker) return 
+    if (!selectedSticker) return
     selectedSticker.isDrag = isDrag
 }
 
@@ -44,6 +44,21 @@ function moveSticker(dx, dy) {
     selectedSticker.pos.x += dx
     selectedSticker.pos.y += dy
 }
+
+function switchSticker() {
+    const memeData = getMemeData()
+
+    const { stickers, selectedStickerIdx } = memeData
+    if (stickers.length === 0) return
+
+    let newStickerIdx = selectedStickerIdx === null ? 0 : selectedStickerIdx + 1
+
+    if (newStickerIdx >= stickers.length) {
+        newStickerIdx = 0
+    }
+    setMemeData({ selectedStickerIdx: newStickerIdx })
+}
+
 
 
 

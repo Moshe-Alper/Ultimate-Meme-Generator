@@ -233,11 +233,19 @@ function onAddLIne() {
     renderMeme()
 }
 
-function onSwitchLine() {
-    switchLine()
+function onSwitch() {
+    const memeData = getMemeData()
+
+    if (memeData.stickers.length > 0 && memeData.selectedStickerIdx !== null) {
+        switchSticker()
+    } else {
+        switchLine()
+    }
+
     insertMemeDataForm()
     renderMeme()
 }
+
 
 function onRotateLine() {
     rotateLine()
@@ -262,9 +270,18 @@ function onDown(ev) {
     }
 
     if (isStickerClicked(pos)) {
-        setStickerDrag(true)
-        gStartPos = pos
-        document.body.style.cursor = 'grabbing'
+        const selectedSticker = getSelectedSticker()
+
+        if (selectedSticker && selectedSticker.isDrag) {
+            // If the clicked sticker is already being dragged, switch to the next sticker
+            switchSticker()
+        } else {
+            // Otherwise, start dragging the current sticker
+            setStickerDrag(true)
+            gStartPos = pos
+            document.body.style.cursor = 'grabbing'
+        }
+
         return 
     }
     
