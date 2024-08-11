@@ -65,6 +65,19 @@
     border: 0.1px solid black;
 }
 
+.file-input-label {
+    background-color: var(--primary-1);
+    border-radius: 1em;
+    align-items: center;
+    justify-content: center;
+    border: 0.1px solid gray;
+}
+
+.file-input-label .btn {
+    font-size: .7em;
+}
+
+
 .random-meme-btn {
     color: var(--secondary-base);
 }

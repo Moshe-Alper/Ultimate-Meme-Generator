@@ -68,3 +68,7 @@ function addColorPickerListeners() {
         onChangeStrokeColor(this.value)
     })
 }
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open')
+  }
