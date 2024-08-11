@@ -67,7 +67,7 @@ function loadImageFromInput(ev, onImageReady) {
         addImageToGallery(elImg.src)
 
         elImg.onload = () => onImageReady(elImg)
-    };
+    }
     reader.readAsDataURL(ev.target.files[0])
 }
 
@@ -77,5 +77,5 @@ function renderImg(elImg) {
 }
 
 function getImgByUrl(url) {
-    return gImgs.find(img => img.url === url);
+    return gImgs.find(img => img.url === url)
 }

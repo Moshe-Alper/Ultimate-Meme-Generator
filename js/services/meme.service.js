@@ -148,7 +148,6 @@ function moveLine(line, dx, dy) {
     line.y += dy
 }
 
-
 // Factory Function
 
 function _createLine() {
