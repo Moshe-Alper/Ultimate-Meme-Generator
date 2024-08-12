@@ -28,7 +28,7 @@ function onStickerSelect(event, elSticker) {
     img.src = stickerUrl
     
     img.onload = () => {
-        const stickerSize = 200
+        const stickerSize = Math.min(img.width, img.height, 100)
         
         const x = (gElCanvas.width - stickerSize) / 2
         const y = (gElCanvas.height - stickerSize) / 2

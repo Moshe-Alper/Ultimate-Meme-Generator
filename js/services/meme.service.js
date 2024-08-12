@@ -78,7 +78,7 @@ function getImageToCanvas(idx) {
 }
 
 function downloadImg(elLink) {
-    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    const imgContent = gElCanvas.toDataURL('image/jpeg') 
     elLink.href = imgContent
 }
 
@@ -123,12 +123,19 @@ function removeLine() {
 }
 
 function getLineSize(line) {
-    gCtx.font = `${line.size}px ${line.font}`
-    const metrics = gCtx.measureText(line.txt)
-    const width = metrics.width
-    const height = line.size
-    return { width, height }
+    if (!line.url) { 
+        gCtx.font = `${line.size}px ${line.font}`
+        const metrics = gCtx.measureText(line.txt)
+        const width = metrics.width
+        const height = line.size
+        return { width, height }
+    } else {
+        const width = line.size 
+        const height = line.size
+        return { width, height }
+    }
 }
+
 
 function isLineClicked(pos) {
     let currLine = gMemeData.lines[gMemeData.selectedLineIdx]

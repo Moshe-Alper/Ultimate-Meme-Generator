@@ -17,10 +17,10 @@ function onInit() {
     renderKeywords()
     renderStickerContainer()
     addColorPickerListeners()
-    
+
     toggleSection('gallery-section')
     setActiveLink('gallery-section')
-    
+
     resizeCanvas()
     renderMeme()
     insertMemeDataForm()
@@ -83,12 +83,12 @@ function drawImg(meme) {
         // lines and stickers
         lines.forEach(line => {
             drawText(line)
-            
+
             if (meme.stickers && meme.stickers.length > 0) {
                 meme.stickers.forEach(sticker => {
                     const img = new Image()
                     img.src = sticker.url
-        
+
                     img.onload = () => {
                         gCtx.drawImage(img, sticker.pos.x, sticker.pos.y, sticker.size, sticker.size)
                     }
@@ -97,7 +97,7 @@ function drawImg(meme) {
         })
 
     }
-    
+
 }
 
 
@@ -139,24 +139,32 @@ function renderFrameToLine() {
 
     const { width, height } = getLineSize(line)
     const padding = 5
-    let posX
+    let posX, posY
 
-    switch (line.align) {
-        case 'left':
-            posX = line.x - padding
-            break;
-        case 'center':
-            posX = line.x - width / 2 - padding
-            break;
-        case 'right':
-            posX = line.x - width - padding
-            break;
+    if (line.url) {
+        posX = line.x - width / 2 - padding
+        posY = line.y - height / 2 - padding
+
+        gCtx.strokeStyle = 'blue'
+        gCtx.strokeRect(posX, posY, width + padding * 2, height + padding * 2)
+
+    } else {
+
+        switch (line.align) {
+            case 'left':
+                posX = line.x - padding
+                break
+            case 'center':
+                posX = line.x - width / 2 - padding
+                break
+            case 'right':
+                posX = line.x - width - padding
+                break
+        }
+
+        gCtx.strokeStyle = 'black'
+        gCtx.strokeRect(posX, line.y - height / 2 - padding, width + padding * 2, height + padding * 2)
     }
-
-    gCtx.beginPath()
-    gCtx.strokeStyle = 'black'
-    gCtx.lineWidth = 3
-    gCtx.strokeRect(posX, line.y - height / 2 - padding, width + padding * 2, height + padding * 2)
 }
 
 function onOpenShareModal() {
@@ -266,25 +274,9 @@ function onDown(ev) {
         setLineDrag(true)
         gStartPos = pos
         document.body.style.cursor = 'grabbing'
-        return 
+        return
     }
 
-    if (isStickerClicked(pos)) {
-        const selectedSticker = getSelectedSticker()
-
-        if (selectedSticker && selectedSticker.isDrag) {
-            // If the clicked sticker is already being dragged, switch to the next sticker
-            switchSticker()
-        } else {
-            // Otherwise, start dragging the current sticker
-            setStickerDrag(true)
-            gStartPos = pos
-            document.body.style.cursor = 'grabbing'
-        }
-
-        return 
-    }
-    
     document.body.style.cursor = 'default'
 }
 
@@ -297,27 +289,15 @@ function onMove(ev) {
         const dy = pos.y - gStartPos.y
         moveLine(line, dx, dy)
         gStartPos = pos
-        renderMeme() 
-        
-}
-    
-    const sticker = getSelectedSticker()
-    if (sticker && sticker.isDrag) {
-        const dx = pos.x - gStartPos.x
-        const dy = pos.y - gStartPos.y
-        moveSticker(dx, dy)
-        gStartPos = pos
-        renderMeme() 
+        renderMeme()
+
     }
+
 }
 
 function onUp() {
     setLineDrag(false)
     document.body.style.cursor = 'grab'
-
-    setStickerDrag(false)
-    document.body.style.cursor = 'grab'
-
 }
 
 function onKeyDown(ev) {
@@ -332,12 +312,12 @@ function onLineClick(ev) {
     const clickedLine = lines.find(line => {
         const { width, height } = getLineSize(line)
         const padding = 5
-        
+
         const left = line.x - width / 2 - padding
         const right = line.x + width / 2 + padding
         const top = line.y - height / 2 - padding
         const bottom = line.y + height / 2 + padding
-        
+
         return pos.x >= left && pos.x <= right && pos.y >= top && pos.y <= bottom
     })
 
@@ -363,6 +343,10 @@ function insertMemeDataForm() {
     const { selectedImgId, selectedLineIdx, lines } = getMemeData()
 
     if (lines.length <= 0) return
+
+    const line = lines[selectedLineIdx]
+    console.log('line.url:', line.url)
+    if (!line.url) return
 
     document.querySelector('input[name="fill-color"]').value = lines[selectedLineIdx].fillColor
     document.querySelector('input[name="stroke-color"]').value = lines[selectedLineIdx].strokeColor
