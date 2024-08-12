@@ -50,9 +50,9 @@ function addTouchListeners() {
 // Canvas
 
 function resizeCanvas() {
-    var elContainer = document.querySelector('.canvas-container')
-    var width = elContainer.offsetWidth
-    var height = elContainer.offsetWidth
+    let elContainer = document.querySelector('.canvas-container')
+    let width = elContainer.offsetWidth
+    let height = elContainer.offsetWidth
 
     gElCanvas.width = width
     gElCanvas.height = height
@@ -426,24 +426,12 @@ function renderSavedMemes() {
     elSavedSection.innerHTML = strHTML
 }
 
- 
-function onFixedImgSize() {
-    gFixedWidth = true
-    document.getElementById('fixed').checked = false 
+function onToggleImgSize(checkbox) {
+    gFixedWidth = checkbox.checked
+
     let meme = getMemeData()
     drawImg(meme)
 
-    document.getElementById('fixed').checked = gFixedWidth
-    document.getElementById('natural').checked = !gFixedWidth
-
-}
-
-function onNaturalImgSize() {
-    gFixedWidth = false
-    document.getElementById('natural').checked = false 
-    let meme = getMemeData()
-    drawImg(meme)
-
-    document.getElementById('fixed').checked = gFixedWidth
-    document.getElementById('natural').checked = !gFixedWidth
+    const label = document.querySelector('label[for="imageMode"]')
+    label.textContent = gFixedWidth ? 'Fixed' : 'Natural'
 }

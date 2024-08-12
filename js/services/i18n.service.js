@@ -35,14 +35,14 @@ const gTrans = {
   }
 }
 
-var gCurrLang = 'en'
+let gCurrLang = 'en'
 
 function getTrans(transKey) {
   // get from gTrans
-  var transMap = gTrans[transKey]
+  let transMap = gTrans[transKey]
   // if key is unknown return 'UNKNOWN'
   if (!transMap) return 'UNKNOWN'
-  var transTxt = transMap[gCurrLang]
+  let transTxt = transMap[gCurrLang]
   // If translation not found - use english
   if (!transTxt) transTxt = transMap.en
   return transTxt
@@ -86,7 +86,7 @@ function formatCurrency(num) {
 }
 
 function formatDate(time) {
-  var options = {
+  const options = {
     year: '2-digit',
     month: 'numeric',
     day: 'numeric',

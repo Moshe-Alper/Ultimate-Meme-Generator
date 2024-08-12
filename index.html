@@ -16,24 +16,26 @@
     <header class="main-header full main-layout">
 
         <div class="main-header-inner flex space-between align-center">
-            <div class="logo"><a href="#gallery-section" onclick="toggleSection('gallery-section')">Ultimate Meme Generator</a></div>
+            <div class="logo"><a href="#gallery-section" onclick="toggleSection('gallery-section')">Ultimate Meme
+                    Generator</a></div>
             <nav class="main-nav">
-            
-            <ul class="nav-bar flex clean-list">
-                <section class="set-language">
-                    <select onchange="onSetLang(this.value)">
-                        <option value="en">English</option>
-                        <option value="he">עברית</option>
-                    </select>
-                </section>
-                <li><a href="#gallery-section" onclick="toggleSection('gallery-section')" class="active" data-trans="gallery">Gallery</a></li>
-                <li><a href="#saved-section" onclick="onSavedInit()" data-trans="saved">Saved</a></li>
-            </ul>
+
+                <ul class="nav-bar flex clean-list">
+                    <section class="set-language">
+                        <select onchange="onSetLang(this.value)">
+                            <option value="en">English</option>
+                            <option value="he">עברית</option>
+                        </select>
+                    </section>
+                    <li><a href="#gallery-section" onclick="toggleSection('gallery-section')" class="active"
+                            data-trans="gallery">Gallery</a></li>
+                    <li><a href="#saved-section" onclick="onSavedInit()" data-trans="saved">Saved</a></li>
+                </ul>
 
 
-            <button class="close-menu-btn" onclick="toggleMenu()">x</button>
+                <button class="close-menu-btn" onclick="toggleMenu()">x</button>
             </nav>
-            
+
             <button class="btn-toggle-menu" onclick="onToggleMenu()">≡</button>
         </div>
     </header>
@@ -41,63 +43,75 @@
     <main class="main-content full container">
         <div class="memes-grid-container main-layout container">
 
-<div class="gallery-options">
-    <div class="random-container flex justify-right" > 
-                <button class="random-meme-btn btn rounded" onclick="onSetRandomMeme()">I'm Flexible</button>
+            <div class="gallery-options">
+                <div class="random-container flex justify-right">
+                    <button class="random-meme-btn btn rounded" onclick="onSetRandomMeme()">I'm Flexible</button>
+                </div>
+
+                <div class="filter-search-field flex align-center justify-center">
+                    <input list="keywords" name="meme-type" id="meme-type" placeholder="Search by keyword"
+                        data-trans="search" onchange="onSearchMeme(this)">
+                    <datalist id="keywords">>
+                        <option value="Funny" data-trans="funny">Funny</option>
+                        <option value="Comics" data-trans="comics">Comics</option>
+                        <option value="Dogs" data-trans="dogs">Dogs</option>
+                        <option value="Drinks" data-trans="drinks">Drinks</option>
+                        <option value="Books" data-trans="books">Books</option>
+                    </datalist>
+                </div>
+                <ul class="key-words-container clean-list flex align-center justify-center"></ul>
             </div>
 
-    <div class="filter-search-field flex align-center justify-center">
-        <input list="keywords" name="meme-type" id="meme-type" placeholder="Search by keyword" data-trans="search"
-            onchange="onSearchMeme(this)">
-        <datalist id="keywords">>
-            <option value="Funny" data-trans="funny">Funny</option>
-            <option value="Comics" data-trans="comics">Comics</option>
-            <option value="Dogs" data-trans="dogs">Dogs</option>
-            <option value="Drinks" data-trans="drinks">Drinks</option>
-            <option value="Books" data-trans="books">Books</option>
-        </datalist>
-    </div>
-    <ul class="key-words-container clean-list flex align-center justify-center"></ul>
-</div>
+            <section class="gallery-section">
 
-<section class="gallery-section">
+                <label for="file-upload-input" class="file-input-label flex align-center">
+                    <input type="file" id="file-upload-input" class="file-input btn" name="image"
+                        onchange="onImgInput(event)" accept="image/*" />
+                </label>
+            </section>
 
-    <label for="file-upload-input" class="file-input-label flex align-center">
-        <input type="file" id="file-upload-input" class="file-input btn" name="image" onchange="onImgInput(event)" accept="image/*" />
-    </label></section>
-    
 
             <section class="editor-section hide-section">
                 <div class="canvas-container">
                     <canvas width="500" height="500"></canvas>
                 </div>
 
+
                 <section class="editor-tools-section">
 
-                    
-                    <input type="text" oninput="onAddTxt(this)" id="memeText" name="meme-text" class="meme-text-input"
+                    <input type="text" oninput="onAddTxt(this)" name="meme-text" class="meme-text-input"
                         placeholder="Add text here">
+
                     <div class="text-edit flex align-center justify-center">
-                        <button class="btn rounded text-editor" onclick="onSwitch()"><img
-                                src="icons/up-and-down-opposite-double-arrows-side-by-side.png"
-                                alt="switch line"></button>
-                        <button class="btn rounded text-editor" onclick="onAddLIne()"><img src="icons/add.png"
-                                alt="add line"></button>
-                        <button class="btn rounded text-editor" onclick="onRemoveLine()"><img src="icons/trash.png"
-                                alt="delete"></button>
+                        <button class="btn rounded text-editor" onclick="onSwitch()" title="Switch Line">
+                            <img src="icons/up-and-down-opposite-double-arrows-side-by-side.png">
+                        </button>
+                        <button class="btn rounded text-editor" onclick="onAddLIne()" title="Add Line">
+                            <img src="icons/add.png" alt="add line">
+                        </button>
+                        <button class="btn rounded text-editor" onclick="onRemoveLine()" title="Remove Line">
+                            <img src="icons/trash.png">
+                        </button>
                     </div>
 
                     <div class="align-change-text flex align-center justify-center">
-                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(1)"><img
-                                src="icons/increase font - icon.png" alt="increase font"></button>
-                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(-1)"><img
-                                src="icons/decrease font - icon.png" alt="decrease font"></button>
-                        <button class="btn rounded text-editor" onclick="onSetAlignment('left')"><img
-                                src="icons/align-to-left.png" alt="align left"></button>
-                        <button class="btn rounded text-editor" onclick="onSetAlignment('center')"><img
-                                src="icons/center-text-alignment.png" alt="align center"></button>
-                        <button class="btn rounded text-editor" onclick="onSetAlignment('right')"><img
-                                src="icons/align-to-right.png" alt="align-to-right"></button>
+                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(1)"
+                            title="Increase Font Size">
+                            <img src="icons/increase font - icon.png">
+                        </button>
+                        <button class="btn rounded text-editor" onclick="onUpdateLineSize(-1)"
+                            title="Decrease Font Size">
+                            <img src="icons/decrease font - icon.png">
+                        </button>
+                        <button class="btn rounded text-editor" onclick="onSetAlignment('left')" title="Align Left">
+                            <img src="icons/align-to-left.png">
+                        </button>
+                        <button class="btn rounded text-editor" onclick="onSetAlignment('center')" title="Align Center">
+                            <img src="icons/center-text-alignment.png">
+                        </button>
+                        <button class="btn rounded text-editor" onclick="onSetAlignment('right')" title="Align Right">
+                            <img src="icons/align-to-right.png">
+                        </button>
                     </div>
 
                     <div class="advanced-edit flex align-center justify-center">
@@ -110,42 +124,45 @@
                             <option value="poppins">poppins</option>
                         </select>
 
-                        <button class="btn rounded text-editor" onclick="onRotateLine()"><img
-                            src="icons/rotate.png" alt="rotate-line"></button>
-                        <label>
-                            <button class="fa-solid palette btn rounded text-editor"><img
-                                    src="icons/paint-board-and-brush.png" alt="text-color"></button>
-                            <input oninput="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color"
-                                value="#ffffff" />
+                        <button class="btn rounded text-editor" onclick="onRotateLine()" title="Rotate Line">
+                            <img src="icons/rotate.png">
+                        </button>
 
+                        <label>
+                            <button class="fa-solid palette btn rounded text-editor" title="Change Fill Color">
+                                <img src="icons/paint-board-and-brush.png">
+                            </button>
+                            <input oninput="onChangeFillColor(value)" type="color" id="fillColor" name="fill-color"
+                                value="#ffffff">
                         </label>
 
-                        <button class="fa-solid stroke btn rounded text-editor"><img src="icons/text stroke.png"
-                                alt="text stroke"></button>
+                        <button class="fa-solid stroke btn rounded text-editor" title="Change Stroke Color">
+                            <img src="icons/text stroke.png">
+                        </button>
                         <input oninput="onChangeStrokeColor(value)" type="color" id="color-line" name="stroke-color"
-                            value="#000000" />
-
+                            value="#000000">
                     </div>
 
                     <div class="share-container flex align-center space-between justify-center">
-                        <button class="share-btn" onclick="onSaveMeme()">Save</button>
-                        <button class="share-btn" onclick="onUploadImg()">Share</button>
-                        <a href="#" class="share-btn" onclick="onDownloadMeme(this)" download="my-img.jpg">Download</a>
+                        <button class="share-btn" onclick="onSaveMeme()" title="Save Meme">
+                            Save
+                        </button>
+                        <button class="share-btn" onclick="onUploadImg()" title="Share Meme">
+                            Share
+                        </button>
+                        <a href="#" class="share-btn" onclick="onDownloadMeme(this)" download="my-img.jpg"
+                            title="Download Meme">
+                            Download
+                        </a>
                     </div>
 
                     <div class="stickers-container flex"></div>
 
                     <fieldset class="aspect-ratio-container">
                         <legend>Fixed or Natural image?</legend>
-                    
                         <div>
-                            <input type="checkbox" id="fixed" name="fixed" checked onclick="onFixedImgSize()" />
-                            <label for="fixed">Fixed</label>
-                        </div>
-                    
-                        <div>
-                            <input type="checkbox" id="natural" name="natural" onclick="onNaturalImgSize()" />
-                            <label for="natural">Natural</label>
+                            <input type="checkbox" id="imageMode" name="imageMode" checked onclick="onToggleImgSize(this)">
+                            <label for="imageMode">Fixed</label>
                         </div>
                     </fieldset>
 
@@ -167,13 +184,13 @@
         <p class="result"></p>
     </dialog> -->
 
-
-<div class="user-msg"></div>
+    <div class="user-msg"></div>
 
     <footer class="main-footer full main-layout">
         <div class="main-footer-inner flex align-center space-between">
 
-            <div class="logo"><a href="#gallery-section" onclick="toggleSection('gallery-section')">Ultimate Meme Generator</a></div>
+            <div class="logo"><a href="#gallery-section" onclick="toggleSection('gallery-section')">Ultimate Meme
+                    Generator</a></div>
             <small>All rights reserved Moshik Alper 2024</small>
             <ul class="footer-social clean-list">
                 <li><a href="#"><img src="icons/facebook-logo.png" alt="facebook-link"></a></li>
@@ -197,4 +214,3 @@
     <script src="js/gallery.controller.js"></script>
 
 </body>
-

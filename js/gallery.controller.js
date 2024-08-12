@@ -1,6 +1,5 @@
 'use strict'
 
-let lastKeyword = null
 
 // Rendering
 
@@ -75,14 +74,10 @@ function onSearchMeme(elInput) {
 function onKeywordPressed(keyword) {
     const keywords = getKeywords()
 
-    if (keyword === lastKeyword) return
-
     if (keywords[keyword] !== undefined) {
         keywords[keyword]++
         setKeywordsCount(keywords)
         renderKeywords()
-
-        lastKeyword = keyword
     }
 
     const filteredImgs = getImageData({ keywords: keyword })
