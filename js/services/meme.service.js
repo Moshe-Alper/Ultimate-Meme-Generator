@@ -32,9 +32,7 @@ let gMemeData = {
             rotation: 0,
             isDrag: false,
         }
-    ],
-    selectedStickerIdx: null,
-    stickers: []
+    ]
 }
 
 // Meme Data Management

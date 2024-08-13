@@ -48,7 +48,7 @@ function doUploadImg(imgDataUrl, onSuccess) {
 function onImgInput(ev) {
     loadImageFromInput(ev, renderImg)
     toggleSections()
-    resizeCanvas()
+    // resizeCanvas()
 
 }
 
@@ -62,11 +62,15 @@ function loadImageFromInput(ev, onImageReady) {
         gMemeData.imgUrl = elImg.src
         gMemeData.selectedImgId = makeId() 
         
-
         // Add the new image to the gallery
-        addImageToGallery(elImg.src)
+        // addImageToGallery(elImg.src, keyword)
 
-        elImg.onload = () => onImageReady(elImg)
+        addUploadImg(elImg.src)
+
+        elImg.onload = () => {
+            onImageReady(elImg)
+            updateGallery(gImgs)
+        }
     }
     reader.readAsDataURL(ev.target.files[0])
 }
@@ -79,3 +83,31 @@ function renderImg(elImg) {
 function getImgByUrl(url) {
     return gImgs.find(img => img.url === url)
 }
+
+// Web Share API
+
+document.addEventListener('DOMContentLoaded', () => {
+    const webShareAPI = document.querySelector('.api-button')
+    const resultPara = document.querySelector('.result')
+  
+    webShareAPI.addEventListener('click', () => {
+      let shareData = {
+        title: 'Ultimate Meme Generator',
+        text: 'Share your Meme!',
+        url: 'https://moshik-alper.github.io/Ultimate-Meme-Generator/',
+      }
+  
+      if (!navigator.canShare) {
+        resultPara.textContent = 'Web Share API not available'
+        return
+      }
+      if (!navigator.canShare(shareData)) {
+        resultPara.textContent = 'Share data unsupported, disallowed, or invalid'
+        return
+      }
+      navigator.share(shareData)
+        .then(() => resultPara.textContent = 'MDN shared successfully')
+        .catch((e) => resultPara.textContent = 'Error: ' + e)
+    })
+  })
+  

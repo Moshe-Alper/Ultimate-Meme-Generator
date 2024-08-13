@@ -24,38 +24,23 @@ function renderStickerContainer() {
 
 function onStickerSelect(event, elSticker) {
     const stickerUrl = elSticker.src
+
     const img = new Image()
     img.src = stickerUrl
-    
     img.onload = () => {
-        const stickerSize = Math.min(img.width, img.height, 100)
-        
+        const stickerSize = 60
+
         const x = (gElCanvas.width - stickerSize) / 2
         const y = (gElCanvas.height - stickerSize) / 2
 
         const position = { x, y }
 
         createSticker(stickerUrl, position, stickerSize)
-        addStickerToMeme(stickerUrl, position, stickerSize)
+        renderMeme()
     }
 }
 
-function addStickerToMeme(stickerUrl, position) {
-    const memeData = getMemeData()
-    
-    if (!memeData.stickers) {
-        memeData.stickers = []
-    }
-    
-    const sticker = {
-        url: stickerUrl,
-        pos: position,
-        size: 100
-    }
 
-    memeData.stickers.push(sticker)
-    renderMeme()
-}
 
 
 

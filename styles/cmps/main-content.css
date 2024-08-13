@@ -214,4 +214,12 @@ select {
     cursor: move;  
 }
 
+.aspect-ratio-container {
+    display: flex;
+    margin-inline-start: .5em;
+}
+
+.aspect-ratio-container input {
+    margin-inline-end: .1em;
+}
 

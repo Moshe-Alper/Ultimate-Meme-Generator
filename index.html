@@ -92,6 +92,15 @@
                         <button class="btn rounded text-editor" onclick="onRemoveLine()" title="Remove Line">
                             <img src="icons/trash.png">
                         </button>
+                        <div class="aspect-ratio-container flex">
+                            <fieldset>
+                                <legend>Fixed or Natural image?</legend>
+                                <div>
+                                    <input type="checkbox" id="imageMode" name="imageMode" checked onclick="onToggleImgSize(this)">
+                                    <label for="imageMode">Fixed</label>
+                                </div>
+                            </fieldset>
+                            </div>
                     </div>
 
                     <div class="align-change-text flex align-center justify-center">
@@ -147,24 +156,17 @@
                         <button class="share-btn" onclick="onSaveMeme()" title="Save Meme">
                             Save
                         </button>
-                        <button class="share-btn" onclick="onUploadImg()" title="Share Meme">
+                        <button class="share-btn" onclick="onOpenShareModal()" title="Share Meme">
                             Share
                         </button>
                         <a href="#" class="share-btn" onclick="onDownloadMeme(this)" download="my-img.jpg"
                             title="Download Meme">
                             Download
                         </a>
+
                     </div>
 
                     <div class="stickers-container flex"></div>
-
-                    <fieldset class="aspect-ratio-container">
-                        <legend>Fixed or Natural image?</legend>
-                        <div>
-                            <input type="checkbox" id="imageMode" name="imageMode" checked onclick="onToggleImgSize(this)">
-                            <label for="imageMode">Fixed</label>
-                        </div>
-                    </fieldset>
 
                 </section>
 
@@ -177,12 +179,11 @@
 
     </main>
 
-    <!-- <dialog class="share-modal">
-        <button type="button" class="share-btn btn rounded" onclick="onOpenShareModal()">Facebook</button>
-        <button class="share-btn btn rounded">Share</button>
-        <p><button>Share MDN!</button></p>
+    <dialog class="share-modal">
+        <button type="button" class="share-btn btn rounded" onclick="onUploadImg()">Facebook</button>
+        <button type="button" class="api-button btn rounded">Share API</button>
         <p class="result"></p>
-    </dialog> -->
+    </dialog>
 
     <div class="user-msg"></div>
 

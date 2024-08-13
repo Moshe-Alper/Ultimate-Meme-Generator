@@ -80,26 +80,26 @@ function drawImg(meme) {
         if (gFixedWidth) gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         else gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
 
-        // lines and stickers
         lines.forEach(line => {
-            drawText(line)
-
-            if (meme.stickers && meme.stickers.length > 0) {
-                meme.stickers.forEach(sticker => {
-                    const img = new Image()
-                    img.src = sticker.url
-
-                    img.onload = () => {
-                        gCtx.drawImage(img, sticker.pos.x, sticker.pos.y, sticker.size, sticker.size)
-                    }
-                })
+            if (!line.url) {
+                drawText(line)
+            } else {
+                drawSticker(line)
             }
         })
-
     }
-
 }
 
+
+function drawSticker(sticker) {
+    const img = new Image()
+    img.src = sticker.url
+    img.onload = () => {
+        const stickerWidth = sticker.size || img.width
+        const stickerHeight = (img.height / img.width) * stickerWidth
+        gCtx.drawImage(img, sticker.x - stickerWidth / 2, sticker.y - stickerHeight / 2, stickerWidth, stickerHeight)
+    }
+}
 
 function drawText(line) {
     let { txt, size, font, fillColor, strokeColor, strokeWidth, align, x, y, rotation } = line
@@ -119,7 +119,7 @@ function drawText(line) {
     gCtx.fillText(txt, 0, 0)
     gCtx.strokeText(txt, 0, 0)
 
-    gCtx.restore() // restore rotation
+    gCtx.restore() 
 
     renderFrameToLine()
 }
@@ -145,7 +145,7 @@ function renderFrameToLine() {
         posX = line.x - width / 2 - padding
         posY = line.y - height / 2 - padding
 
-        gCtx.strokeStyle = 'blue'
+        gCtx.strokeStyle = 'black'
         gCtx.strokeRect(posX, posY, width + padding * 2, height + padding * 2)
 
     } else {
@@ -242,14 +242,7 @@ function onAddLIne() {
 }
 
 function onSwitch() {
-    const memeData = getMemeData()
-
-    if (memeData.stickers.length > 0 && memeData.selectedStickerIdx !== null) {
-        switchSticker()
-    } else {
-        switchLine()
-    }
-
+    switchLine()
     insertMemeDataForm()
     renderMeme()
 }
@@ -292,7 +285,6 @@ function onMove(ev) {
         renderMeme()
 
     }
-
 }
 
 function onUp() {
@@ -345,8 +337,7 @@ function insertMemeDataForm() {
     if (lines.length <= 0) return
 
     const line = lines[selectedLineIdx]
-    console.log('line.url:', line.url)
-    if (!line.url) return
+    if (line.url) return
 
     document.querySelector('input[name="fill-color"]').value = lines[selectedLineIdx].fillColor
     document.querySelector('input[name="stroke-color"]').value = lines[selectedLineIdx].strokeColor
